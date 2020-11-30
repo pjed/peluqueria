@@ -1,9 +1,9 @@
 @extends('maestra.maestra')
 
 @section('titulo') 
-Peluqueria - Inicio
+El Paisano - Inicio
 @endsection
 
 @section('contenido') 
-CONTENIDO DE LA PAGINA INDEX
+SERVICIOS
 @endsection

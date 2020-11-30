@@ -5,5 +5,5 @@ Peluqueria - Inicio
 @endsection
 
 @section('contenido') 
-CONTENIDO DE LA PAGINA INDEX
+CONTENIDO LOCALIZACION
 @endsection

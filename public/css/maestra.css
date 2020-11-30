@@ -1,0 +1,41 @@
+.logo{
+    width: 50px; height: 50px;
+}
+.redes{
+    width: 50px; 
+    height: 50px;
+}
+nav{
+    margin: 0 auto;
+    text-align: center;
+    margin: 0 auto;
+    height: 10%;
+    background-color: #ffffff;
+}
+
+body{    
+    padding-top: 60px; 
+}
+main{
+    color: black;
+    background-color: whitesmoke;
+    text-align: center;
+    height: 100vh;
+    width: 80%;
+    float: left;
+}
+aside{
+    width: 20%;
+    float: right;
+    text-align: center;
+    background-color: white;
+    margin-top: 10px;
+}
+footer{
+    height: 50px;
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}

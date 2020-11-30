@@ -1,0 +1,41 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 30-nov-2020, 17:34:05
+    Author     : elearning
+*/
+a{
+    color: white;
+}
+
+a:hover{
+    color: orange;
+}
+
+.lema{
+    font-size: 32pt;
+}
+
+.patrocinadores{
+    width: 150px;
+}
+
+.logo_index{
+    height: 150px;
+    margin-bottom: 25px;
+}
+
+.imgModelo{
+    height: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+table{
+    margin: 0 auto;
+}
+div{
+    text-align: center;
+}

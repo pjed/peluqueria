@@ -1,9 +1,9 @@
 @extends('maestra.maestra')
 
 @section('titulo') 
-Peluqueria - CITAS
+Peluqueria - INICIAR SESION
 @endsection
 
 @section('contenido') 
-CONTENIDO CITAS
+CONTENIDO INICIO SESION
 @endsection
