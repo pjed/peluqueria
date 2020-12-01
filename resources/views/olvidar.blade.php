@@ -1,11 +1,33 @@
 @extends('maestra.maestra')
 
 @section('titulo') 
-Peluqueria - CITAS
+Peluqueria - Inicio
 @endsection
 
 @section('contenido') 
-CONTENIDO CITAS
+<div class="div_contenedor">
+    <div class="div_centrado login">
+        <form action="#" method="POST">
+            <h5>¿Has olvidado tu contraseña?</h5>
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-wrapping">Usuario</span>
+                </div>
+                <input type="email" class="form-control" placeholder="nombre@dominio.com" required>
+            </div>
+            <br>
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text bi bi-key" id="addon-wrapping">Password</span>
+                </div>
+                <input type="password" class="form-control" placeholder="Escribe tu contraseña" required>
+            </div>
+            <br>
+            <input type="submit" value="Restablecer Contraseña" class="btn btn-info">
+            <a href="inicio"><input type="button" value="Volver" class="btn btn-dark"></a><br>
+        </form>
+    </div>
+</div>
 @endsection
 
 @section('aside') 

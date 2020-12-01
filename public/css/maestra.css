@@ -1,3 +1,32 @@
+/*Reseteamos el margen de html y body*/
+html,body{ margin: 0;}
+/* declaramos un color y una altura full*/
+.div_contenedor{
+    height: 100vh;
+}
+/* declaramos un color, un ancho y una altura*/
+.div_centrado{
+    width: 400px;       
+    height: 400px;
+    margin: 0 auto;
+}
+
+.izquierda{
+    display: inline-block;
+    float: left;
+    margin-right: 300px;
+}
+
+.derecha{
+    display: inline-block;
+    float: right;
+    margin-left: 300px;
+}
+
+.tarifas{
+    margin-top: 20px;
+}
+
 .logo{
     width: 50px; height: 50px;
 }
@@ -13,10 +42,8 @@ nav{
     background-color: #ffffff;
 }
 
-body{    
-    padding-top: 60px; 
-}
 main{
+    margin-top: 64px;
     color: black;
     background-color: whitesmoke;
     text-align: center;
@@ -25,11 +52,11 @@ main{
     float: left;
 }
 aside{
+    margin-top: 64px;
     width: 20%;
     float: right;
     text-align: center;
     background-color: white;
-    margin-top: 10px;
 }
 footer{
     height: 50px;

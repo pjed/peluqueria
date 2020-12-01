@@ -1,0 +1,18 @@
+.localizacion{
+    float: left;
+    display: inline-block;
+    margin-top: 75px;
+    margin-left: 75px;
+}
+.horario{
+    float: right;
+    display: inline-block;
+    margin-right: 150px;
+    margin-top: 20px;
+}
+table{
+    width: 100%;
+}
+.contacto{
+    width: 300px;
+}

@@ -7,13 +7,6 @@ and open the template in the editor.
     Created on : 30-nov-2020, 17:34:05
     Author     : elearning
 */
-a{
-    color: white;
-}
-
-a:hover{
-    color: orange;
-}
 
 .lema{
     font-size: 32pt;

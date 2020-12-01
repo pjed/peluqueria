@@ -41,7 +41,14 @@ Route::get('somos', function () {
     return view('somos');
 });
 
-Route::get('sesion', function () {
-    return view('sesion');
+Route::get('inicio', function () {
+    return view('inicio');
 });
 
+Route::get('olvidar', function () {
+    return view('olvidar');
+});
+
+Route::get('crear', function () {
+    return view('crear');
+});
