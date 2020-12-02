@@ -5,7 +5,265 @@ Peluqueria - CITAS
 @endsection
 
 @section('contenido') 
-CONTENIDO CITAS
+<h4>Reservar / Consultar Cita</h4>
+<br>
+<div class="datoscliente">
+    <form action="#" method="get" class="form_citas">
+        <table>
+            <tr>
+                <td>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="addon-wrapping">Nombre</span>
+                        </div>
+                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre Cliente..." required>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <br>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="addon-wrapping">Observaciones</span>
+                        </div>
+                        <textarea type="text" rows="4" cols="" name="observaciones" id="observaciones" placeholder="Escribe alguna observación ..."></textarea>
+                    </div>
+                </td>  
+            </tr>
+        </table>
+        <br>
+        <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="addon-wrapping">Fecha</span>
+            </div>
+            <input type="date" class="form-control" required>
+        </div>
+        <br>
+        <h6>Turno</h6>
+        <div class="input-group flex-nowrap">
+            <div class="input-group">
+                <input type="text" class="form-control" aria-label="Text input with radio button" value="Mañana" readonly disabled>
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <input type="radio" name="turno" aria-label="Radio button for following text input">
+                    </div>
+                </div>
+                <input type="text" class="form-control" aria-label="Text input with radio button" value="Tarde"  readonly disabled>
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        <input type="radio" name="turno" aria-label="Radio button for following text input">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="addon-wrapping">Día</span>
+            </div>
+            <select id="dia">
+                <option value="0">-- Seleccione una opción --</option>
+                <option value="10:00">10:00</option>
+                <option value="10:30">10:30</option>
+                <option value="11:00">11:00</option>
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option>
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option>
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="addon-wrapping">Tarde</span>
+            </div>
+            <select id="tarde">
+                <option value="0">-- Seleccione una opción --</option>
+                <option value="17:00">17:00</option>
+                <option value="17:30">17:30</option>
+                <option value="18:00">18:00</option>
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option>
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option>
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:00</option>
+            </select>
+        </div>
+        <br>
+        <input type="submit" value="Reservar Cita" id="reservar" name="reservar" class="btn btn-info">                
+    </form>
+</div>
+<div class="horariocita">
+    <div class="div_contenedor">
+        <div class="div_centrado">
+            <h4>Fecha Seleccionada</h4>
+            <table>
+                <tr>
+                    <td>
+                        <table>
+                            <h6>Mañana</h6>
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        10:00
+                                    </th>
+                                    <td class="libre">
+                                        LIBRE
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        10:30
+                                    </th>
+                                    <td class="libre">
+                                        LIBRE
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        11:00
+                                    </th>
+                                    <td class="ocupado">
+                                        LIBRE
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        11:30
+                                    </th>
+                                    <td class="libre">
+                                        LIBRE
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        12:00
+                                    </th>
+                                    <td class="libre">
+                                        LIBRE
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        12:30
+                                    </th>
+                                    <td class="ocupado">
+                                        OCUPADO
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        13:00
+                                    </th>
+                                    <td class="ocupado">
+                                        OCUPADO
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        13:30
+                                    </th>
+                                    <td class="ocupado">
+                                        OCUPADO
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        14:00
+                                    </th>
+                                    <td class="ocupado">
+                                        OCUPADO
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td>
+                        <h6>Tarde</h6>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>
+                                        17:00
+                                    </th>
+                                    <td class="ocupado">
+                                        LIBRE
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        17:30
+                                    </th>
+                                    <td class="libre">
+                                        LIBRE
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        18:00
+                                    </th>
+                                    <td class="ocupado">
+                                        OCUPADO
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        18:30
+                                    </th>
+                                    <td class="libre">
+                                        LIBRE
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        19:00
+                                    </th>
+                                    <td class="ocupado">
+                                        OCUPADO
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        19:30
+                                    </th>
+                                    <td class="ocupado">
+                                        OCUPADO
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        20:00
+                                    </th>
+                                    <td class="libre">
+                                        LIBRE
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        20:30
+                                    </th>
+                                    <td class="ocupado">
+                                        OCUPADO
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        21:00
+                                    </th>
+                                    <td class="ocupado">
+                                        OCUPADO
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('aside') 

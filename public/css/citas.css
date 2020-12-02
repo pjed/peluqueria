@@ -1,0 +1,32 @@
+.datoscliente{
+    float: left;
+    display: inline-block;
+    margin-left: 75px;
+}
+
+input[type=date]{
+    width: 175px;
+}
+
+input[type=text]{
+    width: 175px;
+}
+.form_citas{
+    width: 300px;
+}
+.horariocita{
+    float: right;
+    display: inline-block;
+    margin-right: 100px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.libre{
+    background-color: greenyellow;
+    margin-left: 10px;
+}
+
+.ocupado{
+    background-color: red;
+}

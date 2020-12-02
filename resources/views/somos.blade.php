@@ -5,7 +5,46 @@ Peluqueria - Inicio
 @endsection
 
 @section('contenido') 
-CONTENIDO SOMOS
+<h4>¿Quíenes Somos?</h4>
+<table>
+    <tr>
+        <td>
+            <img src=" {{asset ('img/logo.jpg')}}" class="imgFachada" />
+        </td>
+        <td>
+            <article>
+                <h4 class="cuerpo">
+                    EL PAISANO
+                </h4>
+                <p class="cuerpo">
+                    EL PAISANO es una firma de peluquería y belleza que nace en 2017 de la mano de personas con una amplia 
+                    trayectoria en el mundo de la belleza y peluquería.
+
+                    Los pilares sobre los que se basa la filosofía de trabajo EL PAISANO son la técnica, la pasión por la peluquería, 
+                    el esfuerzo y la formación continua de nuestros profesionales. 
+                    Sin olvidar que este proyecto llega acompañado de un 
+                    gran equipo de personas.
+                </p>
+            </article>
+        </td>
+    </tr>
+    <tr>
+        <td>
+    <br>
+            <article>
+                <h4 class="cuerpo">
+                    UN NUEVO CONCEPTO DE PELUQUERÍA EN PUERTOLLANO
+                </h4>
+                <p class="cuerpo">
+                    En nuestros salones nos centramos en nuestro cliente con la idea de ofrecer experiencias únicas. Tenemos el convencimiento de que la peluquería no sólo es cortar, peinar o dar color, sino que es toda una experiencia en la que el cliente debe disfrutar desde que entra hasta que sale del salón. Por eso, en Nuevo Look no solo buscamos que los clientes se vayan contentos con el resultado del servicio y repitan, sino que disfruten al 100% del tiempo que está con nosotros.
+                </p>
+            </article>
+        </td>
+        <td>
+            <img src=" {{asset ('img/fachada.png')}}" class="imgFachada"/>
+        </td>
+    </tr>
+</table>
 @endsection
 
 @section('aside') 

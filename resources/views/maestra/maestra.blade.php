@@ -62,10 +62,10 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="https://www.instagram.com/hudy_elpaisano/"><img class="redes" alt="instagram" src="{{asset ('img/instagram.png')}}"></a>
+                            <a class="nav-link" href="https://www.instagram.com/hudy_elpaisano/" target="_blank"><img class="redes" alt="instagram" src="{{asset ('img/instagram.png')}}"></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><img class="redes" alt="facebook" src="{{asset ('img/facebook.png')}}"></a>
+                            <a class="nav-link" href="https://facebook.com/elpaisanopeluqueria/" target="_blank"><img class="redes" alt="facebook" src="{{asset ('img/facebook.png')}}"></a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
