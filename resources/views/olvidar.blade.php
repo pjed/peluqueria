@@ -5,6 +5,12 @@ Peluqueria - Inicio
 @endsection
 
 @section('contenido') 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+        <li class="breadcrumb-item active">¿Has olvidado la contraseña?</li>
+    </ol>
+</nav>
 <div class="div_contenedor">
     <div class="div_centrado login">
         <form action="#" method="POST">

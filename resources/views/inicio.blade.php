@@ -5,6 +5,12 @@ Peluqueria - INICIAR SESION
 @endsection
 
 @section('contenido') 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+        <li class="breadcrumb-item active">Iniciar Sesión</li>
+    </ol>
+</nav>
 <div class="div_contenedor">
     <div class="div_centrado login">
         <form action="#" method="POST">
