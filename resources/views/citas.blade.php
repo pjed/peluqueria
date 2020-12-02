@@ -5,6 +5,12 @@ Peluqueria - CITAS
 @endsection
 
 @section('contenido') 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+        <li class="breadcrumb-item active">Citas</li>
+    </ol>
+</nav>
 <h4>Reservar / Consultar Cita</h4>
 <br>
 <div class="datoscliente">

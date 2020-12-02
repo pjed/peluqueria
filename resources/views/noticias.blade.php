@@ -5,6 +5,12 @@ Peluqueria - NOTICIAS
 @endsection
 
 @section('contenido') 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+        <li class="breadcrumb-item active">Noticias</li>
+    </ol>
+</nav>
 <h5>TODAS LAS NOTICIAS</h5>
 <section>
     <table>

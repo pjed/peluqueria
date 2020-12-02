@@ -5,11 +5,17 @@ Peluqueria - Inicio
 @endsection
 
 @section('contenido') 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+        <li class="breadcrumb-item active">¿Quienes Somos?</li>
+    </ol>
+</nav>
 <h4>¿Quíenes Somos?</h4>
 <table>
     <tr>
         <td>
-            <img src=" {{asset ('img/logo.jpg')}}" class="imgFachada" />
+            <img src=" {{asset ('img/fachada.png')}}" class="imgFachada"/>
         </td>
         <td>
             <article>
@@ -29,19 +35,8 @@ Peluqueria - Inicio
         </td>
     </tr>
     <tr>
-        <td>
-    <br>
-            <article>
-                <h4 class="cuerpo">
-                    UN NUEVO CONCEPTO DE PELUQUERÍA EN PUERTOLLANO
-                </h4>
-                <p class="cuerpo">
-                    En nuestros salones nos centramos en nuestro cliente con la idea de ofrecer experiencias únicas. Tenemos el convencimiento de que la peluquería no sólo es cortar, peinar o dar color, sino que es toda una experiencia en la que el cliente debe disfrutar desde que entra hasta que sale del salón. Por eso, en Nuevo Look no solo buscamos que los clientes se vayan contentos con el resultado del servicio y repitan, sino que disfruten al 100% del tiempo que está con nosotros.
-                </p>
-            </article>
-        </td>
-        <td>
-            <img src=" {{asset ('img/fachada.png')}}" class="imgFachada"/>
+        <td colspan="2">
+            <iframe width="300" height="175" src="https://www.youtube.com/embed/s4Zd-YsFjaA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </td>
     </tr>
 </table>

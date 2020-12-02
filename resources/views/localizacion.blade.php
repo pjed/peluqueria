@@ -5,6 +5,12 @@ Peluqueria - Inicio
 @endsection
 
 @section('contenido') 
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+        <li class="breadcrumb-item active">Localización</li>
+    </ol>
+</nav>
 <div class="localizacion">
     <h4>Dónde estamos</h4>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3114.0992599536576!2d-4.1115486852970315!3d38.69256416659816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6b8ddca5bcac2d%3A0x728636e9ed0f4fcf!2sPeluqueria%20El%20Paisano!5e0!3m2!1ses!2ses!4v1606837080335!5m2!1ses!2ses" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>

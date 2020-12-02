@@ -9,8 +9,8 @@
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" type="text/css" href="{{asset ('css/bootstrap.min.css')}}" media="screen" /> 
-        
-        
+
+
         <link rel="stylesheet" type="text/css" href="{{asset ('css/citas.css')}}" media="screen" />  
         <link rel="stylesheet" type="text/css" href="{{asset ('css/index.css')}}" media="screen" />  
         <link rel="stylesheet" type="text/css" href="{{asset ('css/localizacion.css')}}" media="screen" /> 
@@ -20,10 +20,12 @@
         <link rel="stylesheet" type="text/css" href="{{asset ('css/somos.css')}}" media="screen" /> 
         <link rel="stylesheet" type="text/css" href="{{asset ('css/tarifas.css')}}" media="screen" /> 
         <link rel="stylesheet" type="text/css" href="{{asset ('css/inicio.css')}}" media="screen" /> 
-        
+        <link rel="stylesheet" type="text/css" href="{{asset ('css/cookies.css')}}" media="screen" /> 
+
         <!-- Javascript bootstrap y jquery -->
         <script src="{{asset ('js/jquery.min.js')}}"></script>
         <script src="{{asset ('js/bootstrap.min.js')}}"></script>
+        <script src="{{asset ('js/cookies.js')}}"></script>
 
     </head>
     <body>
@@ -93,6 +95,13 @@
             </div> 
             <div class="derecha">
                 Copyright © Todos los Derechos Reservados
+            </div>
+            <div id="cajacookies" class="fixed-bottom bg-dark">
+                <p>
+                    <button onclick="aceptarCookies()" class="pull-right btn btn-info mr-3"><i class="fa fa-times"></i> Aceptar y cerrar éste mensaje</button>
+                    Éste sitio web usa cookies, si permanece aquí acepta su uso.
+                    Puede leer más sobre el uso de cookies en nuestra <a href="privacidad">política de privacidad</a>.
+                </p>
             </div>
         </footer>
     </body>

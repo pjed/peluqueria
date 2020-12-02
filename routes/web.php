@@ -52,3 +52,7 @@ Route::get('olvidar', function () {
 Route::get('crear', function () {
     return view('crear');
 });
+
+Route::get('privacidad', function () {
+    return view('privacidad');
+});
