@@ -4,6 +4,14 @@
 Peluqueria - NOTICIAS
 @endsection
 
+@section('css')
+<link rel="stylesheet" type="text/css" href="{{asset ('css/noticias.css')}}" media="screen" />  
+@endsection
+
+@section('javascript')
+<script src="{{asset ('js/noticias.js')}}"></script>
+@endsection
+
 @section('contenido') 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -11,12 +19,12 @@ Peluqueria - NOTICIAS
         <li class="breadcrumb-item active">Noticias</li>
     </ol>
 </nav>
-<h5>TODAS LAS NOTICIAS</h5>
 <section>
+    <h5>TODAS LAS NOTICIAS</h5>
     <table>
         <tr>
             <td>
-                <img src=" {{asset ('img/noticias/noti3.jpg')}}" class="imgNoticias" />
+                <img src=" {{asset ('img/noticias/noti3.jpg')}}" class="imgNoticias"  alt="imagennoticia3"/>
             </td>
             <td>
                 <article>
@@ -37,7 +45,7 @@ Peluqueria - NOTICIAS
         </tr>
         <tr>
             <td>
-                <img src=" {{asset ('img/noticias/noti2.jpg')}}" class="imgNoticias" />
+                <img src=" {{asset ('img/noticias/noti2.jpg')}}" class="imgNoticias" alt="imagennoticia2"/>
             </td>
             <td>
                 <article>
@@ -58,7 +66,7 @@ Peluqueria - NOTICIAS
         </tr>
         <tr>
             <td>
-                <img src=" {{asset ('img/noticias/noti1.jpg')}}" class="imgNoticias" />
+                <img src=" {{asset ('img/noticias/noti1.jpg')}}" class="imgNoticias" alt="imagennoticia1"/>
             </td>
             <td>
                 <article>
@@ -72,6 +80,25 @@ Peluqueria - NOTICIAS
                         Los profesionales del sector de salones de belleza de Puertollano volverán a concentrarse el próximo 
                         día 15 de diciembre frente al Ayuntamiento de Puertollano para reivindicar una bajada del  IVA al 10 %, 
                         convocados por la Federación de Empresarios de  la comarca de Puertollano
+                    </p>
+                </article>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src=" {{asset ('img/noticias/noti4.jpg')}}" class="imgNoticias" alt="imagennoticia4" />
+            </td>
+            <td>
+                <article>
+                    <a href="https://alicanteplaza.es/ideas-para-reinventarse-desde-salones-de-belleza-y-peluquerias-en-la-segunda-ola-de-covid-19" target="_blank">
+                        <h4 class="cuerpo">
+                            Ideas para reinventarse desde salones de belleza y peluquerías en la segunda ola de covid-19
+                        </h4>
+                    </a>
+                    <p class="cuerpo">
+                        Las peluquerías y los salones de belleza abren desde mayo con cita previa, 
+                        uso obligatorio de mascarillas, toallas desechables, sin revistas ni prensa y con una distancia 
+                        de seguridad entre personas de dos metros, entre otras medidas de seguridad. 
                     </p>
                 </article>
             </td>
@@ -96,6 +123,11 @@ Peluqueria - NOTICIAS
     <p class="ultimasNoticias">
         Peluquerías y estéticas de Puertollano reprochan al equipo de Gobierno que «pasara de largo» 
         por su concentración
+    </p>
+</a>
+<a href="https://alicanteplaza.es/ideas-para-reinventarse-desde-salones-de-belleza-y-peluquerias-en-la-segunda-ola-de-covid-19" target="_blank">
+    <p class="ultimasNoticias">
+        Ideas para reinventarse desde salones de belleza y peluquerías en la segunda ola de covid-19
     </p>
 </a>
 @endsection

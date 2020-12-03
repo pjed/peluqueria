@@ -4,6 +4,14 @@
 El Paisano - Inicio
 @endsection
 
+@section('css')
+<link rel="stylesheet" type="text/css" href="{{asset ('css/servicios.css')}}" media="screen" />  
+@endsection
+
+@section('javascript')
+<script src="{{asset ('js/servicios.js')}}"></script>
+@endsection
+
 @section('contenido') 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -16,18 +24,18 @@ El Paisano - Inicio
         <h4>Listado de Servicios</h4>
         <h6>Cortes de Pelo</h6>
         <ol id="lista2">
-            <ol>
-                <li>Normal</li>
-                <li>Americano</li>
-                <li>A navaja</li>
-                <li>A tijera</li>
-            </ol>
+            <li>Normal</li>
+            <li>Americano</li>
+            <li>A navaja</li>
+            <li>A tijera</li>
         </ol>
         <br>
         <table>
             <thead>
-            <th>Nombre</th>
-            <th>Precio</th>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                </tr>
             </thead>
             <tbody>
                 <tr>

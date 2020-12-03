@@ -11,8 +11,9 @@
         <link rel="stylesheet" type="text/css" href="{{asset ('css/bootstrap.min.css')}}" media="screen" /> 
 
 
-        <link rel="stylesheet" type="text/css" href="{{asset ('css/citas.css')}}" media="screen" />  
-        <link rel="stylesheet" type="text/css" href="{{asset ('css/index.css')}}" media="screen" />  
+        <link rel="stylesheet" type="text/css" href="{{asset ('css/maestra.css')}}" media="screen" /> 
+        @yield('css')
+        
         <link rel="stylesheet" type="text/css" href="{{asset ('css/localizacion.css')}}" media="screen" /> 
         <link rel="stylesheet" type="text/css" href="{{asset ('css/maestra.css')}}" media="screen" /> 
         <link rel="stylesheet" type="text/css" href="{{asset ('css/noticias.css')}}" media="screen" /> 
@@ -22,6 +23,7 @@
         <link rel="stylesheet" type="text/css" href="{{asset ('css/inicio.css')}}" media="screen" /> 
         <link rel="stylesheet" type="text/css" href="{{asset ('css/cookies.css')}}" media="screen" /> 
 
+        @yield('javascript')
         <!-- Javascript bootstrap y jquery -->
         <script src="{{asset ('js/jquery.min.js')}}"></script>
         <script src="{{asset ('js/bootstrap.min.js')}}"></script>
@@ -30,8 +32,8 @@
     </head>
     <body>
         <!-- Header --> 
-        <header>
-            <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+        <header class="fixed-top">
+            <nav class="navbar navbar-expand-md bg-dark navbar-dark">
                 <!-- Brand -->
                 <a href="index" class="navbar-brand"><img class="logo" alt="logo" src="{{asset ('img/logo.jpg')}}"></a>
 
@@ -72,7 +74,7 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="inicio"><input type="button" name="Login" value="Login" class="btn btn-info"/></a>
+                            <a class="nav-link" href="inicio"><input type="button" name="Login" value="Login" id="login" class="btn btn-info"/></a>
                         </li>
                         <li class="nav-item">
                             <!--<a class="nav-link" href="sesion">Crear Cuenta</a>-->

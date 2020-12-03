@@ -17,35 +17,52 @@ Peluqueria - CREAR CUENTA
             <h5>Crear Cuenta</h5>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
-                    <span class="input-group-text bi bi-key" id="addon-wrapping">Nombre</span>
+                    <span class="input-group-text bi bi-key" >Nombre</span>
                 </div>
                 <input type="text" class="form-control" required placeholder="Nombre">
             </div>
             <br>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
-                    <span class="input-group-text bi bi-key" id="addon-wrapping">Apellidos</span>
+                    <span class="input-group-text bi bi-key" >Apellidos</span>
                 </div>
                 <input type="text" class="form-control" required placeholder="Apellidos">
             </div>
             <br>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping">Email</span>
+                    <span class="input-group-text bi bi-key" >Dirección</span>
                 </div>
-                <input type="email" class="form-control" placeholder="nombre@dominio.com" required>
+                <input type="text" class="form-control" required placeholder="Calle / Avda">
             </div>
             <br>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
-                    <span class="input-group-text bi bi-key" id="addon-wrapping">DNI</span>
+                    <span class="input-group-text bi bi-key" >Fecha de Nacimiento</span>
+                </div>
+                <input type="date" class="form-control" required>
+            </div>
+            <br>
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" >Email</span>
+                </div>
+                <input type="email" class="form-control" placeholder="Email" required>
+                <div class="input-group-append">
+                    <span class="input-group-text">@dominio.com</span>
+                </div>
+            </div>
+            <br>
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text bi bi-key" >DNI</span>
                 </div>
                 <input type="text" class="form-control" pattern="[0-9]{7}[A-Z]{1}" maxlength="8" placeholder="1234567X" required>
             </div>
             <br>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
-                    <span class="input-group-text bi bi-key" id="addon-wrapping">Télefono</span>
+                    <span class="input-group-text bi bi-key" >Télefono</span>
                 </div>
                 <input type="text" id="telefono" pattern="\d*" maxlength="9" class="form-control" placeholder="Fijo o movil" required>
             </div>

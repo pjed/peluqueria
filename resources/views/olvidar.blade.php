@@ -17,14 +17,14 @@ Peluqueria - Inicio
             <h5>¿Has olvidado tu contraseña?</h5>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping">Usuario</span>
+                    <span class="input-group-text" >Usuario</span>
                 </div>
                 <input type="email" class="form-control" placeholder="nombre@dominio.com" required>
             </div>
             <br>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
-                    <span class="input-group-text bi bi-key" id="addon-wrapping">Password</span>
+                    <span class="input-group-text bi bi-key" >Password</span>
                 </div>
                 <input type="password" class="form-control" placeholder="Escribe tu contraseña" required>
             </div>

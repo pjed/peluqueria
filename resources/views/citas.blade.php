@@ -4,6 +4,14 @@
 Peluqueria - CITAS
 @endsection
 
+@section('css')
+<link rel="stylesheet" type="text/css" href="{{asset ('css/citas.css')}}" media="screen" />  
+@endsection
+
+@section('javascript')
+<script src="{{asset ('js/citas.js')}}"></script>
+@endsection
+
 @section('contenido') 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
@@ -20,7 +28,7 @@ Peluqueria - CITAS
                 <td>
                     <div class="input-group flex-nowrap">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="addon-wrapping">Nombre</span>
+                            <span class="input-group-text">Nombre</span>
                         </div>
                         <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre Cliente..." required>
                     </div>
@@ -31,9 +39,9 @@ Peluqueria - CITAS
                     <br>
                     <div class="input-group flex-nowrap">
                         <div class="input-group-prepend">
-                            <span class="input-group-text" id="addon-wrapping">Observaciones</span>
+                            <span class="input-group-text">Observaciones</span>
                         </div>
-                        <textarea type="text" rows="4" cols="" name="observaciones" id="observaciones" placeholder="Escribe alguna observación ..."></textarea>
+                        <textarea rows="4" cols="30" name="observaciones" id="observaciones" placeholder="Escribe alguna observación ..."></textarea>
                     </div>
                 </td>  
             </tr>
@@ -41,24 +49,24 @@ Peluqueria - CITAS
         <br>
         <div class="input-group flex-nowrap">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="addon-wrapping">Fecha</span>
+                <span class="input-group-text">Fecha</span>
             </div>
-            <input type="date" class="form-control" required>
+            <input type="date" class="form-control" id="fecha" required>
         </div>
         <br>
         <h6>Turno</h6>
         <div class="input-group flex-nowrap">
             <div class="input-group">
-                <input type="text" class="form-control" aria-label="Text input with radio button" value="Mañana" readonly disabled>
+                <input type="text" class="form-control" value="Mañana" readonly disabled>
                 <div class="input-group-prepend">
                     <div class="input-group-text">
-                        <input type="radio" name="turno" aria-label="Radio button for following text input">
+                        <input type="radio" name="turno" required>
                     </div>
                 </div>
-                <input type="text" class="form-control" aria-label="Text input with radio button" value="Tarde"  readonly disabled>
+                <input type="text" class="form-control" value="Tarde"  readonly disabled>
                 <div class="input-group-prepend">
                     <div class="input-group-text">
-                        <input type="radio" name="turno" aria-label="Radio button for following text input">
+                        <input type="radio" name="turno" required>
                     </div>
                 </div>
             </div>
@@ -66,10 +74,10 @@ Peluqueria - CITAS
         <br>
         <div class="input-group flex-nowrap">
             <div class="input-group-prepend">
-                <span class="input-group-text" id="addon-wrapping">Día</span>
+                <span class="input-group-text" >Día</span>
             </div>
-            <select id="dia">
-                <option value="0">-- Seleccione una opción --</option>
+            <select id="dia" required disabled>
+                <option value="">-- Seleccione una opción --</option>
                 <option value="10:00">10:00</option>
                 <option value="10:30">10:30</option>
                 <option value="11:00">11:00</option>
@@ -82,10 +90,10 @@ Peluqueria - CITAS
             </select>
             &nbsp;&nbsp;&nbsp;
             <div class="input-group-prepend">
-                <span class="input-group-text" id="addon-wrapping">Tarde</span>
+                <span class="input-group-text" >Tarde</span>
             </div>
-            <select id="tarde">
-                <option value="0">-- Seleccione una opción --</option>
+            <select id="tarde" required disabled>
+                <option value="">-- Seleccione una opción --</option>
                 <option value="17:00">17:00</option>
                 <option value="17:30">17:30</option>
                 <option value="18:00">18:00</option>
@@ -108,10 +116,13 @@ Peluqueria - CITAS
             <table>
                 <tr>
                     <td>
+                        <h6>Mañana</h6>
                         <table>
-                            <h6>Mañana</h6>
                             <tbody>
                                 <tr>
+                                    <td>
+                                        <input type="radio" name="man" required>
+                                    </td>
                                     <th>
                                         10:00
                                     </th>
@@ -120,6 +131,9 @@ Peluqueria - CITAS
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <input type="radio" name="man" required>
+                                    </td>
                                     <th>
                                         10:30
                                     </th>
@@ -128,6 +142,9 @@ Peluqueria - CITAS
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <input type="radio" name="man" required>
+                                    </td>
                                     <th>
                                         11:00
                                     </th>
@@ -136,6 +153,9 @@ Peluqueria - CITAS
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <input type="radio" name="man" required>
+                                    </td>
                                     <th>
                                         11:30
                                     </th>
@@ -144,6 +164,9 @@ Peluqueria - CITAS
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <input type="radio" name="man" required>
+                                    </td>
                                     <th>
                                         12:00
                                     </th>
@@ -152,6 +175,9 @@ Peluqueria - CITAS
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <input type="radio" name="man" required>
+                                    </td>
                                     <th>
                                         12:30
                                     </th>
@@ -160,6 +186,9 @@ Peluqueria - CITAS
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <input type="radio" name="man" required>
+                                    </td>
                                     <th>
                                         13:00
                                     </th>
@@ -168,6 +197,9 @@ Peluqueria - CITAS
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <input type="radio" name="man" required>
+                                    </td>
                                     <th>
                                         13:30
                                     </th>
@@ -176,6 +208,9 @@ Peluqueria - CITAS
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <input type="radio" name="man" required>
+                                    </td>
                                     <th>
                                         14:00
                                     </th>
@@ -191,6 +226,9 @@ Peluqueria - CITAS
                         <table>
                             <tbody>
                                 <tr>
+                                    <td>
+                                        <input type="radio" name="tar" required>
+                                    </td>
                                     <th>
                                         17:00
                                     </th>
@@ -199,6 +237,9 @@ Peluqueria - CITAS
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <input type="radio" name="tar" required>
+                                    </td>
                                     <th>
                                         17:30
                                     </th>
@@ -207,6 +248,9 @@ Peluqueria - CITAS
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <input type="radio" name="tar" required>
+                                    </td>
                                     <th>
                                         18:00
                                     </th>
@@ -215,6 +259,9 @@ Peluqueria - CITAS
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <input type="radio" name="tar" required>
+                                    </td>
                                     <th>
                                         18:30
                                     </th>
@@ -223,6 +270,9 @@ Peluqueria - CITAS
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <input type="radio" name="tar" required>
+                                    </td>
                                     <th>
                                         19:00
                                     </th>
@@ -231,6 +281,9 @@ Peluqueria - CITAS
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <input type="radio" name="tar" required>
+                                    </td>
                                     <th>
                                         19:30
                                     </th>
@@ -239,6 +292,9 @@ Peluqueria - CITAS
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <input type="radio" name="tar" required>
+                                    </td>
                                     <th>
                                         20:00
                                     </th>
@@ -247,6 +303,9 @@ Peluqueria - CITAS
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <input type="radio" name="tar" required>
+                                    </td>
                                     <th>
                                         20:30
                                     </th>
@@ -255,6 +314,9 @@ Peluqueria - CITAS
                                     </td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <input type="radio" name="tar" required>
+                                    </td>
                                     <th>
                                         21:00
                                     </th>

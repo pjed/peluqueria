@@ -4,6 +4,14 @@
 El Paisano - Inicio
 @endsection
 
+@section('css')
+<link rel="stylesheet" type="text/css" href="{{asset ('css/index.css')}}" media="screen" />  
+@endsection
+
+@section('javascript')
+<script src="{{asset ('js/inicio.js')}}"></script>
+@endsection
+
 @section('contenido') 
 <div class="alert alert-danger" role="alert">
     <strong>ERRORES O INFORMACIÓN</strong> DE INICIO DE SESION DEL USUARIO
