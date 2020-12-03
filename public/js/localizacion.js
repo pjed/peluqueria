@@ -4,4 +4,19 @@
  * and open the template in the editor.
  */
 
-
+function sendEmail() {
+    var from = document.getElementById("from").value;
+    var body = document.getElementById("body").value;
+    Email.send({
+        Host: "smtp.gmail.com",
+        Username: "peluqueriaelpaisano@gmail.com",
+        Password: "Pedro@110387",
+        To: 'peluqueriaelpaisano@gmail.com',
+        From: from,
+        Subject: "Contacto",
+        Body: body,
+    })
+            .then(function (message) {
+                alert("¡¡¡ Correo enviado correctamente !!!")
+            });
+} 

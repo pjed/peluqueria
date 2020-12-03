@@ -10,6 +10,7 @@ Peluqueria - Inicio
 
 @section('javascript')
 <script src="{{asset ('js/localizacion.js')}}"></script>
+<script src="{{asset ('js/smtp.js')}}"></script>
 @endsection
 
 @section('contenido') 
@@ -29,24 +30,22 @@ Peluqueria - Inicio
     <p>Fines de semana: Cerrado</p>
     <br>
     <h4>Contacta con nosotros</h4>
-    <form action="#" method="GET" class="contacto">
-        <div class="form-group">
-            <div class="input-group flex-nowrap">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping">Email</span>
-                </div>
-                <input type="email" class="form-control" placeholder="nombre@dominio.com" required>
+    <div class="form-group">
+        <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="addon-wrapping">Email</span>
             </div>
-            <br>
-            <div class="input-group flex-nowrap">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping">Motivo</span>
-                </div>
-                <textarea id="txtMotivo" name="motivo" rows="4" required cols="50">Escriba aquí el texto</textarea>
-            </div>
+            <input type="email" class="form-control" id="from" placeholder="nombre@dominio.com" required>
         </div>
-        <button type="submit" class="btn btn-info">Enviar</button>
-    </form>
+        <br>
+        <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="addon-wrapping">Motivo</span>
+            </div>
+            <textarea id="body" name="motivo" rows="4" required cols="50" placeholder="Escriba aquí el texto"></textarea>
+        </div>
+    </div>
+    <button type="button" class="btn btn-info" onclick="sendEmail();">Enviar</button>
 </div>
 @endsection
 

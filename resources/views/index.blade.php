@@ -34,7 +34,7 @@ El Paisano - Inicio
     </tr>
     <tr>
         <td colspan="3" class="lema">
-            <a href="servicios"><input type="button" value="Lista de precios" class="btn btn-dark"/></a>
+            <input type="button" value="Lista de precios" class="btn btn-dark" onclick="irServicios()"/>
         </td>
     </tr>
 </table>

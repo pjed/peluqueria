@@ -14,13 +14,6 @@
         <link rel="stylesheet" type="text/css" href="{{asset ('css/maestra.css')}}" media="screen" /> 
         @yield('css')
         
-        <link rel="stylesheet" type="text/css" href="{{asset ('css/localizacion.css')}}" media="screen" /> 
-        <link rel="stylesheet" type="text/css" href="{{asset ('css/maestra.css')}}" media="screen" /> 
-        <link rel="stylesheet" type="text/css" href="{{asset ('css/noticias.css')}}" media="screen" /> 
-        <link rel="stylesheet" type="text/css" href="{{asset ('css/servicios.css')}}" media="screen" /> 
-        <link rel="stylesheet" type="text/css" href="{{asset ('css/somos.css')}}" media="screen" /> 
-        <link rel="stylesheet" type="text/css" href="{{asset ('css/tarifas.css')}}" media="screen" /> 
-        <link rel="stylesheet" type="text/css" href="{{asset ('css/inicio.css')}}" media="screen" /> 
         <link rel="stylesheet" type="text/css" href="{{asset ('css/cookies.css')}}" media="screen" /> 
 
         @yield('javascript')

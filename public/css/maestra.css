@@ -10,6 +10,15 @@ html,body{ margin: 0; height: 100vh;}
     height: 400px;
     margin: 0 auto;
 }
+table{
+    width: 100%;
+}
+
+.cuerpo{
+    text-align: justify;
+    padding-left: 50px;
+    padding-right: 50px;
+}
 
 .patrocinadores{
     width: 150px;
