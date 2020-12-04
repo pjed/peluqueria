@@ -4,6 +4,14 @@
  * and open the template in the editor.
  */
 
+function irCrearCuenta(){
+    window.location.href='crear';
+}
+
+function irOlvidar(){
+    window.location.href='olvidar';
+}
+
 function irServicios(){
     window.location.href='servicios';
 }

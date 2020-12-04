@@ -15,7 +15,9 @@ and open the template in the editor.
 .logo_index{
     height: 150px;
     margin-bottom: 25px;
+    margin-top: 25px;
 }
+
 
 .imgModelo{
     height: 100px;
@@ -27,4 +29,23 @@ table{
 }
 div{
     text-align: center;
+}
+
+.linea{
+    border: 2px solid black;
+}
+
+.negro{
+    background-color: black;
+    height: 40%;
+}
+
+.tarjetas{
+    margin-top: 10px;
+    width: 20%;
+    display: inline-block;
+}
+
+.clases{
+    margin: 7px;
 }

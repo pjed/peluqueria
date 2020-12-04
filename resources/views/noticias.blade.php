@@ -1,7 +1,7 @@
 @extends('maestra.maestra')
 
 @section('titulo') 
-Peluqueria - NOTICIAS
+El Paisano - Noticias
 @endsection
 
 @section('css')

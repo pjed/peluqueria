@@ -10,6 +10,14 @@ html,body{ margin: 0; height: 100vh;}
     height: 400px;
     margin: 0 auto;
 }
+
+img{
+    padding: 3px;
+    border: solid 1px black;
+    background-color: white;
+    border-radius: 10px;
+}
+
 table{
     width: 100%;
 }
@@ -27,13 +35,18 @@ table{
 .izquierda{
     display: inline-block;
     float: left;
-    margin-right: 300px;
+    margin-left: 25px;
+    text-align: center;
+    justify-content: center;
 }
 
 .derecha{
     display: inline-block;
     float: right;
-    margin-left: 300px;
+    margin-right: 25px;
+    text-align: center;
+    justify-content: center;
+    vertical-align: middle;
 }
 
 .tarifas{
@@ -57,29 +70,31 @@ nav{
 
 main{
     color: black;
-    position: relative;
-    top: 80px;
+    float: left;
+    top: 100px;
     min-height: 800px;
     background-color: whitesmoke;
     text-align: center;
     height: 100vh;
     width: 80%;
-    float: left;
 }
 aside{
+    top: 10px;
     width: 20%; 
     float: right;
     position: relative;
-    margin-top: 90px;
     min-height: 800px;
     text-align: center;
     background-color: white;
 }
 footer{
     height: 50px;
-    text-align: center;
-    display:flex;
     justify-content: center;
     align-items: center;
     color: white;
+    bottom: 0px;
+    width: 100%;
+    clear: both;
+    position: relative;
+    margin-top: -200px;
 }

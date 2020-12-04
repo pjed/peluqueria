@@ -13,11 +13,12 @@
 
         <link rel="stylesheet" type="text/css" href="{{asset ('css/maestra.css')}}" media="screen" /> 
         @yield('css')
-        
+
         <link rel="stylesheet" type="text/css" href="{{asset ('css/cookies.css')}}" media="screen" /> 
 
         @yield('javascript')
         <!-- Javascript bootstrap y jquery -->
+        <script src="{{asset ('js/maestra.js')}}"></script>
         <script src="{{asset ('js/jquery.min.js')}}"></script>
         <script src="{{asset ('js/bootstrap.min.js')}}"></script>
         <script src="{{asset ('js/cookies.js')}}"></script>
@@ -25,7 +26,7 @@
     </head>
     <body>
         <!-- Header --> 
-        <header class="fixed-top">
+        <header>
             <nav class="navbar navbar-expand-md bg-dark navbar-dark">
                 <!-- Brand -->
                 <a href="index" class="navbar-brand"><img class="logo" alt="logo" src="{{asset ('img/logo.jpg')}}"></a>
@@ -59,6 +60,15 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
+                            <audio controls autoplay>
+                                <source src="{{asset ('audio/audio.ogg')}}" type="audio/ogg">
+                                <source src="{{asset ('audio/audio.mp3')}}" type="audio/mpeg">
+                                El navegador no admite el elemento de audio.
+                            </audio>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
                             <a class="nav-link" href="https://www.instagram.com/hudy_elpaisano/" target="_blank"><img class="redes" alt="instagram" src="{{asset ('img/instagram.png')}}"></a>
                         </li>
                         <li class="nav-item">
@@ -67,7 +77,7 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="inicio"><input type="button" name="Login" value="Login" id="login" class="btn btn-info"/></a>
+                            <input type="button" name="Login" value="Login" id="login" onclick="irLogin();" class="btn btn-info"/>
                         </li>
                         <li class="nav-item">
                             <!--<a class="nav-link" href="sesion">Crear Cuenta</a>-->
@@ -83,10 +93,10 @@
         <aside>
             @yield('aside')
         </aside>
-        <footer class="bg-dark fixed-bottom">                     
+        <footer class="bg-dark">                     
             <div class="izquierda">
-                Telefono de contacto 658 230 110<br>
-                Ubicación Paseo de San Gregorio 91
+                Teléfono: 658 230 110<br>
+                Ubicación: Paseo de San Gregorio 91
             </div> 
             <div class="derecha">
                 Copyright © Todos los Derechos Reservados
@@ -94,7 +104,7 @@
             <div id="cajacookies" class="fixed-bottom bg-dark">
                 <p>
                     <button onclick="aceptarCookies()" class="pull-right btn btn-info mr-3"><i class="fa fa-times"></i> Aceptar y cerrar éste mensaje</button>
-                    Éste sitio web usa cookies, si permanece aquí acepta su uso.
+                    Éste sitio web usa cookies, si permanece aquí acepta su uso.<br>
                     Puede leer más sobre el uso de cookies en nuestra <a href="privacidad">política de privacidad</a>.
                 </p>
             </div>
