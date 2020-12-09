@@ -1,5 +1,6 @@
 .login{
     margin-top: 40px;
+    color: lightgray
 }
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 

@@ -11,7 +11,7 @@
         <link rel="stylesheet" type="text/css" href="{{asset ('css/bootstrap.min.css')}}" media="screen" /> 
 
 
-        <link rel="stylesheet" type="text/css" href="{{asset ('css/maestra.css')}}" media="screen" /> 
+        <link rel="stylesheet" type="text/css" href="{{asset ('css/maestra_login.css')}}" media="screen" /> 
         @yield('css')
 
         <link rel="stylesheet" type="text/css" href="{{asset ('css/cookies.css')}}" media="screen" /> 
@@ -54,9 +54,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="somos">¿Quienes Somos?</a>
                         </li>
-                        <!--li class="nav-item">
+                        <li class="nav-item">
                             <a class="nav-link" href="citas">Citas</a>
-                        </li-->
+                        </li>
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -77,11 +77,10 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <input type="button" name="Login" value="Login" id="login" onclick="irLogin();" class="btn btn-info"/>
+                            <img class="img_login" src="{{asset ('img/noimage.jpg')}}" alt="login">
+                            <input type="button" name="Login" value="Desconectar" id="login" onclick="irLogin();" class="btn btn-info"/>
                         </li>
-                        <li class="nav-item">
-                            <!--<a class="nav-link" href="sesion">Crear Cuenta</a>-->
-                        </li>
+
                     </ul>
                 </div>
             </nav>

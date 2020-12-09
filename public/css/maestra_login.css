@@ -11,6 +11,10 @@ html,body{ margin: 0; height: 100vh;}
     margin: 0 auto;
 }
 
+.img_login{
+    width: 50px;
+}
+
 img{
     padding: 3px;
     border: solid 1px black;
