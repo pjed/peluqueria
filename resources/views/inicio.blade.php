@@ -19,6 +19,12 @@ El Paisano - Iniciar Sesión
         <li class="breadcrumb-item active">Iniciar Sesión</li>
     </ol>
 </nav>
+<div class="alert alert-info" role="alert">
+    <strong>INICIO DE SESIÓN</strong> 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
 <div class="div_contenedor">
     <div class="div_centrado login">
         <form action="#" method="POST">
