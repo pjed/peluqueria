@@ -27,26 +27,27 @@ El Paisano - Iniciar Sesión
 </div>
 <div class="div_contenedor">
     <div class="div_centrado login">
-        <form action="#" method="POST">
+        <form name="inicioSesion" action="inicioSesion" method="POST">
+             {{ csrf_field() }} 
             <h5>Iniciar Sesión</h5>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
-                    <span class="input-group-text">Usuario</span>
+                    <label class="input-group-text" for="usuario">Usuario</label>
                 </div>
-                <input type="email" class="form-control" placeholder="nombre@dominio.com" required>
+                <input type="email" id="usuario" name="usuario" class="form-control" placeholder="nombre@dominio.com" required>
             </div>
             <br>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
-                    <span class="input-group-text bi bi-key">Password</span>
+                    <label class="input-group-text bi bi-key" for="pwd">Password</label>
                 </div>
-                <input type="password" class="form-control" placeholder="Escribe tu contraseña" required>
+                <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Escribe tu contraseña" required>
             </div>
             <br>
             <input type="submit" name="Iniciar Sesión" class="btn btn-info">
             <input type="button" value="Crear Cuenta" class="btn btn-dark" onclick="irCrearCuenta();"><br>
             <br>
-            <input type="button" class="btn btn-dark" onclick="irOlvidar();" value="¿Has olvidado la contraseña?">
+            <input type="submit" class="btn btn-dark" value="¿Has olvidado la contraseña?">
         </form>
     </div>
 </div>

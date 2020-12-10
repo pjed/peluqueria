@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class tiene extends Model
 {
-    use HasFactory;
+    protected $primaryKey = ['IDTIENE']; 
+    protected $table = 'tiene';    
+    public $incrementing = true;
 }

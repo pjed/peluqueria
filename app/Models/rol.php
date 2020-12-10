@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class rol extends Model
 {
-    use HasFactory;
+    protected $primaryKey = ['IDROL']; 
+    protected $table = 'rol';    
+    public $incrementing = true;
+    protected $keyType = ['int'];  
 }

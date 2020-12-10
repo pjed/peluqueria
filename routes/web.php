@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers;
+use App\Auxiliar\Conexion;
+use App\Http\Controllers\controladoradm;
+use App\Http\Controllers\controladorusu;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -56,3 +61,5 @@ Route::get('crear', function () {
 Route::get('privacidad', function () {
     return view('privacidad');
 });
+
+Route::post('inicioSesion', 'App\Http\Controllers\controlador@inicioSesion');
