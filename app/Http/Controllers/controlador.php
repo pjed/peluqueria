@@ -31,21 +31,26 @@ class controlador extends Controller {
         $correo = $req->get('usuario');
         $pass = $req->get('pwd');
 
-        //Me traigo todos los usuarios 
-        $usuarios = usuario::all();
-        
         //Compruebo que el usuario y la password coincide con algun 
         //usuario de todos los que hay en la tabla usuarios
+        $usuario = \DB::Table('usuario')->select('NSOCIO',
+                        'DNI',
+                        'EMAIL',
+                        'PASSWORD',
+                        'NOMBRE',
+                        'APELLIDOS',
+                        'DIRECCION',
+                        'F_NACIMIENTO',
+                        'TELEFONO',
+                        'FOTO')->where('EMAIL', $correo)->
+                where('PASSWORD', $pass)
+                ->get();
 
-        $usuario = $usuarios->where([
-                    ['EMAIL', '=', $correo],
-                    ['PASSWORD', '=', $pass]
-                ])->first();
-        dd($usuario);
-        $rol = rol::all();
-        $tiene = tiene::all();
+        if ($usuario != null) {
+            session()->put('usuario', $usuario);
+        }
 
-        return $v;
+        return $usuario;
     }
 
 }
