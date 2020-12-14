@@ -19,16 +19,22 @@ El Paisano - Iniciar Sesión
         <li class="breadcrumb-item active">Iniciar Sesión</li>
     </ol>
 </nav>
-<div class="alert alert-info" role="alert">
-    <strong>INICIO DE SESIÓN</strong> 
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
+<?php
+if (!isset(session()->get('usuario'))) {
+    ?>
+    <div class="alert alert-danger" role="alert">
+        <strong>USUARIO Y/O CONTRASEÑA INCORRECTOS</strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <?php
+}
+?>
 <div class="div_contenedor">
     <div class="div_centrado login">
         <form name="inicioSesion" action="inicioSesion" method="POST">
-             {{ csrf_field() }} 
+            {{ csrf_field() }} 
             <h5>Iniciar Sesión</h5>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">

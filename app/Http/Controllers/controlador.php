@@ -28,7 +28,8 @@ class controlador extends Controller {
             session()->put('usuario', $usuario);
             return view('adm.indexAdm');
         }
-        return view('index');
+        
+        return view('inicio');
     }
 
 }

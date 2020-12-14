@@ -24,19 +24,14 @@ class Conexion {
 
         //Compruebo que el usuario y la password coincide con algun 
         //usuario de todos los que hay en la tabla usuarios
-        $usuario = \DB::Table('usuario')->select('NSOCIO',
-                        'DNI',
-                        'EMAIL',
-                        'PASSWORD',
-                        'NOMBRE',
-                        'APELLIDOS',
-                        'DIRECCION',
-                        'F_NACIMIENTO',
-                        'TELEFONO',
-                        'FOTO')->where('EMAIL', $correo)->
-                where('PASSWORD', $pass)
+        $usuario = \DB::Table('usuario')->select('NSOCIO','DNI','EMAIL','PASSWORD','NOMBRE','APELLIDOS','DIRECCION','F_NACIMIENTO','TELEFONO','FOTO')->where('EMAIL', $correo)
+                ->join('tiene', 'usuario.NSOCIO', '=', 'tiene.usuario_NSOCIO')
+                ->join('rol', 'rol.IDROL', '=', 'tiene.rol_IDROL')
+                ->where('EMAIL', $pass)
+                ->where('PASSWORD', $pass)
                 ->get();
         
+        dd($usuario);
         return $usuario;
     }
     
