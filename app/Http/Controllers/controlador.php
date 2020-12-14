@@ -26,8 +26,9 @@ class controlador extends Controller {
         //Si existe creamos la sesion
         if ($usuario != null) {
             session()->put('usuario', $usuario);
+            return view('adm.indexAdm');
         }
-        return $usuario;
+        return view('index');
     }
 
 }

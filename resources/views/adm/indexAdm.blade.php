@@ -1,5 +1,4 @@
-@extends('maestra.maestra')
-
+@extends('maestra.maestra_login')
 
 @section('titulo') 
 El Paisano - Index
@@ -14,12 +13,16 @@ El Paisano - Index
 @endsection
 
 @section('contenido') 
-<!--<div class="alert alert-danger" role="alert">
-    <strong>ERRORES O INFORMACIÓN</strong> DE INICIO DE SESION DEL USUARIO
+<div class="alert alert-success" role="alert">
+    <strong>Bienvenido/a <?php
+        $usuario_log = json_decode(session()->get('usuario'), true);
+
+        echo $usuario_log[0]['NOMBRE'];
+        ?></strong>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
-</div>-->
+</div>
 
 <img alt="logo" src="{{asset ('img/logo.jpg')}}" class="logo_index">
 <table>

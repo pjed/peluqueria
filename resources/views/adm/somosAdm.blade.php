@@ -1,58 +1,59 @@
-@extends('maestra.maestra')
-
+@extends('maestra.maestra_login')
 
 @section('titulo') 
-El Paisano - Index
+El Paisano - ¿Quíenes Somos?
 @endsection
 
 @section('css')
-<link rel="stylesheet" type="text/css" href="{{asset ('css/index.css')}}" media="screen" />  
+<link rel="stylesheet" type="text/css" href="{{asset ('css/somos.css')}}" media="screen" />  
 @endsection
 
 @section('javascript')
-<script src="{{asset ('js/inicio.js')}}"></script>
+<script src="{{asset ('js/somos.js')}}"></script>
 @endsection
 
 @section('contenido') 
-<!--<div class="alert alert-danger" role="alert">
-    <strong>ERRORES O INFORMACIÓN</strong> DE INICIO DE SESION DEL USUARIO
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>-->
-
-<img alt="logo" src="{{asset ('img/logo.jpg')}}" class="logo_index">
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+        <li class="breadcrumb-item active">¿Quienes Somos?</li>
+    </ol>
+</nav>
+<h4>¿Quíenes Somos?</h4>
 <table>
     <tr>
-        <td><img src="{{asset ('img/modelo1.jpg')}}" alt="modelo1" class="imgModelo"></td>
-        <td><img src="{{asset ('img/modelo2.jpg')}}" alt="modelo2" class="imgModelo"></td>
-        <td><img src="{{asset ('img/modelo3.jpg')}}" alt="modelo3" class="imgModelo"></td>
-    </tr>
-    <tr>
-        <td colspan="3" class="lema">
-            <p>Peluquería de Caballeros y Barbería</p>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="3" class="lema">
-            <input type="button" value="Lista de precios" class="btn btn-dark" onclick="irServicios()"/>
-        </td>
-    </tr>
+        <td>
+    <picture>
+        <source srcset="{{asset ('img/fachada.png')}}" type="image/png">
+        <source srcset="{{asset ('img/fachada.jpg')}}" type="image/jpeg">
+        <img src=" {{asset ('img/fachada.png')}}" alt="fachada" class="imgFachada"/>
+    </picture>
+</td>
+<td>
+    <article>
+        <h4 class="cuerpo">
+            EL PAISANO
+        </h4>
+        <p class="cuerpo">
+            EL PAISANO es una firma de peluquería y belleza que nace en 2017 de la mano de personas con una amplia 
+            trayectoria en el mundo de la belleza y peluquería.
+
+            Los pilares sobre los que se basa la filosofía de trabajo EL PAISANO son la técnica, la pasión por la peluquería, 
+            el esfuerzo y la formación continua de nuestros profesionales. 
+            Sin olvidar que este proyecto llega acompañado de un 
+            gran equipo de personas.
+        </p>
+    </article>
+</td>
+</tr>
+<tr>
+    <td colspan="2">
+        <br>
+        <iframe width="400" height="225" src="https://www.youtube.com/embed/s4Zd-YsFjaA" 
+                allowfullscreen></iframe>
+    </td>
+</tr>
 </table>
-<div class="negro">
-    <div class="card bg-light text-white tarjetas">
-        <img class="card-img" src="{{asset ('img/cortepelo.jpg')}}" alt="cortepelo">
-        <input type="button" value="Cortes de Pelo" class="btn btn-dark clases" onclick="irServicios()"/>
-    </div>
-    <div class="card bg-light text-white tarjetas">
-        <img class="card-img" src="{{asset ('img/degradado.jpg')}}" alt="degradado">
-        <input type="button" value="Degradados" class="btn btn-dark clases" onclick="irServicios()"/>
-    </div>
-    <div class="card bg-light text-white tarjetas">
-        <img class="card-img" src="{{asset ('img/barbas.jpg')}}" alt="barbas">
-        <input type="button" value="Barbas" class="btn btn-dark clases" onclick="irServicios()"/>
-    </div>
-</div>
 @endsection
 
 @section('aside') 

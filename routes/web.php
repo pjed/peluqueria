@@ -26,40 +26,79 @@ Route::get('index', function () {
     return view('index');
 });
 
+Route::get('indexAdm', function () {
+    return view('adm.indexAdm');
+});
+
 Route::get('noticias', function () {
     return view('noticias');
+});
+
+Route::get('noticiasAdm', function () {
+    return view('adm.noticiasAdm');
 });
 
 Route::get('citas', function () {
     return view('citas');
 });
 
+Route::get('citasAdm', function () {
+    return view('adm.citasAdm');
+});
+
 Route::get('localizacion', function () {
     return view('localizacion');
+});
+
+Route::get('localizacionAdm', function () {
+    return view('adm.localizacionAdm');
 });
 
 Route::get('servicios', function () {
     return view('servicios');
 });
 
+Route::get('serviciosAdm', function () {
+    return view('adm.serviciosAdm');
+});
+
 Route::get('somos', function () {
     return view('somos');
+});
+
+Route::get('somosAdm', function () {
+    return view('adm.somosAdm');
 });
 
 Route::get('inicio', function () {
     return view('inicio');
 });
 
+Route::get('inicioAdm', function () {
+    return view('adm.inicioAdm');
+});
+
 Route::get('olvidar', function () {
     return view('olvidar');
+});
+
+Route::get('olvidarAdm', function () {
+    return view('adm.olvidarAdm');
 });
 
 Route::get('crear', function () {
     return view('crear');
 });
+Route::get('crearAdm', function () {
+    return view('adm.crearAdm');
+});
 
 Route::get('privacidad', function () {
     return view('privacidad');
+});
+
+Route::get('privacidadAdm', function () {
+    return view('adm.privacidadAdm');
 });
 
 Route::post('inicioSesion', 'App\Http\Controllers\controlador@inicioSesion');

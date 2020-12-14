@@ -51,7 +51,7 @@ class Conexion {
     public function cerrarSesion(Request $req) {
         session()->invalidate();
         session()->regenerate();
-        return view('inicio');
+        return view('index');
     }
 
 }

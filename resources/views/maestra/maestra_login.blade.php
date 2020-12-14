@@ -40,22 +40,22 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index" >Inicio</a>
+                            <a class="nav-link" href="indexAdm" >Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="noticias">Noticias</a>
+                            <a class="nav-link" href="noticiasAdm">Noticias</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="servicios">Servicios</a>
+                            <a class="nav-link" href="serviciosAdm">Servicios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="localizacion">Localización</a>
+                            <a class="nav-link" href="localizacionAdm">Localización</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="somos">¿Quienes Somos?</a>
+                            <a class="nav-link" href="somosAdm">¿Quienes Somos?</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="citas">Citas</a>
+                            <a class="nav-link" href="citasAdm">Citas</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">

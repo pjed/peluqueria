@@ -1,56 +1,57 @@
-@extends('maestra.maestra')
-
+@extends('maestra.maestra_login')
 
 @section('titulo') 
-El Paisano - Index
+El Paisano - Servicios
 @endsection
 
 @section('css')
-<link rel="stylesheet" type="text/css" href="{{asset ('css/index.css')}}" media="screen" />  
+<link rel="stylesheet" type="text/css" href="{{asset ('css/servicios.css')}}" media="screen" />  
 @endsection
 
 @section('javascript')
-<script src="{{asset ('js/inicio.js')}}"></script>
+<script src="{{asset ('js/servicios.js')}}"></script>
 @endsection
 
 @section('contenido') 
-<!--<div class="alert alert-danger" role="alert">
-    <strong>ERRORES O INFORMACIÓN</strong> DE INICIO DE SESION DEL USUARIO
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>-->
-
-<img alt="logo" src="{{asset ('img/logo.jpg')}}" class="logo_index">
-<table>
-    <tr>
-        <td><img src="{{asset ('img/modelo1.jpg')}}" alt="modelo1" class="imgModelo"></td>
-        <td><img src="{{asset ('img/modelo2.jpg')}}" alt="modelo2" class="imgModelo"></td>
-        <td><img src="{{asset ('img/modelo3.jpg')}}" alt="modelo3" class="imgModelo"></td>
-    </tr>
-    <tr>
-        <td colspan="3" class="lema">
-            <p>Peluquería de Caballeros y Barbería</p>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="3" class="lema">
-            <input type="button" value="Lista de precios" class="btn btn-dark" onclick="irServicios()"/>
-        </td>
-    </tr>
-</table>
-<div class="negro">
-    <div class="card bg-light text-white tarjetas">
-        <img class="card-img" src="{{asset ('img/cortepelo.jpg')}}" alt="cortepelo">
-        <input type="button" value="Cortes de Pelo" class="btn btn-dark clases" onclick="irServicios()"/>
-    </div>
-    <div class="card bg-light text-white tarjetas">
-        <img class="card-img" src="{{asset ('img/degradado.jpg')}}" alt="degradado">
-        <input type="button" value="Degradados" class="btn btn-dark clases" onclick="irServicios()"/>
-    </div>
-    <div class="card bg-light text-white tarjetas">
-        <img class="card-img" src="{{asset ('img/barbas.jpg')}}" alt="barbas">
-        <input type="button" value="Barbas" class="btn btn-dark clases" onclick="irServicios()"/>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+        <li class="breadcrumb-item active">Servicios</li>
+    </ol>
+</nav>
+<div class="div_contenedor">
+    <div class="div_centrado tarifas">
+        <h4>Listado de Servicios</h4>
+        <h6>Cortes de Pelo</h6>
+        <ol id="lista2">
+            <li>Normal</li>
+            <li>Americano</li>
+            <li>A navaja</li>
+            <li>A tijera</li>
+        </ol>
+        <br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Corte de pelo normal</td>
+                    <td>10 €</td>
+                </tr>
+                <tr>
+                    <td>Arreglo de Barba</td>
+                    <td>6 €</td>
+                </tr>
+                <tr>
+                    <td>Cejas</td>
+                    <td>3 €</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 @endsection
