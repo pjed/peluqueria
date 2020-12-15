@@ -1,4 +1,4 @@
-@extends('maestra.maestra_login')
+@extends('maestra.maestra_admin')
 
 @section('titulo') 
 El Paisano - Servicios
