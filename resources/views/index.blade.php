@@ -14,12 +14,18 @@ El Paisano - Index
 @endsection
 
 @section('contenido') 
-<!--<div class="alert alert-danger" role="alert">
-    <strong>ERRORES O INFORMACIÓN</strong> DE INICIO DE SESION DEL USUARIO
+<?php
+if (count(session()->get("usuario")) === 0) {
+?>
+<div class="alert alert-danger" role="alert">
+    <strong>ERROR DE USUARIO Y/O CONTRASEÑA NO VALIDOS</strong>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
-</div>-->
+</div>
+<?php
+}
+?>
 
 <img alt="logo" src="{{asset ('img/logo.jpg')}}" class="logo_index">
 <table>

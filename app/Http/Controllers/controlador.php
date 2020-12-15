@@ -24,12 +24,13 @@ class controlador extends Controller {
         $usuario = Conexion::existeUsuario($correo, $pass);
 
         //Si existe creamos la sesion
-        if ($usuario != null) {
+        if (count($usuario) !== 0) {
             session()->put('usuario', $usuario);
             return view('adm.indexAdm');
+        } else {
+            session()->put('usuario', $usuario);
+            return view('index');
         }
-        
-        return view('inicio');
     }
 
 }

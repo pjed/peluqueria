@@ -1,11 +1,15 @@
+@if (isset($_SESSION['usuario']))
 @extends('maestra.maestra_login')
+@else
+@extends('maestra.maestra')
+@endif
 
 @section('titulo') 
-El Paisano - Index
+El Paisano - Iniciar Sesión
 @endsection
 
 @section('css')
-<link rel="stylesheet" type="text/css" href="{{asset ('css/index.css')}}" media="screen" />  
+<link rel="stylesheet" type="text/css" href="{{asset ('css/inicio.css')}}" media="screen" />  
 @endsection
 
 @section('javascript')
@@ -13,47 +17,42 @@ El Paisano - Index
 @endsection
 
 @section('contenido') 
-<div class="alert alert-success" role="alert">
-    <strong>Bienvenido/a <?php
-        $usuario_log = json_decode(session()->get('usuario'), true);
-
-        echo $usuario_log[0]['NYA'];
-        ?></strong>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+        <li class="breadcrumb-item active">Iniciar Sesión</li>
+    </ol>
+</nav>
+<div class="alert alert-info" role="alert">
+    <strong>INICIO DE SESIÓN</strong> 
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-
-<img alt="logo" src="{{asset ('img/logo.jpg')}}" class="logo_index">
-<table>
-    <tr>
-        <td><img src="{{asset ('img/modelo1.jpg')}}" alt="modelo1" class="imgModelo"></td>
-        <td><img src="{{asset ('img/modelo2.jpg')}}" alt="modelo2" class="imgModelo"></td>
-        <td><img src="{{asset ('img/modelo3.jpg')}}" alt="modelo3" class="imgModelo"></td>
-    </tr>
-    <tr>
-        <td colspan="3" class="lema">
-            <p>Peluquería de Caballeros y Barbería</p>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="3" class="lema">
-            <input type="button" value="Lista de precios" class="btn btn-dark" onclick="irServicios()"/>
-        </td>
-    </tr>
-</table>
-<div class="negro">
-    <div class="card bg-light text-white tarjetas">
-        <img class="card-img" src="{{asset ('img/cortepelo.jpg')}}" alt="cortepelo">
-        <input type="button" value="Cortes de Pelo" class="btn btn-dark clases" onclick="irServicios()"/>
-    </div>
-    <div class="card bg-light text-white tarjetas">
-        <img class="card-img" src="{{asset ('img/degradado.jpg')}}" alt="degradado">
-        <input type="button" value="Degradados" class="btn btn-dark clases" onclick="irServicios()"/>
-    </div>
-    <div class="card bg-light text-white tarjetas">
-        <img class="card-img" src="{{asset ('img/barbas.jpg')}}" alt="barbas">
-        <input type="button" value="Barbas" class="btn btn-dark clases" onclick="irServicios()"/>
+<div class="div_contenedor">
+    <div class="div_centrado login">
+        <form name="inicioSesion" action="inicioSesion" method="POST">
+             {{ csrf_field() }} 
+            <h5>Iniciar Sesión</h5>
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="usuario">Usuario</label>
+                </div>
+                <input type="email" id="usuario" name="usuario" class="form-control" placeholder="nombre@dominio.com" required>
+            </div>
+            <br>
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <label class="input-group-text bi bi-key" for="pwd">Password</label>
+                </div>
+                <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Escribe tu contraseña" required>
+            </div>
+            <br>
+            <input type="submit" name="Iniciar Sesión" class="btn btn-info">
+            <input type="button" value="Crear Cuenta" class="btn btn-dark" onclick="irCrearCuenta();"><br>
+            <br>
+            <input type="submit" class="btn btn-dark" value="¿Has olvidado la contraseña?">
+        </form>
     </div>
 </div>
 @endsection

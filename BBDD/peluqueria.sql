@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-12-2020 a las 17:19:03
+-- Tiempo de generación: 15-12-2020 a las 19:34:15
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -100,8 +100,7 @@ CREATE TABLE `usuario` (
   `DNI` varchar(8) COLLATE utf8_spanish_ci DEFAULT NULL,
   `EMAIL` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
   `PASSWORD` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
-  `NOMBRE` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
-  `APELLIDOS` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
+  `NYA` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `DIRECCION` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
   `F_NACIMIENTO` date DEFAULT NULL,
   `TELEFONO` varchar(9) COLLATE utf8_spanish_ci NOT NULL,
@@ -112,9 +111,9 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`NSOCIO`, `DNI`, `EMAIL`, `PASSWORD`, `NOMBRE`, `APELLIDOS`, `DIRECCION`, `F_NACIMIENTO`, `TELEFONO`, `FOTO`) VALUES
-(1, '5933283L', 'espinosaduque@gmail.com', '1', 'PEDRO JAVIER', 'ESPINOSA DUQUE', 'CARDENAL MONESCILLO 5', '1987-03-11', '638288641', 'noimage.jpg'),
-(2, '1234567Z', 'hudi@gmail.com', '1', 'HUDAIFA', 'TANTAOUI', 'PUES NO LO SE 5', '1995-07-25', '123456789', 'noimage.jpg');
+INSERT INTO `usuario` (`NSOCIO`, `DNI`, `EMAIL`, `PASSWORD`, `NYA`, `DIRECCION`, `F_NACIMIENTO`, `TELEFONO`, `FOTO`) VALUES
+(1, '5933283L', 'espinosaduque@gmail.com', '1', 'PEDRO JAVIER ESPINOSA DUQUE', 'CARDENAL MONESCILLO 5', '1987-03-11', '638288641', 'noimage.jpg'),
+(2, '1234567Z', 'hudi@gmail.com', '1', 'HUDAIFA TANTAUI', 'PUES NO LO SE 5', '1995-07-25', '123456789', 'noimage.jpg');
 
 --
 -- Índices para tablas volcadas

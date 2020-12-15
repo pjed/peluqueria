@@ -1,60 +1,55 @@
-@extends('maestra.maestra_login')
+@extends('maestra.maestra')
 
 @section('titulo') 
-El Paisano - Index
+El Paisano - Localización
 @endsection
 
 @section('css')
-<link rel="stylesheet" type="text/css" href="{{asset ('css/index.css')}}" media="screen" />  
+<link rel="stylesheet" type="text/css" href="{{asset ('css/localizacion.css')}}" media="screen" />  
 @endsection
 
 @section('javascript')
-<script src="{{asset ('js/inicio.js')}}"></script>
+<script src="{{asset ('js/localizacion.js')}}"></script>
+<script src="{{asset ('js/smtp.js')}}"></script>
 @endsection
 
 @section('contenido') 
-<div class="alert alert-success" role="alert">
-    <strong>Bienvenido/a <?php
-        $usuario_log = json_decode(session()->get('usuario'), true);
-
-        echo $usuario_log[0]['NYA'];
-        ?></strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+        <li class="breadcrumb-item active">Localización</li>
+    </ol>
+</nav>
+<div class="localizacion">
+    <div class="div_contenedor">
+        <div class="div_centrado">
+            <h4 class="centrado">Dónde estamos</h4>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3114.0992599536576!2d-4.1115486852970315!3d38.69256416659816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6b8ddca5bcac2d%3A0x728636e9ed0f4fcf!2sPeluqueria%20El%20Paisano!5e0!3m2!1ses!2ses!4v1606837080335!5m2!1ses!2ses" width="400" height="300" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+        </div>
+    </div>
 </div>
-
-<img alt="logo" src="{{asset ('img/logo.jpg')}}" class="logo_index">
-<table>
-    <tr>
-        <td><img src="{{asset ('img/modelo1.jpg')}}" alt="modelo1" class="imgModelo"></td>
-        <td><img src="{{asset ('img/modelo2.jpg')}}" alt="modelo2" class="imgModelo"></td>
-        <td><img src="{{asset ('img/modelo3.jpg')}}" alt="modelo3" class="imgModelo"></td>
-    </tr>
-    <tr>
-        <td colspan="3" class="lema">
-            <p>Peluquería de Caballeros y Barbería</p>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="3" class="lema">
-            <input type="button" value="Lista de precios" class="btn btn-dark" onclick="irServicios()"/>
-        </td>
-    </tr>
-</table>
-<div class="negro">
-    <div class="card bg-light text-white tarjetas">
-        <img class="card-img" src="{{asset ('img/cortepelo.jpg')}}" alt="cortepelo">
-        <input type="button" value="Cortes de Pelo" class="btn btn-dark clases" onclick="irServicios()"/>
+<div class="horario">
+    <h4>Horario Laboral</h4>
+    <p>De Lunes a Viernes:<br>Mañanas de 10:00 a 14:00<br>Tardes de 17:00 a 21:00</p>
+    <p>Fines de semana: Cerrado</p>
+    <br>
+    <h4>Contacta con nosotros</h4>
+    <div class="form-group">
+        <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+                <span class="input-group-text" >Email</span>
+            </div>
+            <input type="email" class="form-control" id="from" placeholder="nombre@dominio.com" required>
+        </div>
+        <br>
+        <div class="input-group flex-nowrap">
+            <div class="input-group-prepend">
+                <span class="input-group-text" >Motivo</span>
+            </div>
+            <textarea id="body" name="motivo" rows="4" required cols="50" placeholder="Escriba aquí el texto"></textarea>
+        </div>
     </div>
-    <div class="card bg-light text-white tarjetas">
-        <img class="card-img" src="{{asset ('img/degradado.jpg')}}" alt="degradado">
-        <input type="button" value="Degradados" class="btn btn-dark clases" onclick="irServicios()"/>
-    </div>
-    <div class="card bg-light text-white tarjetas">
-        <img class="card-img" src="{{asset ('img/barbas.jpg')}}" alt="barbas">
-        <input type="button" value="Barbas" class="btn btn-dark clases" onclick="irServicios()"/>
-    </div>
+    <button type="button" class="btn btn-info" onclick="sendEmail();">Enviar</button>
 </div>
 @endsection
 

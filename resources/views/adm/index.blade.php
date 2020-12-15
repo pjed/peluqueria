@@ -1,4 +1,5 @@
-@extends('maestra.maestra_login')
+@extends('maestra.maestra')
+
 
 @section('titulo') 
 El Paisano - Index
@@ -13,12 +14,8 @@ El Paisano - Index
 @endsection
 
 @section('contenido') 
-<div class="alert alert-success" role="alert">
-    <strong>Bienvenido/a <?php
-        $usuario_log = json_decode(session()->get('usuario'), true);
-
-        echo $usuario_log[0]['NYA'];
-        ?></strong>
+<div class="alert alert-danger" role="alert">
+    <strong>ERRORES O INFORMACIÓN</strong> DE INICIO DE SESION DEL USUARIO
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
