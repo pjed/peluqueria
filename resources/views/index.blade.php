@@ -15,15 +15,17 @@ El Paisano - Index
 
 @section('contenido') 
 <?php
-if (count(session()->get("usuario")) === 0) {
-?>
-<div class="alert alert-danger" role="alert">
-    <strong>ERROR DE USUARIO Y/O CONTRASEÑA NO VALIDOS</strong>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-<?php
+if (session()->get("usuario") != null) {
+    if (count(session()->get("usuario")) === 0) {
+        ?>
+        <div class="alert alert-danger" role="alert">
+            <strong>ERROR DE USUARIO Y/O CONTRASEÑA NO VALIDOS</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <?php
+    }
 }
 ?>
 

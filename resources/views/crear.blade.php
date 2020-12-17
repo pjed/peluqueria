@@ -21,58 +21,56 @@ El Paisano - Crear Cuenta
 </nav>
 <div class="div_contenedor">
     <div class="div_centrado login">
-        <form action="#" method="POST">
+        <form name="crearCuenta" action="crearCuenta" method="POST">
+            {{ csrf_field() }} 
             <h5>Crear Cuenta</h5>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
-                    <span class="input-group-text bi bi-key" >Nombre</span>
+                    <span class="input-group-text bi bi-key" >Nombre y Apellidos</span>
                 </div>
-                <input type="text" class="form-control" required placeholder="Nombre">
-            </div>
-            <br>
-            <div class="input-group flex-nowrap">
-                <div class="input-group-prepend">
-                    <span class="input-group-text bi bi-key" >Apellidos</span>
-                </div>
-                <input type="text" class="form-control" required placeholder="Apellidos">
+                <input type="text" class="form-control" name="nya" required placeholder="Nombre y Apellidos">
             </div>
             <br>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
                     <span class="input-group-text bi bi-key" >Dirección</span>
                 </div>
-                <input type="text" class="form-control" required placeholder="Dirección">
+                <input type="text" class="form-control" name="direccion" required placeholder="Dirección">
             </div>
             <br>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
                     <span class="input-group-text bi bi-key" >Fecha de Nacimiento</span>
                 </div>
-                <input type="date" class="form-control" required>
+                <input type="date" class="form-control" required name="fecha">
             </div>
             <br>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
                     <span class="input-group-text" >Email</span>
                 </div>
-                <input type="email" class="form-control" placeholder="Email" required>
-                <div class="input-group-append">
-                    <span class="input-group-text">@dominio.com</span>
+                <input type="email" class="form-control" placeholder="Email" name="correo" required>
+            </div>
+            <br>
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" >Password</span>
                 </div>
+                <input type="password" class="form-control" placeholder="Password" name="pwd" required>
             </div>
             <br>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
                     <span class="input-group-text bi bi-key" >DNI</span>
                 </div>
-                <input type="text" class="form-control" pattern="[0-9]{7}[A-Z]{1}" maxlength="8" placeholder="1234567X" required>
+                <input type="text" class="form-control" pattern="[0-9]{7}[A-Z]{1}" name="dni" maxlength="8" placeholder="1234567X" required>
             </div>
             <br>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
                     <span class="input-group-text bi bi-key" >Télefono</span>
                 </div>
-                <input type="text" id="telefono" pattern="\d*" maxlength="9" class="form-control" placeholder="Fijo o movil" required>
+                <input type="text" id="telefono" pattern="\d*" maxlength="9" name="telefono" class="form-control" placeholder="Fijo o movil" required>
             </div>
             <br>
             <input type="submit" value="Registrarse" class="btn btn-info">

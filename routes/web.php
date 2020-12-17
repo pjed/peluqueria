@@ -102,3 +102,4 @@ Route::get('privacidadAdm', function () {
 });
 
 Route::post('inicioSesion', 'App\Http\Controllers\controlador@inicioSesion');
+Route::post('crearCuenta', 'App\Http\Controllers\controlador@crearCuenta');
