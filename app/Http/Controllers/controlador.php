@@ -21,7 +21,7 @@ class controlador extends Controller {
 
         //Comprobamos que existe el usuario
         $usuario = Conexion::existeUsuario($correo, $pass);
-
+        
         //Si existe creamos la sesion
         if (count($usuario) !== 0) {
             session()->put('usuario', $usuario);
@@ -53,6 +53,12 @@ class controlador extends Controller {
             //Si existe el usuario lo redirigimos a la pagina 
             //de crear cuenta y le mostramos el 
             //mensaje de error que el usuario ya existe
+            echo '<div class="m-0 alert alert-danger alert-dismissible fade show" role="alert">
+                    El correo electronico ya esta registrado, por favor elija otro.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">X</span>
+                    </button>
+                  </div>';
             return view('crear');
         } else {
             //Que no existe lo creamos con tipo 2-Cliente 
@@ -60,6 +66,13 @@ class controlador extends Controller {
             //para que inicie sesion con su cuenta.
             $usuario = Conexion::crearUsuario($nombre, $direccion, $fecha, $correo, $pwd, $dni, $telefono, 2);
             
+            //Mostramos que se ha creado el usuario correctamente
+            echo '<div class="m-0 alert alert-success alert-dismissible fade show" role="alert">
+                    Usuario creado con éxito.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">X</span>
+                    </button>
+                  </div>';
             return view('inicio', $usuario);
         }
     }

@@ -56,16 +56,31 @@ class Conexion {
         //Si el tipo es 2-Cliente creamos 
         //el usuario con rol cliente
         if ($tipo == 2) {
-            $usuario = usuario::create(
-                            ['NSOCIO' => null],
-                            ['DNI' => $dni],
-                            ['EMAIL' => $correo],
-                            ['PASSWORD' => $pwd],
-                            ['NYA' => $nombre],
-                            ['DIRECCION' => $direccion],
-                            ['F_NACIMIENTO' => $fecha],
-                            ['TELEFONO' => $telefono]
-            );
+            $usuario = new usuario();
+            $usuario->NSOCIO = NULL;
+            $usuario->DNI = $dni;
+            $usuario->EMAIL = $correo;
+            $usuario->PASSWORD = $pwd;
+            $usuario->NYA = $nombre;
+            $usuario->DIRECCION = $direccion;
+            $usuario->F_NACIMIENTO = $fecha;
+            $usuario->TELEFONO = $telefono;
+            $usuario->FOTO = 'noimage.jpg';
+            $usuario->save();
+
+            $usuario_NSOCIO = \DB::Table('usuario')
+                    ->select('NSOCIO')
+                    ->where('EMAIL', $correo)
+                    ->where('PASSWORD', $pwd)
+                    ->get();
+            
+            $nsocio = json_decode(json_encode($usuario_NSOCIO), true);
+            
+            $tiene = new tiene();
+            $tiene->idtiene = NULL;
+            $tiene->usuario_NSOCIO = (int)$nsocio[0]['NSOCIO'];
+            $tiene->rol_IDROL = $tipo;
+            $tiene->save();
         }
         return $usuario;
     }

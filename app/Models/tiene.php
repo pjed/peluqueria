@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class tiene extends Model
 {
     protected $primaryKey = ['IDTIENE']; 
-    protected $table = 'tiene';    
-    public $incrementing = true;
+    protected $table = 'tiene';      
+    public $incrementing = FALSE;
 }
