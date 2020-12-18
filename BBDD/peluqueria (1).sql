@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-12-2020 a las 19:34:15
+-- Tiempo de generación: 18-12-2020 a las 19:23:42
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.9
 
@@ -77,17 +77,20 @@ INSERT INTO `rol` (`IDROL`, `DESC_ROL`) VALUES
 CREATE TABLE `tiene` (
   `idtiene` int(11) NOT NULL,
   `usuario_NSOCIO` int(11) NOT NULL,
-  `rol_IDROL` int(11) NOT NULL
+  `rol_IDROL` int(11) NOT NULL,
+  `updated_at` date DEFAULT NULL,
+  `created_at` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `tiene`
 --
 
-INSERT INTO `tiene` (`idtiene`, `usuario_NSOCIO`, `rol_IDROL`) VALUES
-(1, 1, 1),
-(2, 2, 1),
-(3, 2, 2);
+INSERT INTO `tiene` (`idtiene`, `usuario_NSOCIO`, `rol_IDROL`, `updated_at`, `created_at`) VALUES
+(1, 1, 1, '2020-12-18', '2020-12-18'),
+(2, 2, 1, '2020-12-18', '2020-12-18'),
+(3, 2, 2, '2020-12-18', '2020-12-18'),
+(5, 18, 2, '2020-12-18', '2020-12-18');
 
 -- --------------------------------------------------------
 
@@ -104,16 +107,19 @@ CREATE TABLE `usuario` (
   `DIRECCION` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
   `F_NACIMIENTO` date DEFAULT NULL,
   `TELEFONO` varchar(9) COLLATE utf8_spanish_ci NOT NULL,
-  `FOTO` varchar(45) COLLATE utf8_spanish_ci NOT NULL DEFAULT 'noimage.jpg'
+  `FOTO` varchar(45) COLLATE utf8_spanish_ci DEFAULT 'noimage.jpg',
+  `updated_at` date DEFAULT NULL,
+  `created_at` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`NSOCIO`, `DNI`, `EMAIL`, `PASSWORD`, `NYA`, `DIRECCION`, `F_NACIMIENTO`, `TELEFONO`, `FOTO`) VALUES
-(1, '5933283L', 'espinosaduque@gmail.com', '1', 'PEDRO JAVIER ESPINOSA DUQUE', 'CARDENAL MONESCILLO 5', '1987-03-11', '638288641', 'noimage.jpg'),
-(2, '1234567Z', 'hudi@gmail.com', '1', 'HUDAIFA TANTAUI', 'PUES NO LO SE 5', '1995-07-25', '123456789', 'noimage.jpg');
+INSERT INTO `usuario` (`NSOCIO`, `DNI`, `EMAIL`, `PASSWORD`, `NYA`, `DIRECCION`, `F_NACIMIENTO`, `TELEFONO`, `FOTO`, `updated_at`, `created_at`) VALUES
+(1, '5933283L', 'espinosaduque@gmail.com', '1', 'PEDRO JAVIER ESPINOSA DUQUE', 'CARDENAL MONESCILLO 5', '1987-03-11', '638288641', 'noimage.jpg', '2020-12-18', '2020-12-18'),
+(2, '1234567Z', 'hudi@gmail.com', '1', 'HUDAIFA TANTAUI', 'PUES NO LO SE 5', '1995-07-25', '123456789', 'noimage.jpg', '2020-12-18', '2020-12-18'),
+(18, '1234567X', 'laura@gmail.com', '1', 'Laura Martinez', 'Cardenal Monescillo 5', '1987-03-11', '546897231', 'noimage.jpg', '2020-12-18', '2020-12-18');
 
 --
 -- Índices para tablas volcadas
@@ -166,13 +172,13 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `tiene`
 --
 ALTER TABLE `tiene`
-  MODIFY `idtiene` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idtiene` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `NSOCIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `NSOCIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Restricciones para tablas volcadas
