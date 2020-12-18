@@ -56,6 +56,7 @@ class Conexion {
         //Si el tipo es 2-Cliente creamos 
         //el usuario con rol cliente
         if ($tipo == 2) {
+            //Creamos el objeto usuario y lo rellenamos con los datos
             $usuario = new usuario();
             $usuario->NSOCIO = NULL;
             $usuario->DNI = $dni;
@@ -68,6 +69,8 @@ class Conexion {
             $usuario->FOTO = 'noimage.jpg';
             $usuario->save();
 
+            //Obtenemos el numero de socio del usuario que acabamos de 
+            //insertar en la tabla usuario
             $usuario_NSOCIO = \DB::Table('usuario')
                     ->select('NSOCIO')
                     ->where('EMAIL', $correo)
@@ -76,6 +79,8 @@ class Conexion {
             
             $nsocio = json_decode(json_encode($usuario_NSOCIO), true);
             
+            //Creamos el objeto tiene para dar de alta al usuario con 
+            // el rol de Cliente
             $tiene = new tiene();
             $tiene->idtiene = NULL;
             $tiene->usuario_NSOCIO = (int)$nsocio[0]['NSOCIO'];
