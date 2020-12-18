@@ -61,7 +61,7 @@ class Conexion {
             $usuario->NSOCIO = NULL;
             $usuario->DNI = $dni;
             $usuario->EMAIL = $correo;
-            $usuario->PASSWORD = $pwd;
+            $usuario->PASSWORD = hash('sha256', 1);
             $usuario->NYA = $nombre;
             $usuario->DIRECCION = $direccion;
             $usuario->F_NACIMIENTO = $fecha;
@@ -74,7 +74,7 @@ class Conexion {
             $usuario_NSOCIO = \DB::Table('usuario')
                     ->select('NSOCIO')
                     ->where('EMAIL', $correo)
-                    ->where('PASSWORD', $pwd)
+                    ->where('PASSWORD', hash('sha256', $pwd))
                     ->get();
             
             $nsocio = json_decode(json_encode($usuario_NSOCIO), true);

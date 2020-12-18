@@ -19,9 +19,12 @@ class controlador extends Controller {
         $correo = $req->get('usuario');
         $pass = $req->get('pwd');
 
+        //Desencriptamos la contraseña que ha introducido el usuario
+        $passHash = hash('sha256', $pass);
+
         //Comprobamos que existe el usuario
-        $usuario = Conexion::existeUsuario($correo, $pass);
-        
+        $usuario = Conexion::existeUsuario($correo, $passHash);
+
         //Si existe creamos la sesion
         if (count($usuario) !== 0) {
             session()->put('usuario', $usuario);
@@ -31,7 +34,7 @@ class controlador extends Controller {
             return view('index');
         }
     }
-    
+
     /**
      * Método para crear la cuenta de un usuario nuevo
      * @param type $req request
@@ -65,7 +68,7 @@ class controlador extends Controller {
             //y lo redirigimos a la pantalla de login
             //para que inicie sesion con su cuenta.
             $usuario = Conexion::crearUsuario($nombre, $direccion, $fecha, $correo, $pwd, $dni, $telefono, 2);
-            
+
             //Mostramos que se ha creado el usuario correctamente
             echo '<div class="m-0 alert alert-success alert-dismissible fade show" role="alert">
                     Usuario creado con éxito.
