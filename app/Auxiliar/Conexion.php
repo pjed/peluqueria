@@ -39,6 +39,24 @@ class Conexion {
 
         return $usuario;
     }
+    
+    /**
+     * Método para comprobar si un usuario existe en la BD para hacer login
+     * @param type $correo email del usuario
+     * @param type $pass contraseña del usuario
+     * @return type usuario
+     */
+    static function obtenerUsuarios() {
+
+        //Compruebo que el usuario y la password coincide con algun 
+        //usuario de todos los que hay en la tabla usuarios
+        $usuarios = \DB::Table('usuario')
+                ->join('tiene', 'usuario.NSOCIO', '=', 'tiene.usuario_NSOCIO')
+                ->join('rol', 'rol.IDROL', '=', 'tiene.rol_IDROL')
+                ->get();
+
+        return $usuarios;
+    }
 
     /**
      * Método que crea el usuario en la base de datos

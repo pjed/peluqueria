@@ -28,6 +28,14 @@ class controlador extends Controller {
         //Si existe creamos la sesion
         if (count($usuario) !== 0) {
             session()->put('usuario', $usuario);
+            
+            //Cargamos todos los usuarios que hay en el sistema
+            $usuarios = Conexion::obtenerUsuarios();
+            
+            //Guardamos los usuarios en la sesion para mostrarlo cuando 
+            //se necesiten
+            session()->put('usuarios', $usuarios);
+            
             return view('adm.indexAdm');
         } else {
             session()->put('usuario', $usuario);

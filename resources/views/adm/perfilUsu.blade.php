@@ -5,7 +5,7 @@ El Paisano - Noticias
 @endsection
 
 @section('css')
-<!--<link rel="stylesheet" type="text/css" href="{{asset ('css/noticias.css')}}" media="screen" />-->  
+<link rel="stylesheet" type="text/css" href="{{asset ('css/maestra.css')}}" media="screen" />  
 @endsection
 
 @section('javascript')
@@ -20,8 +20,79 @@ El Paisano - Noticias
     </ol>
 </nav>
 <section>
-    <h5>PERFIL</h5>
-    
+    <form name="inicioSesion" action="inicioSesion" method="POST">
+        {{ csrf_field() }} 
+        <h5>Editar Perfil</h5>
+
+        <input type="image" class="img_perfil" src="{{asset ('img/noimage.jpg')}}" name="img" id="img"><br>
+        <input type="file" name="file" id="file"><br><br>
+        <h5>Datos Personales</h5>
+        <div class="izquierda">
+            <fieldset>
+                <div class="input-group flex-nowrap">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="nsocio">Número de socio</label>
+                    </div>
+                    <input type="number" id="nsocio" name="nsocio" class="form-control" readonly>
+                </div>
+                <br>
+                <div class="input-group flex-nowrap">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="dni">DNI</label>
+                    </div>
+                    <input type="text" id="dni" name="dni" class="form-control" placeholder="1234567X" required>
+                </div>
+                <br>
+                <div class="input-group flex-nowrap">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="email">Email</label>
+                    </div>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="nombre@dominio.com" required>
+                </div>
+                <br>
+                <div class="input-group flex-nowrap">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text bi bi-key" for="pwd">Password</label>
+                    </div>
+                    <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Escribe tu contraseña" required>
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="derecha">
+            <fieldset>
+                <div class="input-group flex-nowrap">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="nya">Nombre y Apellidos</label>
+                    </div>
+                    <input type="text" id="nya" name="nya" class="form-control" placeholder="Nombre y Apellidos" required>
+                </div>
+                <br>
+                <div class="input-group flex-nowrap">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="direccion">Dirección</label>
+                    </div>
+                    <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Dirección" required>
+                </div>
+                <br>
+                <div class="input-group flex-nowrap">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="nacimiento">Fecha de Nacimiento</label>
+                    </div>
+                    <input type="date" id="nacimiento" name="nacimiento" class="form-control" required>
+                </div>
+                <br>
+                <div class="input-group flex-nowrap">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="telefono">Teléfono</label>
+                    </div>
+                    <input type="number" maxlength="9" id="telefono" name="telefono" class="form-control" required>
+                </div>
+                <br>
+            </fieldset>
+        </div>
+        <input type="submit" name="actualizar" value="Actualizar Datos" class="btn btn-info">
+    </form> 
 </section>
 @endsection
 

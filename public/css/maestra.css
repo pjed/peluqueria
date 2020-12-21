@@ -11,6 +11,11 @@ html,body{ margin: 0; height: 100vh;}
     margin: 0 auto;
 }
 
+.img_perfil{
+    width: 100px;
+    height: 100px;
+}
+
 img{
     padding: 3px;
     border: solid 1px black;
@@ -76,6 +81,7 @@ main{
     background-color: whitesmoke;
     text-align: center;
     width: 80%;
+    height: auto;
 }
 aside{
     top: 10px;

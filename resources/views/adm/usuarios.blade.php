@@ -21,10 +21,34 @@ El Paisano - Olvidar contraseña
 </nav>
 <div class="div_contenedor">
     <div class="div_centrado login">
+        <h5>Administrar Usuarios</h5>
         <form action="#" method="POST">
-            <h5>Administrar Usuarios</h5>
-            
-            
+            <table>
+                <thead>
+                <th>NSOCIO</th>
+                <th>DNI</th>
+                <th>EMAIL</th>
+                <th>PASSWORD</th>
+                <th>NYA</th>
+                <th>DIRECCION</th>
+                <th>F_NECIMIENTO</th>
+                <th>TELEFONO</th>
+                <th>FOTO</th>
+                <th>DESC_ROL</th>
+                </thead>
+                <?php
+                $usuarios = json_decode(session()->get('usuarios'), true);
+
+                foreach ($usuarios as $usuario) {
+                    ?>
+                    <tbody>
+                    <td><?php $usuario['NSOCIO'] ?></td>
+
+                    <?php
+                }
+                ?>
+                </tbody>
+            </table>
         </form>
         <input type="button" value="Volver" class="btn btn-dark" onclick="irIndex();"><br>
     </div>

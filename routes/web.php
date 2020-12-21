@@ -113,9 +113,5 @@ Route::get('usuarios', function () {
     return view('adm.usuarios');
 });
 
-
-
-
-
 Route::post('inicioSesion', 'App\Http\Controllers\controlador@inicioSesion');
 Route::post('crearCuenta', 'App\Http\Controllers\controlador@crearCuenta');
