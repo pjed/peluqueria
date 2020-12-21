@@ -7,3 +7,7 @@
 function irInicio(){
     window.location.href='inicio';
 }
+
+function irIndex(){
+    window.location.href='adm.indexAdm';
+}

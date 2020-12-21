@@ -101,5 +101,21 @@ Route::get('privacidadAdm', function () {
     return view('adm.privacidadAdm');
 });
 
+Route::get('adminUsuarios', function () {
+    return view('adm.usuarios');
+});
+
+Route::get('perfilUsu', function () {
+    return view('adm.perfilUsu');
+});
+
+Route::get('usuarios', function () {
+    return view('adm.usuarios');
+});
+
+
+
+
+
 Route::post('inicioSesion', 'App\Http\Controllers\controlador@inicioSesion');
 Route::post('crearCuenta', 'App\Http\Controllers\controlador@crearCuenta');

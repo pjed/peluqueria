@@ -58,27 +58,10 @@
                             <a class="nav-link" href="citasAdm">Citas</a>
                         </li>
                         <li class="nav-item">
-                            <?php
-                            if (count(session()->get("usuario")) == 1) {
-                                ?>
-                                <select class="browser-default custom-select" id="rol" name="rol">
-                                    <optgroup label="Rol">
-                                        <option id="0" selected>Admin</option>
-                                    </optgroup>
-                                </select>
-                                <?php
-                            } else {
-                                ?>
-                                <select class="browser-default custom-select" id="rol" name="rol">
-                                    <optgroup label="Rol">
-                                        <option id="0" selected>Admin</option>
-                                        <option id="1">Cliente</option>
-                                    </optgroup>
-                                </select>
-                                <?php
-                            }
-                            ?>
+                            <a class="nav-link" href="usuarios">Usuarios</a>
                         </li>
+
+
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -99,10 +82,11 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <img class="img_login" src="{{asset ('img/noimage.jpg')}}" alt="login">
+                            <a class="nav-link" href="perfilUsu"><img class="img_login" src="{{asset ('img/noimage.jpg')}}" alt="login"></a>
+                        </li>
+                        <li class="nav-item">
                             <input type="button" name="Login" value="Desconectar" id="login" onclick="irLogin();" class="btn btn-info"/>
                         </li>
-
                     </ul>
                 </div>
             </nav>
