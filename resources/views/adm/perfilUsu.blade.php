@@ -59,7 +59,7 @@ El Paisano - Noticias
             </fieldset>
         </div>
 
-        <div class="derecha">
+        <div class="izquierda">
             <fieldset>
                 <div class="input-group flex-nowrap">
                     <div class="input-group-prepend">
