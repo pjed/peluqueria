@@ -27,71 +27,79 @@ El Paisano - Noticias
         <input type="image" class="img_perfil" src="{{asset ('img/noimage.jpg')}}" name="img" id="img"><br>
         <input type="file" name="file" id="file"><br><br>
         <h5>Datos Personales</h5>
-        <div class="izquierda">
-            <fieldset>
-                <div class="input-group flex-nowrap">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text" for="nsocio">Número de socio</label>
+        <?php
+        $usuario = json_decode(session()->get('usuario'), true);
+        
+        foreach ($usuario as $valor) {
+            ?>
+            <div class="izquierda">
+                <fieldset>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="nsocio">Número de socio</label>
+                        </div>
+                        <input type="number" id="nsocio" name="nsocio" class="form-control" value="<?php echo $valor["NSOCIO"] ?>" readonly>
                     </div>
-                    <input type="number" id="nsocio" name="nsocio" class="form-control" readonly>
-                </div>
-                <br>
-                <div class="input-group flex-nowrap">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text" for="dni">DNI</label>
+                    <br>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="dni">DNI</label>
+                        </div>
+                        <input type="text" id="dni" name="dni" class="form-control" placeholder="1234567X" value="<?php echo $valor["DNI"] ?>" required>
                     </div>
-                    <input type="text" id="dni" name="dni" class="form-control" placeholder="1234567X" required>
-                </div>
-                <br>
-                <div class="input-group flex-nowrap">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text" for="email">Email</label>
+                    <br>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="email">Email</label>
+                        </div>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="nombre@dominio.com" value="<?php echo $valor["EMAIL"] ?>" required>
                     </div>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="nombre@dominio.com" required>
-                </div>
-                <br>
-                <div class="input-group flex-nowrap">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text bi bi-key" for="pwd">Password</label>
+                    <br>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text bi bi-key" for="pwd">Password</label>
+                        </div>
+                        <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Escribe tu contraseña" value="<?php echo $valor["PASSWORD"] ?>" required>
                     </div>
-                    <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Escribe tu contraseña" required>
-                </div>
-            </fieldset>
-        </div>
+                </fieldset>
+            </div>
 
-        <div class="izquierda">
-            <fieldset>
-                <div class="input-group flex-nowrap">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text" for="nya">Nombre y Apellidos</label>
+            <div class="izquierda">
+                <fieldset>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="nya">Nombre y Apellidos</label>
+                        </div>
+                        <input type="text" id="nya" name="nya" class="form-control" placeholder="Nombre y Apellidos" value="<?php echo $valor["NYA"] ?>" required>
                     </div>
-                    <input type="text" id="nya" name="nya" class="form-control" placeholder="Nombre y Apellidos" required>
-                </div>
-                <br>
-                <div class="input-group flex-nowrap">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text" for="direccion">Dirección</label>
+                    <br>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="direccion">Dirección</label>
+                        </div>
+                        <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Dirección" value="<?php echo $valor["DIRECCION"] ?>" required>
                     </div>
-                    <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Dirección" required>
-                </div>
-                <br>
-                <div class="input-group flex-nowrap">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text" for="nacimiento">Fecha de Nacimiento</label>
+                    <br>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="nacimiento">Fecha de Nacimiento</label>
+                        </div>
+                        <input type="date" id="nacimiento" name="nacimiento" class="form-control" required value="<?php echo $valor["F_NACIMIENTO"] ?>">
                     </div>
-                    <input type="date" id="nacimiento" name="nacimiento" class="form-control" required>
-                </div>
-                <br>
-                <div class="input-group flex-nowrap">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text" for="telefono">Teléfono</label>
+                    <br>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="telefono">Teléfono</label>
+                        </div>
+                        <input type="number" maxlength="9" id="telefono" name="telefono" class="form-control" value="<?php echo $valor["TELEFONO"] ?>" required>
                     </div>
-                    <input type="number" maxlength="9" id="telefono" name="telefono" class="form-control" required>
-                </div>
-                <br>
-            </fieldset>
-        </div>
-        <input type="submit" name="actualizar" value="Actualizar Datos" class="btn btn-info">
+                    <br>
+                </fieldset>
+            </div>
+            <input type="submit" name="actualizar" value="Actualizar Datos" class="btn btn-info">
+            <?php
+        }
+        ?>
     </form> 
 </section>
 @endsection

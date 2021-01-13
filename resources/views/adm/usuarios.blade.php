@@ -19,40 +19,43 @@ El Paisano - Olvidar contraseña
         <li class="breadcrumb-item active">Administrar Usuarios</li>
     </ol>
 </nav>
-<div class="div_contenedor">
-    <div class="div_centrado login">
-        <h5>Administrar Usuarios</h5>
-        <form action="#" method="POST">
-            <table>
-                <thead>
-                <th>NSOCIO</th>
-                <th>DNI</th>
-                <th>EMAIL</th>
-                <th>PASSWORD</th>
-                <th>NYA</th>
-                <th>DIRECCION</th>
-                <th>F_NECIMIENTO</th>
-                <th>TELEFONO</th>
-                <th>FOTO</th>
-                <th>DESC_ROL</th>
-                </thead>
-                <?php
-                $usuarios = json_decode(session()->get('usuarios'), true);
-
-                foreach ($usuarios as $usuario) {
-                    ?>
-                    <tbody>
-                    <td><?php $usuario['NSOCIO'] ?></td>
-
-                    <?php
-                }
+<h5>Administrar Usuarios</h5>
+<form action="#" method="POST">
+    <table>
+        <thead>
+        <th>NSOCIO</th>
+        <th>DNI</th>
+        <th>Email</th>
+        <th>Nombre</th>
+        <th>Dirección</th>
+        <th>F.Nacimiento</th>
+        <th>Telefono</th>
+        <th>ID</th>
+        <th>DESC_ROL</th>
+        </thead>
+        <tbody>
+            <?php
+            $usuarios = json_decode(session()->get('usuarios'), true);
+            foreach ($usuarios as $usuario) {
                 ?>
-                </tbody>
-            </table>
-        </form>
-        <input type="button" value="Volver" class="btn btn-dark" onclick="irIndex();"><br>
-    </div>
-</div>
+                <tr>
+                    <td><?php echo $usuario["NSOCIO"] ?></td>
+                    <td><?php echo $usuario["DNI"] ?></td>
+                    <td><?php echo $usuario["EMAIL"] ?></td>
+                    <td><?php echo $usuario["NYA"] ?></td>
+                    <td><?php echo $usuario["DIRECCION"] ?></td>
+                    <td><?php echo $usuario["F_NACIMIENTO"] ?></td>
+                    <td><?php echo $usuario["TELEFONO"] ?></td>
+                    <td><?php echo $usuario["IDROL"] ?></td>
+                    <td><?php echo $usuario["DESC_ROL"] ?></td>
+                </tr>
+                <?php
+            }
+            ?>
+        </tbody>
+    </table>
+</form>
+<input type="button" value="Volver" class="btn btn-dark" onclick="irIndex();"><br>
 @endsection
 
 @section('aside') 
