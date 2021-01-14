@@ -25,18 +25,32 @@ class controlador extends Controller {
         //Comprobamos que existe el usuario
         $usuario = Conexion::existeUsuario($correo, $passHash);
 
+        
         //Si existe creamos la sesion
         if (count($usuario) !== 0) {
+
+            //Guardamos la sesion del usuario en la sesion
             session()->put('usuario', $usuario);
-            
-            //Cargamos todos los usuarios que hay en el sistema
-            $usuarios = Conexion::obtenerUsuarios();
-            
-            //Guardamos los usuarios en la sesion para mostrarlo cuando 
-            //se necesiten
-            session()->put('usuarios', $usuarios);
-            
-            return view('adm.indexAdm');
+
+            //Miramos que permisos tiene el usuario en la BBDD
+            //Si solo hay 1 es cliente
+            if (count($usuario) === 1) {
+                //Guardamos la sesion del usuario en la sesion
+                session()->put('usuario', $usuario);
+                
+                //Redirigimos a la pagina cliente
+                return view('cliente.indexCliente');
+            } else {
+                //Si tiene mas es administrador tambien
+                //Cargamos todos los usuarios que hay en el sistema
+                $usuarios = Conexion::obtenerUsuarios();
+
+                //Guardamos los usuarios en la sesion para mostrarlo cuando 
+                //se necesiten
+                session()->put('usuarios', $usuarios);
+
+                return view('adm.indexAdm');
+            }
         } else {
             session()->put('usuario', $usuario);
             return view('index');

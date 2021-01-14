@@ -63,7 +63,7 @@
 
 
                     </ul>
-                    <ul class="navbar-nav">
+<!--                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <audio controls autoplay>
                                 <source src="{{asset ('audio/audio.ogg')}}" type="audio/ogg">
@@ -71,7 +71,7 @@
                                 El navegador no admite el elemento de audio.
                             </audio>
                         </li>
-                    </ul>
+                    </ul>-->
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="https://www.instagram.com/hudy_elpaisano/" target="_blank"><img class="redes" alt="instagram" src="{{asset ('img/instagram.png')}}"></a>
