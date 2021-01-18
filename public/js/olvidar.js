@@ -9,5 +9,5 @@ function irInicio(){
 }
 
 function irIndex(){
-    window.location.href='adm.indexAdm';
+    window.location.href='adm.index';
 }

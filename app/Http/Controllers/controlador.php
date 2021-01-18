@@ -29,7 +29,12 @@ class controlador extends Controller {
         //Si existe creamos la sesion
         if (count($usuario) !== 0) {
 
-            //Guardamos la sesion del usuario en la sesion
+            $usuariosCitas = Conexion::obtenerTodosUsuarios();
+            
+            //Obtenemos los usuarios de la aplicacion para mostrar en citas y lo guardamos en sesion
+            session()->put('usuariosCitas', $usuariosCitas);
+            
+            //Obtenemos el usuario logueado y lo guardamos en la sesion
             session()->put('usuario', $usuario);
 
             //Miramos que permisos tiene el usuario en la BBDD

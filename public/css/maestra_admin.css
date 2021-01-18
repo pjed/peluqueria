@@ -79,17 +79,9 @@ main{
     min-height: 800px;
     background-color: whitesmoke;
     text-align: center;
-    width: 80%;
+    width: 100%;
 }
-aside{
-    top: 10px;
-    width: 20%; 
-    float: right;
-    position: relative;
-    min-height: 800px;
-    text-align: center;
-    background-color: white;
-}
+
 footer{
     height: 50px;
     justify-content: center;

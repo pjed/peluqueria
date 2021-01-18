@@ -16,18 +16,17 @@ El Paisano - Olvidar contraseña
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-        <li class="breadcrumb-item active">Administrar Usuarios</li>
+        <li class="breadcrumb-item active">Usuarios</li>
     </ol>
 </nav>
 <h5>Administrar Usuarios</h5>
 <form action="#" method="POST">
     <table>
         <thead>
-        <th>Nombre</th>
-        <th>Dirección</th>
-        <th>Fecha Nacimiento</th>
-        <th>Telefono</th>
-        <th>Rol</th>
+        <th>NOMBRE</th>
+        <th>DIRECCIÓN</th>
+        <th>TELÉFONO</th>
+        <th>ROL</th>
         </thead>
         <tbody>
             <?php
@@ -37,7 +36,6 @@ El Paisano - Olvidar contraseña
                 <tr>
                     <td><input type="text" id="nya" name="nya" value="<?php echo $usuario["NYA"] ?>"></td>
                     <td><input type="text" id="direccion" name="direccion" value="<?php echo $usuario["DIRECCION"] ?>"></td>
-                    <td><input type="date" id="nacimiento" name="nacimiento" value="<?php echo $usuario["F_NACIMIENTO"] ?>"></td>
                     <td><input type="text" id="telefono" name="telefono" value="<?php echo $usuario["TELEFONO"] ?>"></td>
                     <td>
                         <select>
@@ -56,8 +54,8 @@ El Paisano - Olvidar contraseña
                             ?>
                         </select>
                     </td>
-                    <td><input type="submit" name="editar" id="editar" value="Editar"></td>
-                    <td><input type="submit" name="eliminar" id="eliminar" value="Eliminar"></td>
+                    <td><input type="submit" class="btn btn-dark w-100" name="editar" id="editar" value="Editar"></td>
+                    <td><input type="submit" class="btn btn-dark w-100" name="eliminar" id="eliminar" value="Eliminar"></td>
                 </tr>
                 <?php
             }
@@ -65,8 +63,6 @@ El Paisano - Olvidar contraseña
         </tbody>
     </table>
 </form>
-<br>
-<input type="button" value="Volver" class="btn btn-dark" onclick="irIndex();"><br>
 @endsection
 
 <!--@section('aside') 

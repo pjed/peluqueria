@@ -7,10 +7,10 @@ thead{
 }
 
 tr{
-    background-color: #BEE5EB;
+    background-color: lightgray;
 }
 
 tr:hover{
-    background-color: blue;
+    background-color: grey;
     color: white;
 }

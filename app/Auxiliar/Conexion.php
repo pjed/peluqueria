@@ -41,10 +41,8 @@ class Conexion {
     }
     
     /**
-     * Método para comprobar si un usuario existe en la BD para hacer login
-     * @param type $correo email del usuario
-     * @param type $pass contraseña del usuario
-     * @return type usuario
+     * Método para obtener todos los usuarios que tienen rol de la aplicacion para mostrarlos en la parte de administracion usuarios
+     * @return type usuarios
      */
     static function obtenerUsuarios() {
 
@@ -53,6 +51,21 @@ class Conexion {
         $usuarios = \DB::Table('usuario')
                 ->join('tiene', 'usuario.NSOCIO', '=', 'tiene.usuario_NSOCIO')
                 ->join('rol', 'rol.IDROL', '=', 'tiene.rol_IDROL')
+                ->get();
+
+        return $usuarios;
+    }
+    
+    /**
+     * Método para obtener todos los usuarios registrados de la aplicacion para mostrar en la parte de citas
+     * @return type usuarios
+     */
+    static function obtenerTodosUsuarios() {
+
+        //Compruebo que el usuario y la password coincide con algun 
+        //usuario de todos los que hay en la tabla usuarios
+        $usuarios = \DB::Table('usuario')
+                ->select('NSOCIO', 'NYA')
                 ->get();
 
         return $usuarios;

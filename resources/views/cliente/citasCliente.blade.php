@@ -28,9 +28,22 @@ El Paisano - Citas
                 <td>
                     <div class="input-group flex-nowrap">
                         <div class="input-group-prepend">
-                            <span class="input-group-text">Nombre</span>
+                            <span class="input-group-text">Nombre Cliente</span>
                         </div>
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre Cliente..." required>
+                        <?php
+                        $usuariosCitas = json_decode(session()->get('usuariosCitas'), true);
+                        ?>
+                        <select id="nombre" required="">
+
+                            <option value="">-- Seleccione una opción --</option>
+                            <?php
+                            foreach ($usuariosCitas as $usuario) {
+                                ?>
+                                <option value="<?php echo $usuario["NSOCIO"] ?>"><?php echo $usuario["NYA"] ?></option>
+                                <?php
+                            }
+                            ?>
+                        </select>
                     </div>
                 </td>
             </tr>
@@ -54,29 +67,11 @@ El Paisano - Citas
             <input type="date" class="form-control" id="fecha" required>
         </div>
         <br>
-        <h6>Turno</h6>
-        <div class="input-group flex-nowrap">
-            <div class="input-group">
-                <input type="text" class="form-control" value="Mañana" readonly disabled>
-                <div class="input-group-prepend">
-                    <div class="input-group-text">
-                        <input type="radio" name="turno" required>
-                    </div>
-                </div>
-                <input type="text" class="form-control" value="Tarde"  readonly disabled>
-                <div class="input-group-prepend">
-                    <div class="input-group-text">
-                        <input type="radio" name="turno" required>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br>
         <div class="input-group flex-nowrap">
             <div class="input-group-prepend">
-                <span class="input-group-text" >Día</span>
+                <span class="input-group-text" >Hora</span>
             </div>
-            <select id="dia" required disabled>
+            <select id="dia" required>
                 <option value="">-- Seleccione una opción --</option>
                 <option value="10:00">10:00</option>
                 <option value="10:30">10:30</option>
@@ -87,15 +82,6 @@ El Paisano - Citas
                 <option value="13:00">13:00</option>
                 <option value="13:30">13:30</option>
                 <option value="14:00">14:00</option>
-            </select>
-        </div>
-        <br>
-        <div class="input-group flex-nowrap">
-            <div class="input-group-prepend">
-                <span class="input-group-text" >Tarde</span>
-            </div>
-            <select id="tarde" required disabled>
-                <option value="">-- Seleccione una opción --</option>
                 <option value="17:00">17:00</option>
                 <option value="17:30">17:30</option>
                 <option value="18:00">18:00</option>
@@ -148,7 +134,7 @@ El Paisano - Citas
                             <th>
                                 11:00&nbsp;&nbsp;
                             </th>
-                            <td class="ocupado">
+                            <td class="libre">
                                 LIBRE
                             </td>
                         </tr>
@@ -181,8 +167,8 @@ El Paisano - Citas
                             <th>
                                 12:30&nbsp;&nbsp;
                             </th>
-                            <td class="ocupado">
-                                OCUPADO
+                            <td class="libre">
+                                LIBRE
                             </td>
                         </tr>
                         <tr>
@@ -192,8 +178,8 @@ El Paisano - Citas
                             <th>
                                 13:00&nbsp;&nbsp;
                             </th>
-                            <td class="ocupado">
-                                OCUPADO
+                            <td class="libre">
+                                LIBRE
                             </td>
                         </tr>
                         <tr>
@@ -203,8 +189,8 @@ El Paisano - Citas
                             <th>
                                 13:30&nbsp;&nbsp;
                             </th>
-                            <td class="ocupado">
-                                OCUPADO
+                            <td class="libre">
+                                LIBRE
                             </td>
                         </tr>
                         <tr>
@@ -214,8 +200,8 @@ El Paisano - Citas
                             <th>
                                 14:00&nbsp;&nbsp;
                             </th>
-                            <td class="ocupado">
-                                OCUPADO
+                            <td class="libre">
+                                LIBRE
                             </td>
                         </tr>
                     </tbody>
@@ -232,7 +218,7 @@ El Paisano - Citas
                             <th>
                                 17:00&nbsp;&nbsp;
                             </th>
-                            <td class="ocupado">
+                            <td class="libre">
                                 LIBRE
                             </td>
                         </tr>
@@ -254,8 +240,8 @@ El Paisano - Citas
                             <th>
                                 18:00&nbsp;&nbsp;
                             </th>
-                            <td class="ocupado">
-                                OCUPADO
+                            <td class="libre">
+                                LIBRE
                             </td>
                         </tr>
                         <tr>
@@ -276,8 +262,8 @@ El Paisano - Citas
                             <th>
                                 19:00&nbsp;&nbsp;
                             </th>
-                            <td class="ocupado">
-                                OCUPADO
+                            <td class="libre">
+                                LIBRE
                             </td>
                         </tr>
                         <tr>
@@ -287,8 +273,8 @@ El Paisano - Citas
                             <th>
                                 19:30&nbsp;&nbsp;
                             </th>
-                            <td class="ocupado">
-                                OCUPADO
+                            <td class="libre">
+                                LIBRE
                             </td>
                         </tr>
                         <tr>
@@ -309,8 +295,8 @@ El Paisano - Citas
                             <th>
                                 20:30&nbsp;&nbsp;
                             </th>
-                            <td class="ocupado">
-                                OCUPADO
+                            <td class="libre">
+                                LIBRE
                             </td>
                         </tr>
                         <tr>
@@ -320,8 +306,8 @@ El Paisano - Citas
                             <th>
                                 21:00&nbsp;&nbsp;
                             </th>
-                            <td class="ocupado">
-                                OCUPADO
+                            <td class="libre">
+                                LIBRE
                             </td>
                         </tr>
                     </tbody>

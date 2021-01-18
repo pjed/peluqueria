@@ -1,14 +1,14 @@
 .localizacion{
     float: left;
     display: inline-block;
-    margin-top: 75px;
-    margin-left: 125px;
+    margin-top: 55px;
+    margin-left: 25px;
     width: 200px;
 }
 .horario{
     float: right;
     display: inline-block;
-    margin-right: 125px;
+    margin-right: 25px;
     margin-top: 20px;
     width: 300px;
 }

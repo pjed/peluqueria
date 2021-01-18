@@ -2,6 +2,8 @@
 <html lang="es-ES">
     <head>
         <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+
         <title>@yield('titulo')</title>
 
         <!-- Fuente -->
@@ -11,7 +13,7 @@
         <link rel="stylesheet" type="text/css" href="{{asset ('css/bootstrap.min.css')}}" media="screen" /> 
 
 
-        <link rel="stylesheet" type="text/css" href="{{asset ('css/maestra_login.css')}}" media="screen" /> 
+        <link rel="stylesheet" type="text/css" href="{{asset ('css/maestra_admin.css')}}" media="screen" /> 
         @yield('css')
 
         <link rel="stylesheet" type="text/css" href="{{asset ('css/cookies.css')}}" media="screen" /> 
@@ -97,9 +99,9 @@
             @yield('contenido')
         </main>
 
-        <aside>
+<!--        <aside>
             @yield('aside')
-        </aside>
+        </aside>-->
         <footer class="bg-dark">                     
             <div class="izquierda">
                 Teléfono: 658 230 110<br>
