@@ -36,6 +36,7 @@ div{
 }
 
 .negro{
+    display: inline-flex;
     background-color: black;
     height: 40%;
 }
