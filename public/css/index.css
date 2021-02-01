@@ -8,6 +8,7 @@ and open the template in the editor.
     Author     : elearning
 */
 
+
 .lema{
     font-size: 32pt;
 }
@@ -20,9 +21,7 @@ and open the template in the editor.
 
 
 .imgModelo{
-    height: 100px;
-    margin-left: 50px;
-    margin-right: 50px;
+    height: 50%;
 }
 table{
     margin: 0 auto;
@@ -36,17 +35,26 @@ div{
 }
 
 .negro{
-    display: inline-flex;
+    display: flex;
     background-color: black;
-    height: 40%;
+    flex-wrap: wrap;
+    height: auto;
+    align-items: center;
+    justify-content: center;
 }
 
 .tarjetas{
-    margin-top: 10px;
-    width: 20%;
-    display: inline-block;
+    display: flex;
 }
 
 .clases{
     margin: 7px;
+}
+
+.contenido{
+    display: flex;
+    margin-top: 15px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }

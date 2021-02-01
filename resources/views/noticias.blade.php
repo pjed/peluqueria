@@ -108,7 +108,7 @@ El Paisano - Noticias
 @endsection
 
 @section('aside') 
-<h4>Últimas Noticias</h4>
+<div class="patrocinadores">Últimas Noticias</div>
 <a href="https://www.msn.com/es-es/estilo/belleza/cortes-de-pelo-que-ser-c3-a1n-tendencia-en-2021-y-que-vas-a-pedir-en-tu-peluquer-c3-ada/ar-BB1budtl" target="_blank">
     <p class="ultimasNoticias">
         Cortes de Pelo Temporada 2020-2021

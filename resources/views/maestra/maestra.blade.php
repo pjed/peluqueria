@@ -17,9 +17,9 @@
         <link rel="stylesheet" type="text/css" href="{{asset ('css/cookies.css')}}" media="screen" /> 
 
         @yield('javascript')
-        <!-- Javascript bootstrap y jquery 
+        <!-- Javascript bootstrap y jquery -->
         <script src="{{asset ('js/jquery.min.js')}}"></script>
-        <script src="{{asset ('js/bootstrap.min.js')}}"></script>-->
+        <script src="{{asset ('js/bootstrap.min.js')}}"></script>
         <script src="{{asset ('js/cookies.js')}}"></script>
         <script src="{{asset ('js/maestra.js')}}"></script>
 
@@ -32,17 +32,19 @@
         <!-- Header --> 
         <header>
             <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-                <!-- Brand -->
-                <a href="index" class="navbar-brand"><img class="logo" alt="logo" src="{{asset ('img/logo.jpg')}}"></a>
-
                 <!-- Toggler/collapsibe Button -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <!-- Brand -->
+<!--                <a href="index" class="navbar-brand"><img class="logo" alt="logo" src="{{asset ('img/logo.jpg')}}"></a>-->
+
 
                 <!-- Navbar links -->
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    <ul class="navbar-nav mr-auto">
+                    <!-- Brand -->
+                    <a href="index" class="navbar-brand"><img class="logo" alt="logo" src="{{asset ('img/logo.jpg')}}"></a>
+                    <ul class="navbar-nav mr-auto">  
                         <li class="nav-item active">
                             <a class="nav-link" href="index" >Inicio</a>
                         </li>
@@ -62,16 +64,16 @@
                             <a class="nav-link" href="citas">Citas</a>
                         </li-->
                     </ul>
-<!--                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <audio controls autoplay>
-                                <source src="{{asset ('audio/audio.ogg')}}" type="audio/ogg">
-                                <source src="{{asset ('audio/audio.mp3')}}" type="audio/mpeg">
-                                El navegador no admite el elemento de audio.
-                            </audio>
-                        </li>
-                    </ul>-->
-                    <ul class="navbar-nav">
+                    <!--                    <ul class="navbar-nav">
+                                            <li class="nav-item">
+                                                <audio controls autoplay>
+                                                    <source src="{{asset ('audio/audio.ogg')}}" type="audio/ogg">
+                                                    <source src="{{asset ('audio/audio.mp3')}}" type="audio/mpeg">
+                                                    El navegador no admite el elemento de audio.
+                                                </audio>
+                                            </li>
+                                        </ul>-->
+                    <ul class="navbar-nav eliminar_margen_arriba">
                         <li class="nav-item">
                             <a class="nav-link" href="https://www.instagram.com/hudy_elpaisano/" target="_blank"><img class="redes" alt="instagram" src="{{asset ('img/instagram.png')}}"></a>
                         </li>
@@ -79,7 +81,7 @@
                             <a class="nav-link" href="https://facebook.com/elpaisanopeluqueria/" target="_blank"><img class="redes" alt="facebook" src="{{asset ('img/facebook.png')}}"></a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav eliminar_margen_arriba">
                         <li class="nav-item">
                             <input type="button" name="Login" value="Login" id="login" onclick="irLogin();" class="btn btn-info"/>
                         </li>
@@ -90,14 +92,14 @@
                 </div>
             </nav>
         </header>
-        <main class="h-100">
+        <main>
             @yield('contenido')
         </main>
 
-        <aside class="d-none d-md-block d-xs-none">
+        <aside>
             @yield('aside')
         </aside>
-        <footer class="bg-dark fixed-bottom">                     
+        <footer class="bg-dark">                     
             <div class="izquierda">
                 Teléfono: 658 230 110<br>
                 Ubicación: Paseo de San Gregorio 91

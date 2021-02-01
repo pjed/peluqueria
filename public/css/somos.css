@@ -2,3 +2,25 @@
     margin-left: 20px;
     height: 250px;
 }
+.somos{
+    display:flex;
+    flex-direction: row;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    justify-content: center;
+    align-content: center;
+}
+
+
+/*Medium devices (tablets, 768px and up)*/
+@media (max-width: 768px) {
+
+    .somos{
+        display:flex;
+        flex-direction: column;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        justify-content: center;
+        align-content: center;
+    }
+}
