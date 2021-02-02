@@ -1,10 +1,36 @@
 .imgNoticias{
     margin-left: 10px;
-    height: 125px;
 }
 
 .ultimasNoticias{
     margin-left: 5px;
     margin-right: 5px;
     font-size: 10pt;
+}
+
+.noticia{
+    display:flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+    margin-left: 20px;
+}
+
+
+/*Medium devices (tablets, 768px and up)*/
+@media (max-width: 768px) {  
+    .noticia{
+        display:flex;
+        flex-direction: column;
+        margin-bottom: 15px;
+        margin-left: 20px;
+
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    .imgNoticias{
+        width: 50%;
+        margin-left: 10px;
+        margin-bottom: 25px;
+    }
 }

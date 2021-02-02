@@ -28,48 +28,54 @@ if (session()->get("usuario") != null) {
     }
 }
 ?>
-<div class="contenido">
-    <div id="carouselExampleCaptions" class="carousel slide text-center w-75" data-bs-ride="carousel">
-        <ol class="carousel-indicators">
-            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
-            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
-            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{{asset ('img/modelo1.jpg')}}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Cortes de Pelo</h5>
-                    <p>Siempre a la moda</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{{asset ('img/modelo2.jpg')}}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{{asset ('img/modelo3.jpg')}}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                </div>
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden"></span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden"></span>
-        </a>
+<div class="parallax">
+    <div class="contenedor_columna">
+        <span>PELUQUERÍA</span>    
+        <img class="w-25" src="{{asset ('img/logo.jpg')}}" alt="cortepelo">
     </div>
 </div>
+<div class="parallax">
+    <div class="caption">
+        <span class="border">Nuevo look, nuevo comienzo</span>
+    </div> 
+</div>
 <div>
-    Peluqueria el Paisano
+    <p>
+        Son muchos los factores a tener en cuenta al realizar un servicio de corte, 
+        la forma de tu rostro (cuadrado, redondo o en forma de corazón), tus gustos 
+        o la moda, son algunos de ellos. Nuestros estilistas se forman en las últimas 
+        tendencias en peluquería y técnicas de corte para ofrecerte la solución que mejor 
+        se adapta a ti. En Peluquería el Paisano te ayudaremos a encontrar el corte de 
+        pelo que más te favorece.
+
+        La Peluqueria el Paisano esta diseñada para ofrecerte una experiencia única, 
+        siempre dispuestos a ayudarte, trabajamos mediante cita previa con nuestro servicio 
+        de cita online, relájate mientras lavamos tu cabello, disfruta del asesoramiento 
+        de nuestros estilistas profesionales, para sentirte bien por dentro y por fuera.
+    </p>
+</div>
+<div class="parallax_2">
+    <div class="caption_2">
+        <span class="border_2">Todo para el cuidado de tu cabello</span>
+    </div> 
+</div>
+<div>
+    <p>
+        Los tratamientos capilares luchan contra los efectos de agentes externos sobre tu cabello: sequedad, 
+        aspereza, cabellos grasos o pérdidas de cabello. Con la cosmética capilar minimiza los efectos del sol, 
+        contaminación, secadores o tenacillas que lo debilitan poco a poco.
+
+        El cuidado del cabello es un hábito que debemos incorporar a nuestra rutina tanto desde el punto de vista 
+        reparador como preventivo. La salud de tu cabello es uno de nuestros objetivos principales, por ello te 
+        ofrecemos los tratamientos más punteros en cuidado capilar y reparación. Nuestros tratamientos Ritual te 
+        ofrecen diferentes soluciones y experiencias para cada tipo de cabello o necesidad. Un cabello sano es el 
+        mejor punto de partida para alcanzar ese look perfecto que buscas y que te mereces.
+    </p>
+</div>
+<div class="parallax_3">
+    <div class="caption_3">
+        <span class="border_3">Servicios</span>
+    </div> 
 </div>
 <div class="negro">
     <div class="card bg-light text-white tarjetas">
@@ -89,6 +95,7 @@ if (session()->get("usuario") != null) {
         <input type="button" value="Tintes" class="btn btn-dark clases" onclick="irTintes()"/>
     </div>
 </div>
+
 @endsection
 
 @section('aside') 
