@@ -177,17 +177,25 @@ span.border_3{
 
 
 /*Small devices (landscape phones, 576px and up)*/
-@media (max-width: 576px) {
+@media screen and (min-width: 576px) {
 
+    #cajacookies{
+        font-size: 10px;
+    }
+    
+    #cajacookies > p > button{
+        width: 25%;
+        font-size: 8px;
+    }
+    
     .caption{
         position: absolute;
         left: 0;
-        top: 90%;
         width: 80%;
         text-align: center;
         color: #000;
     }
-/*
+
     .caption_2{
         position: absolute;
         left: 0;
@@ -210,7 +218,7 @@ span.border_3{
         background-color: #111;
         color: #FFF;
         padding: 18px;
-        font-size: 10px;
+        font-size: 20px;
         letter-spacing: 10px;
         width: 80%;
     }
@@ -240,11 +248,11 @@ span.border_3{
         font-size: 20px;
         letter-spacing: 10px;
         width: 80%;
-    }*/
+    }
 }
 
 /*Medium devices (tablets, 768px and up)*/
-@media (max-width: 768px) {  
+@media screen and (min-width: 768px) {  
 
     #cajacookies{
         font-size: 10px;

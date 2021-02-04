@@ -230,6 +230,77 @@ footer{
     .eliminar_margen_arriba{
         margin-top: -1px;
     }
+    
+    #cajacookies{
+        font-size: 10px;
+    }
+    
+    #cajacookies > p > button{
+        width: 25%;
+        font-size: 8px;
+    }
+    
+    .caption{
+        position: absolute;
+        left: 0;
+        width: 80%;
+        text-align: center;
+        color: #000;
+    }
+
+    .caption_2{
+        position: absolute;
+        left: 0;
+        top: 193%;
+        width: 80%;
+        text-align: center;
+        color: #000;
+    }
+
+    .caption_3{
+        position: absolute;
+        left: 0;
+        top: 284%;
+        width: 80%;
+        text-align: center;
+        color: #000;
+    }
+
+    .caption span.border{
+        background-color: #111;
+        color: #FFF;
+        padding: 18px;
+        font-size: 20px;
+        letter-spacing: 10px;
+        width: 80%;
+    }
+
+    span.border{
+        background-color: #111;
+        color: #FFF;
+        padding: 18px;
+        font-size: 41px;
+        letter-spacing: 10px;
+        width: 80%;
+    }
+
+    span.border_2{
+        background-color: #111;
+        color: #FFF;
+        padding: 18px;
+        font-size: 14px;
+        letter-spacing: 10px;
+        width: 80%;
+    }
+
+    span.border_3{
+        background-color: #111;
+        color: #FFF;
+        padding: 18px;
+        font-size: 20px;
+        letter-spacing: 10px;
+        width: 80%;
+    }
 }
 
 /*Large devices (desktops, 992px and up)*/
