@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es-ES">
     <head>
-        <meta charset="utf-8">
+        <meta charset="utf-8" name="viewport" content="width=device-width">
         <title>@yield('titulo')</title>
 
         <!-- Fuente -->
