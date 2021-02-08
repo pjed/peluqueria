@@ -70,67 +70,48 @@ div{
     align-items: center;
 }
 
-.caption{
-    position: absolute;
-    left: 0;
-    top: 101%;
-    width: 80%;
-    text-align: center;
-    color: #000;
-}
-
-.caption_2{
-    position: absolute;
-    left: 0;
-    top: 173%;
-    width: 80%;
-    text-align: center;
-    color: #000;
-}
-
-.caption_3{
-    position: absolute;
-    left: 0;
-    top: 245%;
-    width: 80%;
-    text-align: center;
-    color: #000;
-}
-
-.caption span.border{
+/*.caption{
     background-color: #111;
     color: #FFF;
-    padding: 18px;
-    font-size: 43px;
+    padding: 5px;
+    font-size: 18px;
+    color: white;
     letter-spacing: 10px;
     width: 80%;
+}*/
+
+p.texto{
+    display: block;
+    padding-top: 65px;
+    text-align: justify;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+p.texto2{
+    display: block;
+    padding-top: 125px;
+    text-align: justify;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-span.border{
+/*.caption_2{
     background-color: #111;
     color: #FFF;
     padding: 18px;
     font-size: 41px;
     letter-spacing: 10px;
     width: 80%;
-}
+}*/
 
-span.border_2{
+.caption_3{
     background-color: #111;
     color: #FFF;
     padding: 18px;
     font-size: 31px;
     letter-spacing: 10px;
     width: 80%;
-}
-
-span.border_3{
-    background-color: #111;
-    color: #FFF;
-    padding: 18px;
-    font-size: 41px;
-    letter-spacing: 10px;
-    width: 80%;
+    margin-top: 220px;
 }
 
 .parallax {
@@ -177,44 +158,19 @@ span.border_3{
 
 
 /*Small devices (landscape phones, 576px and up)*/
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 375px) {
 
     #cajacookies{
-        font-size: 10px;
-    }
-    
-    #cajacookies > p > button{
-        width: 25%;
         font-size: 8px;
     }
-    
-    .caption{
-        position: absolute;
-        left: 0;
-        width: 80%;
-        text-align: center;
-        color: #000;
+
+    #cajacookies > p > button{
+        font-size: 8px;
     }
+
+
 
     .caption_2{
-        position: absolute;
-        left: 0;
-        top: 193%;
-        width: 80%;
-        text-align: center;
-        color: #000;
-    }
-
-    .caption_3{
-        position: absolute;
-        left: 0;
-        top: 284%;
-        width: 80%;
-        text-align: center;
-        color: #000;
-    }
-
-    .caption span.border{
         background-color: #111;
         color: #FFF;
         padding: 18px;
@@ -223,32 +179,15 @@ span.border_3{
         width: 80%;
     }
 
-    span.border{
+/*    .caption_3{
         background-color: #111;
         color: #FFF;
         padding: 18px;
-        font-size: 41px;
+        font-size: 31px;
         letter-spacing: 10px;
         width: 80%;
-    }
+    }*/
 
-    span.border_2{
-        background-color: #111;
-        color: #FFF;
-        padding: 18px;
-        font-size: 14px;
-        letter-spacing: 10px;
-        width: 80%;
-    }
-
-    span.border_3{
-        background-color: #111;
-        color: #FFF;
-        padding: 18px;
-        font-size: 20px;
-        letter-spacing: 10px;
-        width: 80%;
-    }
 }
 
 /*Medium devices (tablets, 768px and up)*/
@@ -257,40 +196,33 @@ span.border_3{
     #cajacookies{
         font-size: 10px;
     }
-    
+
     #cajacookies > p > button{
         width: 25%;
         font-size: 8px;
     }
-    
+
     .caption{
-        position: absolute;
-        left: 0;
+        background-color: #000;
+        color: #FFF;
+        padding: 5px;
+        font-size: 20px;
+        color: white;
+        letter-spacing: 10px;
         width: 80%;
-        text-align: center;
-        color: #000;
     }
 
     .caption_2{
-        position: absolute;
-        left: 0;
-        top: 193%;
+        background-color: #000;
+        color: #FFF;
+        padding: 18px;
+        font-size: 13px;
+        letter-spacing: 10px;
         width: 80%;
-        text-align: center;
-        color: #000;
     }
 
     .caption_3{
-        position: absolute;
-        left: 0;
-        top: 284%;
-        width: 80%;
-        text-align: center;
-        color: #000;
-    }
-
-    .caption span.border{
-        background-color: #111;
+        background-color: #000;
         color: #FFF;
         padding: 18px;
         font-size: 20px;
@@ -298,30 +230,4 @@ span.border_3{
         width: 80%;
     }
 
-    span.border{
-        background-color: #111;
-        color: #FFF;
-        padding: 18px;
-        font-size: 41px;
-        letter-spacing: 10px;
-        width: 80%;
-    }
-
-    span.border_2{
-        background-color: #111;
-        color: #FFF;
-        padding: 18px;
-        font-size: 14px;
-        letter-spacing: 10px;
-        width: 80%;
-    }
-
-    span.border_3{
-        background-color: #111;
-        color: #FFF;
-        padding: 18px;
-        font-size: 20px;
-        letter-spacing: 10px;
-        width: 80%;
-    }
 }

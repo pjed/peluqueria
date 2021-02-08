@@ -34,33 +34,24 @@ if (session()->get("usuario") != null) {
         <img class="w-25" src="{{asset ('img/logo.jpg')}}" alt="cortepelo">
     </div>
 </div>
-<div class="parallax">
-    <div class="caption">
-        <span class="border">Nuevo look, nuevo comienzo</span>
-    </div> 
-</div>
-<div>
-    <p>
-        Son muchos los factores a tener en cuenta al realizar un servicio de corte, 
-        la forma de tu rostro (cuadrado, redondo o en forma de corazón), tus gustos 
-        o la moda, son algunos de ellos. Nuestros estilistas se forman en las últimas 
-        tendencias en peluquería y técnicas de corte para ofrecerte la solución que mejor 
-        se adapta a ti. En Peluquería el Paisano te ayudaremos a encontrar el corte de 
-        pelo que más te favorece.
+<span class="caption">Nuevo look, nuevo comienzo</span>
+<p class="texto">
+    Son muchos los factores a tener en cuenta al realizar un servicio de corte, 
+    la forma de tu rostro (cuadrado, redondo o en forma de corazón), tus gustos 
+    o la moda, son algunos de ellos. Nuestros estilistas se forman en las últimas 
+    tendencias en peluquería y técnicas de corte para ofrecerte la solución que mejor 
+    se adapta a ti. En Peluquería el Paisano te ayudaremos a encontrar el corte de 
+    pelo que más te favorece.
 
-        La Peluqueria el Paisano esta diseñada para ofrecerte una experiencia única, 
-        siempre dispuestos a ayudarte, trabajamos mediante cita previa con nuestro servicio 
-        de cita online, relájate mientras lavamos tu cabello, disfruta del asesoramiento 
-        de nuestros estilistas profesionales, para sentirte bien por dentro y por fuera.
-    </p>
-</div>
-<div class="parallax_2">
-    <div class="caption_2">
-        <span class="border_2">Todo para el cuidado de tu cabello</span>
-    </div> 
-</div>
+    La Peluqueria el Paisano esta diseñada para ofrecerte una experiencia única, 
+    siempre dispuestos a ayudarte, trabajamos mediante cita previa con nuestro servicio 
+    de cita online, relájate mientras lavamos tu cabello, disfruta del asesoramiento 
+    de nuestros estilistas profesionales, para sentirte bien por dentro y por fuera.
+</p>
+<div class="parallax_2"></div>
 <div>
-    <p>
+    <span class="caption_2">Todo para el cuidado de tu cabello</span>
+    <p class="texto2">
         Los tratamientos capilares luchan contra los efectos de agentes externos sobre tu cabello: sequedad, 
         aspereza, cabellos grasos o pérdidas de cabello. Con la cosmética capilar minimiza los efectos del sol, 
         contaminación, secadores o tenacillas que lo debilitan poco a poco.
@@ -72,11 +63,8 @@ if (session()->get("usuario") != null) {
         mejor punto de partida para alcanzar ese look perfecto que buscas y que te mereces.
     </p>
 </div>
-<div class="parallax_3">
-    <div class="caption_3">
-        <span class="border_3">Servicios</span>
-    </div> 
-</div>
+<span class="caption_3">Servicios</span>
+<div class="parallax_3"></div>
 <div class="negro">
     <div class="card bg-light text-white tarjetas">
         <img class="card-img" src="{{asset ('img/cortepelo.jpg')}}" alt="cortepelo">

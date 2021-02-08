@@ -141,7 +141,7 @@ footer{
     }
 
     .patrocinadores{
-        font-size: 12px;
+        font-size: 9px;
         text-align: center;
         font-weight: bold;
     }
@@ -236,22 +236,25 @@ footer{
     }
     
     #cajacookies > p > button{
-        width: 25%;
         font-size: 8px;
     }
     
     .caption{
         position: absolute;
         left: 0;
-        width: 80%;
         text-align: center;
-        color: #000;
+        background-color: #111;
+        padding: 5px;
+        /*font-size: 20px;*/
+        color: white;
+        letter-spacing: 10px;
+        width: 80%;
+        padding-bottom: 15px;
     }
 
     .caption_2{
         position: absolute;
         left: 0;
-        top: 193%;
         width: 80%;
         text-align: center;
         color: #000;
@@ -260,7 +263,6 @@ footer{
     .caption_3{
         position: absolute;
         left: 0;
-        top: 284%;
         width: 80%;
         text-align: center;
         color: #000;

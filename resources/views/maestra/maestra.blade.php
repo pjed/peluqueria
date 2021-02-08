@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es-ES">
     <head>
-        <meta charset="utf-8" name="viewport" content="width=device-width">
+        <!--<meta charset="utf-8" name="viewport" content="width=device-width">-->
 
         <title>@yield('titulo')</title>
 
@@ -110,8 +110,8 @@
             </div>
             <div id="cajacookies" class="fixed-bottom bg-dark">
                 <p>
-                    <button onclick="aceptarCookies()" class="pull-right btn btn-info mr-3"><i class="fa fa-times"></i> Aceptar y cerrar éste mensaje</button>
-                    Éste sitio web usa cookies, si permanece aquí acepta su uso.
+                    <button onclick="aceptarCookies()" class="pull-right btn btn-info mr-3"><i class="fa fa-times"></i> Aceptar y cerrar éste mensaje</button><br>
+                    Éste sitio web usa cookies, si permanece aquí acepta su uso.<br>
                     Puede leer más sobre el uso de cookies en nuestra <a href="privacidad">política de privacidad</a>.
                 </p>
             </div>
