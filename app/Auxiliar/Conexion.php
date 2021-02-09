@@ -27,7 +27,6 @@ class Conexion {
      * @return type usuario
      */
     static function existeUsuario($correo, $pass) {
-
         //Compruebo que el usuario y la password coincide con algun 
         //usuario de todos los que hay en la tabla usuarios
         $usuario = \DB::Table('usuario')
@@ -36,7 +35,7 @@ class Conexion {
                 ->where('EMAIL', $correo)
                 ->where('PASSWORD', $pass)
                 ->get();
-
+        
         return $usuario;
     }
     

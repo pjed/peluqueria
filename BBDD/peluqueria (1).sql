@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-12-2020 a las 19:23:42
--- Versión del servidor: 10.4.6-MariaDB
--- Versión de PHP: 7.3.9
+-- Tiempo de generación: 09-02-2021 a las 16:41:06
+-- Versión del servidor: 10.4.17-MariaDB
+-- Versión de PHP: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -102,7 +101,7 @@ CREATE TABLE `usuario` (
   `NSOCIO` int(11) NOT NULL,
   `DNI` varchar(8) COLLATE utf8_spanish_ci DEFAULT NULL,
   `EMAIL` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
-  `PASSWORD` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
+  `PASSWORD` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `NYA` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `DIRECCION` varchar(45) COLLATE utf8_spanish_ci NOT NULL,
   `F_NACIMIENTO` date DEFAULT NULL,
@@ -117,9 +116,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`NSOCIO`, `DNI`, `EMAIL`, `PASSWORD`, `NYA`, `DIRECCION`, `F_NACIMIENTO`, `TELEFONO`, `FOTO`, `updated_at`, `created_at`) VALUES
-(1, '5933283L', 'espinosaduque@gmail.com', '1', 'PEDRO JAVIER ESPINOSA DUQUE', 'CARDENAL MONESCILLO 5', '1987-03-11', '638288641', 'noimage.jpg', '2020-12-18', '2020-12-18'),
-(2, '1234567Z', 'hudi@gmail.com', '1', 'HUDAIFA TANTAUI', 'PUES NO LO SE 5', '1995-07-25', '123456789', 'noimage.jpg', '2020-12-18', '2020-12-18'),
-(18, '1234567X', 'laura@gmail.com', '1', 'Laura Martinez', 'Cardenal Monescillo 5', '1987-03-11', '546897231', 'noimage.jpg', '2020-12-18', '2020-12-18');
+(1, '5933283L', 'espinosaduque@gmail.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b', 'PEDRO JAVIER ESPINOSA DUQUE', 'CARDENAL MONESCILLO 5', '1987-03-11', '638288641', 'noimage.jpg', '2020-12-18', '2020-12-18'),
+(2, '1234567Z', 'hudi@gmail.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b', 'HUDAIFA TANTAUI', 'PUES NO LO SE 5', '1995-07-25', '123456789', 'noimage.jpg', '2020-12-18', '2020-12-18'),
+(18, '1234567X', 'laura@gmail.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b', 'Laura Martinez', 'Cardenal Monescillo 5', '1987-03-11', '546897231', 'noimage.jpg', '2020-12-18', '2020-12-18');
 
 --
 -- Índices para tablas volcadas

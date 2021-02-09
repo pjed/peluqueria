@@ -18,10 +18,11 @@ class controlador extends Controller {
     static function inicioSesion(Request $req) {
         $correo = $req->get('usuario');
         $pass = $req->get('pwd');
-
+        
         //Desencriptamos la contraseña que ha introducido el usuario
         $passHash = hash('sha256', $pass);
 
+        
         //Comprobamos que existe el usuario
         $usuario = Conexion::existeUsuario($correo, $passHash);
 
