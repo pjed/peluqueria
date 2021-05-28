@@ -10,9 +10,47 @@ El Paisano - Citas
 
 @section('javascript')
 <script src="{{asset ('js/citas.js')}}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        $("#fechacita").change(function () {
+            var selectedDate = $(this).val();
+            $.ajax({
+                data: {"fechaSeleccionada": selectedDate}, //datos json recogidos del formulario formu
+                type: "POST", // método de envío de datos
+                url: "submit.php", //código a ejecutar en el servidor
+                success: function (respuesta) {
+                    var citas = JSON.parse(respuesta); //conversión a json de los datos de respuesta
+
+                    if (citas.length != 0) {
+                        
+                        var $boton = $('#reservar');
+                        $boton.prop('disabled', false);
+                        
+                        var $ev = $('#horasLibres');
+                        $ev.prop('disabled', false);
+                        $ev.empty();
+                        $.each(citas, function (index, item) {
+                            $ev.append($('<option></option>').val(item).html(item));
+                        });
+                    } else {
+                        var $ev = $('#horasLibres');
+                        $ev.empty();
+                        $ev.append($("<option></option>")
+                                .attr("value", 0)
+                                .text(" --- NO HAY HORAS LIBRES ---"));
+                        $ev.prop('disabled', true);
+                        var $boton = $('#reservar');
+                        $boton.prop('disabled', true);
+                    }
+                }
+            });
+        });
+    });
+</script>
 @endsection
 
-@section('contenido') 
+@section('contenido')
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index">Inicio</a></li>
@@ -22,7 +60,8 @@ El Paisano - Citas
 <h4>Reservar / Consultar Cita</h4>
 <br>
 <div class="datoscliente">
-    <form action="#" method="get" class="form_citas">
+    <form action="reservarCita" name="reservarCita" method="post" class="form_citas">
+        {{ csrf_field() }} 
         <table>
             <tr>
                 <td>
@@ -31,16 +70,37 @@ El Paisano - Citas
                             <span class="input-group-text">Nombre Cliente</span>
                         </div>
                         <?php
-                        $usuariosCitas = json_decode(session()->get('usuariosCitas'), true);
-                        ?>
-                        <select id="nombre" required="">
+                        $usuario_log = json_decode(session()->get('usuario'), true);
 
-                            <option value="">-- Seleccione una opción --</option>
+//                        if ($usuario_log[0]['DESC_ROL'] === "Admin") {
+                        ?>
+                        <select id="nombre" name="nombre" required="">
                             <?php
+//                            } else {
+                            ?>
+                                <!--<select id="nombre" name="nombre" disabled>-->
+                            <?php
+//                                }
+                            $usuariosCitas = json_decode(session()->get('usuariosCitas'), true);
+
                             foreach ($usuariosCitas as $usuario) {
-                                ?>
-                                <option value="<?php echo $usuario["NSOCIO"] ?>"><?php echo $usuario["NYA"] ?></option>
-                                <?php
+                                $usuario_log = json_decode(session()->get('usuario'), true);
+
+                                if ($usuario_log[0]['NYA'] == $usuario["NYA"]) {
+                                    ?>
+                                    <option value="<?php echo $usuario["NSOCIO"] ?>" selected><?php echo $usuario["NYA"] ?></option>
+                                    <?php
+                                } else {
+                                    if ($usuario_log[0]['DESC_ROL'] !== "Admin") {
+                                        ?>
+                                        <option value="<?php echo $usuario["NSOCIO"] ?>" disabled><?php echo $usuario["NYA"] ?></option>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <option value="<?php echo $usuario["NSOCIO"] ?>"><?php echo $usuario["NYA"] ?></option>
+                                        <?php
+                                    }
+                                }
                             }
                             ?>
                         </select>
@@ -64,33 +124,15 @@ El Paisano - Citas
             <div class="input-group-prepend">
                 <span class="input-group-text">Fecha</span>
             </div>
-            <input type="date" class="form-control" id="fecha" required>
+            <input type="date" class="form-control" required id="fechacita" name="fechacita">
         </div>
         <br>
         <div class="input-group flex-nowrap">
             <div class="input-group-prepend">
                 <span class="input-group-text" >Hora</span>
             </div>
-            <select id="dia" required>
-                <option value="">-- Seleccione una opción --</option>
-                <option value="10:00">10:00</option>
-                <option value="10:30">10:30</option>
-                <option value="11:00">11:00</option>
-                <option value="11:30">11:30</option>
-                <option value="12:00">12:00</option>
-                <option value="12:30">12:30</option>
-                <option value="13:00">13:00</option>
-                <option value="13:30">13:30</option>
-                <option value="14:00">14:00</option>
-                <option value="17:00">17:00</option>
-                <option value="17:30">17:30</option>
-                <option value="18:00">18:00</option>
-                <option value="18:30">18:30</option>
-                <option value="19:00">19:00</option>
-                <option value="19:30">19:30</option>
-                <option value="20:00">20:00</option>
-                <option value="20:30">20:30</option>
-                <option value="21:00">21:00</option>
+            <select id="horasLibres" name="horasLibres">
+                <!--<option value="">-- SELECCIONA UNA FECHA --</option>-->
             </select>
         </div>
         <br>

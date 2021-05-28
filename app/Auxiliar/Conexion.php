@@ -35,10 +35,10 @@ class Conexion {
                 ->where('EMAIL', $correo)
                 ->where('PASSWORD', $pass)
                 ->get();
-        
+
         return $usuario;
     }
-    
+
     /**
      * Método para obtener todos los usuarios que tienen rol de la aplicacion para mostrarlos en la parte de administracion usuarios
      * @return type usuarios
@@ -54,7 +54,7 @@ class Conexion {
 
         return $usuarios;
     }
-    
+
     /**
      * Método para obtener todos los usuarios registrados de la aplicacion para mostrar en la parte de citas
      * @return type usuarios
@@ -106,18 +106,57 @@ class Conexion {
                     ->where('EMAIL', $correo)
                     ->where('PASSWORD', hash('sha256', $pwd))
                     ->get();
-            
+
             $nsocio = json_decode(json_encode($usuario_NSOCIO), true);
-            
+
             //Creamos el objeto tiene para dar de alta al usuario con 
             // el rol de Cliente
             $tiene = new tiene();
             $tiene->idtiene = NULL;
-            $tiene->usuario_NSOCIO = (int)$nsocio[0]['NSOCIO'];
+            $tiene->usuario_NSOCIO = (int) $nsocio[0]['NSOCIO'];
             $tiene->rol_IDROL = $tipo;
             $tiene->save();
         }
         return $usuario;
+    }
+
+    /**
+     * Función que obtiene las horas libres que quedan
+     * @param type $fecha
+     */
+    static function obtenerHorariosCitasLibres($fecha) {
+        $array = array("10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00");
+        $horas = \DB::Table('cita')
+                ->select('HORA')
+                ->where('FECHA', $fecha)
+                ->get();
+
+        $cuantos = 0;
+        foreach ($horas as $value) {
+            $horas_bbdd[$cuantos] = $value->HORA;
+            $cuantos++;
+        }
+        $cuantos = 0;
+        $horasLibres = array_diff($array, $horas_bbdd);
+
+        return $horasLibres;
+    }
+
+    static function addCita($nombre, $observaciones, $fechacita, $horaLibre) {
+
+        //Creamos el objeto cita y lo rellenamos con los datos de la cita
+        $cita = new cita();
+        $cita->idCita = NULL;
+        $cita->FECHA = date(('Y-m-d'), strtotime($fechacita));
+        $cita->TURNO = "1";
+        $cita->HORA = $horaLibre;
+        $cita->NOMBRE = NULL;
+        $cita->OBSERVACIONES = $observaciones;
+        $cita->usuario_NSOCIO = (int) $nombre;
+//        dd($cita);
+        $cita->save();
+
+        return $cita;
     }
 
     /**

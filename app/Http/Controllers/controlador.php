@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\usuario;
 use App\Auxiliar\Conexion;
+use App\Http\Controllers\Sesion;
 
 class controlador extends Controller {
 
@@ -18,23 +19,23 @@ class controlador extends Controller {
     static function inicioSesion(Request $req) {
         $correo = $req->get('usuario');
         $pass = $req->get('pwd');
-        
+
         //Desencriptamos la contraseña que ha introducido el usuario
         $passHash = hash('sha256', $pass);
 
-        
+
         //Comprobamos que existe el usuario
         $usuario = Conexion::existeUsuario($correo, $passHash);
 
-        
+
         //Si existe creamos la sesion
         if (count($usuario) !== 0) {
 
             $usuariosCitas = Conexion::obtenerTodosUsuarios();
-            
+
             //Obtenemos los usuarios de la aplicacion para mostrar en citas y lo guardamos en sesion
             session()->put('usuariosCitas', $usuariosCitas);
-            
+
             //Obtenemos el usuario logueado y lo guardamos en la sesion
             session()->put('usuario', $usuario);
 
@@ -43,7 +44,7 @@ class controlador extends Controller {
             if (count($usuario) === 1) {
                 //Guardamos la sesion del usuario en la sesion
                 session()->put('usuario', $usuario);
-                
+
                 //Redirigimos a la pagina cliente
                 return view('cliente.indexCliente');
             } else {
@@ -105,6 +106,45 @@ class controlador extends Controller {
                     </button>
                   </div>';
             return view('inicio', $usuario);
+        }
+    }
+
+    /**
+     * Función que permite la reserva de las citas a un cliente
+     * @param Request $req
+     */
+    static function reservarCita(Request $req) {
+        $nombre = $req->get("nombre");
+        $observaciones = $req->get("observaciones");
+        $fechacita = $req->get("fechacita");
+        $horaLibre = $req->get("horasLibres");
+
+        $reservaCita = false;
+
+        if ($nombre !== null) {
+            $reservaCita = true;
+        }
+
+        if ($fechacita !== null) {
+            $reservaCita = true;
+        }
+
+        if ($horaLibre !== null) {
+            $reservaCita = true;
+        }
+
+        if ($reservaCita) {
+            //Registramos la cita en la bbdd en la tabla citas 
+            $cita = Conexion::addCita($nombre, $observaciones, $fechacita, $horaLibre);
+
+            //Mostramos que se ha creado la cita correctamente
+            echo '<div class="m-0 alert alert-success alert-dismissible fade show" role="alert">
+                    Cita creada con éxito.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">X</span>
+                    </button>
+                  </div>';
+            return view('cliente.citasCliente', $cita);
         }
     }
 
