@@ -23,10 +23,10 @@ El Paisano - Citas
                     var citas = JSON.parse(respuesta); //conversión a json de los datos de respuesta
 
                     if (citas.length != 0) {
-                        
+
                         var $boton = $('#reservar');
                         $boton.prop('disabled', false);
-                        
+
                         var $ev = $('#horasLibres');
                         $ev.prop('disabled', false);
                         $ev.empty();
@@ -114,7 +114,7 @@ El Paisano - Citas
                         <div class="input-group-prepend">
                             <span class="input-group-text">Observaciones</span>
                         </div>
-                        <textarea rows="4" cols="30" name="observaciones" id="observaciones" placeholder="Escribe alguna observación ..."></textarea>
+                        <textarea rows="4" cols="30" name="observaciones" id="observaciones" required placeholder="Escribe alguna observación ..."></textarea>
                     </div>
                 </td>  
             </tr>
@@ -140,223 +140,35 @@ El Paisano - Citas
     </form>
 </div>
 <div class="horariocita">
-    <h4>Fecha Seleccionada</h4>
-    <table>
-        <tr>
-            <td>
-                <h6>Mañana</h6>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <input type="radio" name="man" required>
-                            </td>
-                            <th>
-                                10:00&nbsp;&nbsp;
-                            </th>
-                            <td class="libre">
-                                LIBRE
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="radio" name="man" required>
-                            </td>
-                            <th>
-                                10:30&nbsp;&nbsp;
-                            </th>
-                            <td class="libre">
-                                LIBRE
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="radio" name="man" required>
-                            </td>
-                            <th>
-                                11:00&nbsp;&nbsp;
-                            </th>
-                            <td class="libre">
-                                LIBRE
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="radio" name="man" required>
-                            </td>
-                            <th>
-                                11:30&nbsp;&nbsp;
-                            </th>
-                            <td class="libre">
-                                LIBRE
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="radio" name="man" required>
-                            </td>
-                            <th>
-                                12:00&nbsp;&nbsp;
-                            </th>
-                            <td class="libre">
-                                LIBRE
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="radio" name="man" required>
-                            </td>
-                            <th>
-                                12:30&nbsp;&nbsp;
-                            </th>
-                            <td class="libre">
-                                LIBRE
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="radio" name="man" required>
-                            </td>
-                            <th>
-                                13:00&nbsp;&nbsp;
-                            </th>
-                            <td class="libre">
-                                LIBRE
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="radio" name="man" required>
-                            </td>
-                            <th>
-                                13:30&nbsp;&nbsp;
-                            </th>
-                            <td class="libre">
-                                LIBRE
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="radio" name="man" required>
-                            </td>
-                            <th>
-                                14:00&nbsp;&nbsp;
-                            </th>
-                            <td class="libre">
-                                LIBRE
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-            <td>
-                <h6>Tarde</h6>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>
-                                &nbsp;&nbsp;<input type="radio" name="tar" required>
-                            </td>
-                            <th>
-                                17:00&nbsp;&nbsp;
-                            </th>
-                            <td class="libre">
-                                LIBRE
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                &nbsp;&nbsp;<input type="radio" name="tar" required>
-                            </td>
-                            <th>
-                                17:30&nbsp;&nbsp;
-                            </th>
-                            <td class="libre">
-                                LIBRE
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                &nbsp;&nbsp;<input type="radio" name="tar" required>
-                            </td>
-                            <th>
-                                18:00&nbsp;&nbsp;
-                            </th>
-                            <td class="libre">
-                                LIBRE
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                &nbsp;&nbsp;<input type="radio" name="tar" required>
-                            </td>
-                            <th>
-                                18:30&nbsp;&nbsp;
-                            </th>
-                            <td class="libre">
-                                LIBRE
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                &nbsp;&nbsp;<input type="radio" name="tar" required>
-                            </td>
-                            <th>
-                                19:00&nbsp;&nbsp;
-                            </th>
-                            <td class="libre">
-                                LIBRE
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                &nbsp;&nbsp;<input type="radio" name="tar" required>
-                            </td>
-                            <th>
-                                19:30&nbsp;&nbsp;
-                            </th>
-                            <td class="libre">
-                                LIBRE
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                &nbsp;&nbsp;<input type="radio" name="tar" required>
-                            </td>
-                            <th>
-                                20:00&nbsp;&nbsp;
-                            </th>
-                            <td class="libre">
-                                LIBRE
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                &nbsp;&nbsp;<input type="radio" name="tar" required>
-                            </td>
-                            <th>
-                                20:30&nbsp;&nbsp;
-                            </th>
-                            <td class="libre">
-                                LIBRE
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                &nbsp;&nbsp;<input type="radio" name="tar" required>
-                            </td>
-                            <th>
-                                21:00&nbsp;&nbsp;
-                            </th>
-                            <td class="libre">
-                                LIBRE
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
+    <?php
+    $citas = session()->get("citas");
+    ?>
+    <h4>Fecha Seleccionada: <?php echo $citas[0]->FECHA; ?></h4>
+    <table class="text-center">
+        <thead>
+        <th>Hora</th>
+        <th>Cliente/a</th>
+        <th>Observaciones</th>
+        <th></th>
+        </thead>
+        <th>
+            <?php
+            foreach ($citas as $cita) {
+                $hora = $cita->HORA;
+                $observaciones = $cita->OBSERVACIONES;
+                $nombre = $cita->NYA;
+                ?>
+            <tr>
+                <td><?php echo $hora ; ?></td>
+                <td><?php echo $nombre ; ?></td>
+                <td><?php echo $observaciones; ?></td>
+                <td><input type="submit" name="borrar_cita" id="borrar_cita" class="btn btn-danger" value="Eliminar cita"></td>
+            </tr>
+            <?php
+        }
+        ?>
     </table>
+
 </div>
 @endsection
 

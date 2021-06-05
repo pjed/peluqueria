@@ -135,15 +135,18 @@ class controlador extends Controller {
 
         if ($reservaCita) {
             //Registramos la cita en la bbdd en la tabla citas 
-            $cita = Conexion::addCita($nombre, $observaciones, $fechacita, $horaLibre);
+            $aux = Conexion::addCita($nombre, $observaciones, $fechacita, $horaLibre);
 
             //Mostramos que se ha creado la cita correctamente
             echo '<div class="m-0 alert alert-success alert-dismissible fade show" role="alert">
-                    Cita creada con éxito.
+                    Cita creada con éxito. El día '.$fechacita.' a las '.$horaLibre.'
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">X</span>
                     </button>
                   </div>';
+            
+            $cita = Conexion::obtenerCitasFecha($fechacita);
+            session()->put("citas", $cita);
             return view('cliente.citasCliente', $cita);
         }
     }

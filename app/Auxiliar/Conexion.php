@@ -142,6 +142,14 @@ class Conexion {
         return $horasLibres;
     }
 
+    /**
+     * Función que añade citas en una fecha y una hora determinada
+     * @param type $nombre
+     * @param type $observaciones
+     * @param type $fechacita
+     * @param type $horaLibre
+     * @return cita
+     */
     static function addCita($nombre, $observaciones, $fechacita, $horaLibre) {
 
         //Creamos el objeto cita y lo rellenamos con los datos de la cita
@@ -153,10 +161,25 @@ class Conexion {
         $cita->NOMBRE = NULL;
         $cita->OBSERVACIONES = $observaciones;
         $cita->usuario_NSOCIO = (int) $nombre;
-//        dd($cita);
         $cita->save();
 
         return $cita;
+    }
+    
+    /**
+     * Función obtener todas las citas con sus nombres y tal para poder 
+     * mostrarlo por la pantalla filtrando por la fecha de la cita que se registre.
+     * @param type $fechacita
+     */
+    static function obtenerCitasFecha($fechacita){
+        $citas = \DB::Table('cita')
+                //->select('HORA, FECHA, NYA, OBSERVACIONES')
+                ->join('usuario', 'cita.usuario_NSOCIO', '=', 'usuario.NSOCIO')
+                ->where('FECHA', $fechacita)
+                ->orderby('HORA')
+                ->get();
+        
+        return $citas;
     }
 
     /**

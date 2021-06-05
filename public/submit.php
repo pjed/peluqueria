@@ -49,7 +49,47 @@ function obtenerHorariosCitasLibres($fecha) {
     }
 }
 
+/**
+ * Función que obtiene las horas libres que quedan
+ * @param type $fecha
+ */
+function obtenerCitasFechaSeleccionada($fecha) {
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "peluqueria";
+
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+// Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    $sql = "SELECT idCITA, NYA, FECHA, HORA, OBSERVACIONES FROM usuario, cita where usuario.NSOCIO = cita.usuario_NSOCIO and FECHA = '" . $fecha . "'";
+    $result = mysqli_query($conn, $sql);
+
+    $citas = null;
+    $cuantos = 0;
+    if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+        while ($row = mysqli_fetch_assoc($result)) {
+            $citas[$cuantos] = $row["HORA"];
+            $cuantos++;
+        }
+    } 
+    mysqli_close($conn);
+
+
+    echo json_encode($citas);
+}
+
 if ($_POST['fechaSeleccionada']) {
     //call the function or execute the code
     obtenerHorariosCitasLibres($_POST['fechaSeleccionada']);
 }
+
+//if ($_POST['obtenerCitas']) {
+//    //call the function or execute the code
+//    obtenerCitasFechaSeleccionada($_POST['fechaSeleccionada']);
+//}
