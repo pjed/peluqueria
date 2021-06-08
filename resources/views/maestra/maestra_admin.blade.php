@@ -68,15 +68,15 @@
 
 
                     </ul>
-<!--                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <audio controls autoplay>
-                                <source src="{{asset ('audio/audio.ogg')}}" type="audio/ogg">
-                                <source src="{{asset ('audio/audio.mp3')}}" type="audio/mpeg">
-                                El navegador no admite el elemento de audio.
-                            </audio>
-                        </li>
-                    </ul>-->
+                    <!--                    <ul class="navbar-nav">
+                                            <li class="nav-item">
+                                                <audio controls autoplay>
+                                                    <source src="{{asset ('audio/audio.ogg')}}" type="audio/ogg">
+                                                    <source src="{{asset ('audio/audio.mp3')}}" type="audio/mpeg">
+                                                    El navegador no admite el elemento de audio.
+                                                </audio>
+                                            </li>
+                                        </ul>-->
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="https://www.instagram.com/hudy_elpaisano/" target="_blank"><img class="redes" alt="instagram" src="{{asset ('img/instagram.png')}}"></a>
@@ -92,7 +92,9 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <input type="button" name="Login" value="Desconectar" id="login" onclick="irLogin();" class="btn btn-info"/>
+                            <form action="desconectar" name="frmDesconectar" method="post"> 
+                                <input type="submit" name="Login" value="Desconectar" id="login" onclick="irLogin();" class="btn btn-info"/>
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -102,9 +104,9 @@
             @yield('contenido')
         </main>
 
-<!--        <aside>
-            @yield('aside')
-        </aside>-->
+        <!--        <aside>
+                    @yield('aside')
+                </aside>-->
         <footer class="bg-dark">                     
             <div class="izquierda">
                 Teléfono: 658 230 110<br>

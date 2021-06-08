@@ -139,16 +139,24 @@ class controlador extends Controller {
 
             //Mostramos que se ha creado la cita correctamente
             echo '<div class="m-0 alert alert-success alert-dismissible fade show" role="alert">
-                    Cita creada con éxito. El día '.$fechacita.' a las '.$horaLibre.'
+                    Cita creada con éxito. El día ' . $fechacita . ' a las ' . $horaLibre . '
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">X</span>
                     </button>
                   </div>';
-            
+
             $cita = Conexion::obtenerCitasFecha($fechacita);
             session()->put("citas", $cita);
             return view('cliente.citasCliente', $cita);
         }
+    }
+
+    /**
+     * Función que cierra la sesion del programa
+     */
+    static function cerrarSesion(Request $req) {
+        Conexion::cerrarSesion($req);
+        return view('index');
     }
 
 }

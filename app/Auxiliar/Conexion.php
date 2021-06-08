@@ -188,7 +188,9 @@ class Conexion {
      * @param Request $req
      * @return type
      */
-    public function cerrarSesion(Request $req) {
+    static function cerrarSesion(Request $req) {
+        session_unset();
+        session_destroy();
         session()->invalidate();
         session()->regenerate();
         return view('index');

@@ -15,6 +15,8 @@ El Paisano - Citas
     $(function () {
         $("#fechacita").change(function () {
             var selectedDate = $(this).val();
+
+            $('#fechaSeleccionada').text(selectedDate);
             $.ajax({
                 data: {"fechaSeleccionada": selectedDate}, //datos json recogidos del formulario formu
                 type: "POST", // método de envío de datos
@@ -27,21 +29,52 @@ El Paisano - Citas
                         var $boton = $('#reservar');
                         $boton.prop('disabled', false);
 
-                        var $ev = $('#horasLibres');
-                        $ev.prop('disabled', false);
-                        $ev.empty();
+                        var $horas = $('#horasLibres');
+                        $horas.prop('disabled', false);
+                        $horas.empty();
                         $.each(citas, function (index, item) {
-                            $ev.append($('<option></option>').val(item).html(item));
+                            $horas.append($('<option></option>').val(item).html(item));
                         });
                     } else {
-                        var $ev = $('#horasLibres');
-                        $ev.empty();
-                        $ev.append($("<option></option>")
+                        var $horas = $('#horasLibres');
+                        $horas.empty();
+                        $horas.append($("<option></option>")
                                 .attr("value", 0)
                                 .text(" --- NO HAY HORAS LIBRES ---"));
-                        $ev.prop('disabled', true);
+                        $horas.prop('disabled', true);
                         var $boton = $('#reservar');
                         $boton.prop('disabled', true);
+                    }
+                }
+            });
+            $.ajax({
+                data: {"fechaSeleccionadaCitas": selectedDate}, //datos json recogidos del formulario formu
+                type: "POST", // método de envío de datos
+                url: "submit2.php", //código a ejecutar en el servidor
+                success: function (respuesta) {
+                    var citas = JSON.parse(respuesta); //conversión a json de los datos de respuesta
+
+                    var $tabla_citas = $('#citas_dia');
+
+                    $tabla_citas.empty();
+                    if (citas != null) {
+                        if (citas.length != 0) {
+                            for (var i = 0; i < citas.length; i++) {
+                                cita = citas[i];
+                                $tabla_citas.append($('<tr>'));
+//                                $tabla_citas.append($('<td></td>').val(i).html(cita["idCITA"]));
+                                $tabla_citas.append($('<td></td>').val(i).html(cita["NYA"]));
+                                $tabla_citas.append($('<td></td>').val(i).html(cita["OBSERVACIONES"]));
+                                $tabla_citas.append($('<td></td>').val(i).html(cita["HORA"]));
+                                $tabla_citas.append($('<td></td>').val(i).html("<input type='submit' value='Eliminar Cita'>"));
+//                                $tabla_citas.append($('<td></td>').val(i).html(cita["FECHA"]));
+                                $tabla_citas.append($('</tr>'));
+                            }
+                        } else {
+                            $tabla_citas.append($('<td></td>').text("No hay citas programadas para el dia seleccionado"));
+                        }
+                    } else {
+                        $tabla_citas.append($('<td></td>').text("No hay citas programadas para el dia seleccionado"));
                     }
                 }
             });
@@ -143,27 +176,48 @@ El Paisano - Citas
     <?php
     $citas = session()->get("citas");
     ?>
-    <h4>Fecha Seleccionada: <?php echo $citas[0]->FECHA; ?></h4>
-    <table class="text-center">
-        <thead>
-        <th>Hora</th>
-        <th>Cliente/a</th>
-        <th>Observaciones</th>
-        <th></th>
-        </thead>
+    <h4>Fecha Seleccionada: 
+        <label id="fechaSeleccionada">
+            <?php
+            if(isset($citas)){
+                
+                echo $citas[0]->FECHA;
+            }
+            ?>
+        </label>
+    </h4>
+    <table class="text-center" id="citas_dia">
+        <?php
+        if (isset($citas)) {
+            ?>
+            <thead>
+            <th>Hora</th>
+            <th>Cliente/a</th>
+            <th>Observaciones</th>
+            <th></th>
+            </thead>
+            <?php
+        }
+        ?>
         <th>
             <?php
-            foreach ($citas as $cita) {
-                $hora = $cita->HORA;
-                $observaciones = $cita->OBSERVACIONES;
-                $nombre = $cita->NYA;
-                ?>
-            <tr>
-                <td><?php echo $hora ; ?></td>
-                <td><?php echo $nombre ; ?></td>
-                <td><?php echo $observaciones; ?></td>
-                <td><input type="submit" name="borrar_cita" id="borrar_cita" class="btn btn-danger" value="Eliminar cita"></td>
-            </tr>
+            if (isset($citas)) {
+                foreach ($citas as $cita) {
+                    $hora = $cita->HORA;
+                    $observaciones = $cita->OBSERVACIONES;
+                    $nombre = $cita->NYA;
+                    ?>
+                <tr>
+                    <td><?php echo $hora; ?></td>
+                    <td><?php echo $nombre; ?></td>
+                    <td><?php echo $observaciones; ?></td>
+                    <td><input type="submit" name="borrar_cita" id="borrar_cita" class="btn btn-danger" value="Eliminar cita"></td>
+                </tr>
+                <?php
+            }
+        } else {
+            ?>
+            <td class="texto_rojo">Seleccione una fecha para obtener las citas</td>
             <?php
         }
         ?>
