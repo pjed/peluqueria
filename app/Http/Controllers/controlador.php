@@ -23,10 +23,8 @@ class controlador extends Controller {
         //Desencriptamos la contraseña que ha introducido el usuario
         $passHash = hash('sha256', $pass);
 
-
         //Comprobamos que existe el usuario
         $usuario = Conexion::existeUsuario($correo, $passHash);
-
 
         //Si existe creamos la sesion
         if (count($usuario) !== 0) {
@@ -136,15 +134,61 @@ class controlador extends Controller {
         if ($reservaCita) {
             //Registramos la cita en la bbdd en la tabla citas 
             $aux = Conexion::addCita($nombre, $observaciones, $fechacita, $horaLibre);
-
-            //Mostramos que se ha creado la cita correctamente
-            echo '<div class="m-0 alert alert-success alert-dismissible fade show" role="alert">
+            
+            $cita = Conexion::obtenerCitasFecha($fechacita);
+            
+            if ($aux) {
+                //Mostramos que se ha creado la cita correctamente
+                echo '<div class="m-0 alert alert-success alert-dismissible fade show" role="alert">
                     Cita creada con éxito. El día ' . $fechacita . ' a las ' . $horaLibre . '
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">X</span>
                     </button>
                   </div>';
 
+                session()->put("citas", $cita);
+            } else {
+                //Mostramos ERROR
+                echo '<div class="m-0 alert alert-danger alert-dismissible fade show" role="alert">
+                    ERROR, no se ha podido crear la cita.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">X</span>
+                    </button>
+                  </div>';
+            }
+
+            return view('cliente.citasCliente', $cita);
+        }
+    }
+
+    /**
+     * Funcion que elimina una cita por su identificador 
+     * @param Request $req
+     */
+    static function borrarCita(Request $req) {
+        $idCITA = $req->get("idCITA");
+        $fechacita = $req->get("fechaSeleccionada");
+
+        //Comprobamos si el idCITA es diferente de null
+        if ($idCITA != null) {
+            if (Conexion::removeCita($idCITA)) {
+                //Mostramos OK
+                echo '<div class="m-0 alert alert-success alert-dismissible fade show" role="alert">
+                    Cita eliminada con éxito.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">X</span>
+                    </button>
+                  </div>';
+            } else {
+                //Mostramos ERROR
+                echo '<div class="m-0 alert alert-danger alert-dismissible fade show" role="alert">
+                    ERROR, no se puede borrar la cita.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">X</span>
+                    </button>
+                  </div>';
+            }
+            $idCITA = null;
             $cita = Conexion::obtenerCitasFecha($fechacita);
             session()->put("citas", $cita);
             return view('cliente.citasCliente', $cita);

@@ -165,20 +165,20 @@ class Conexion {
 
         return $cita;
     }
-    
+
     /**
      * Función obtener todas las citas con sus nombres y tal para poder 
      * mostrarlo por la pantalla filtrando por la fecha de la cita que se registre.
      * @param type $fechacita
      */
-    static function obtenerCitasFecha($fechacita){
+    static function obtenerCitasFecha($fechacita) {
         $citas = \DB::Table('cita')
                 //->select('HORA, FECHA, NYA, OBSERVACIONES')
                 ->join('usuario', 'cita.usuario_NSOCIO', '=', 'usuario.NSOCIO')
                 ->where('FECHA', $fechacita)
                 ->orderby('HORA')
                 ->get();
-        
+
         return $citas;
     }
 
@@ -194,6 +194,20 @@ class Conexion {
         session()->invalidate();
         session()->regenerate();
         return view('index');
+    }
+
+    /**
+     * Función que elimina una cita por su ID
+     * @param type $idCITA
+     */
+    static function removeCita($idCITA) {
+
+        if ($idCITA != null) {
+            //Creamos el objeto cita y lo rellenamos con los datos de la cita
+            $cita = \DB::Table('cita')->where('idCITA', $idCITA)->delete();
+        }
+
+        return $cita;
     }
 
 }

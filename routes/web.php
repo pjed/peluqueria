@@ -144,6 +144,7 @@ Route::get('usuarios', function () {
 Route::post('inicioSesion', 'App\Http\Controllers\controlador@inicioSesion');
 Route::post('crearCuenta', 'App\Http\Controllers\controlador@crearCuenta');
 Route::post('reservarCita', 'App\Http\Controllers\controlador@reservarCita');
+Route::post('borrarCita', 'App\Http\Controllers\controlador@borrarCita');
 Route::post('desconectar', 'App\Http\Controllers\controlador@cerrarSesion');
 
 

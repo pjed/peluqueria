@@ -40,3 +40,10 @@ input[type=text]{
     width: 100px;
     border: solid 1px black;
 }
+
+.table-striped tbody tr:nth-child(odd) td {
+    background-color: green;
+}
+.table-striped tbody tr.highlight td {
+    background-color: red;
+}

@@ -12,78 +12,139 @@ El Paisano - Citas
 <script src="{{asset ('js/citas.js')}}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
-    $(function () {
-        $("#fechacita").change(function () {
-            var selectedDate = $(this).val();
 
-            $('#fechaSeleccionada').text(selectedDate);
-            $.ajax({
-                data: {"fechaSeleccionada": selectedDate}, //datos json recogidos del formulario formu
-                type: "POST", // método de envío de datos
-                url: "submit.php", //código a ejecutar en el servidor
-                success: function (respuesta) {
-                    var citas = JSON.parse(respuesta); //conversión a json de los datos de respuesta
+$(function () {
+    $("#fechacita").change(function () {
+        var selectedDate = $(this).val();
+        $('#fechaSeleccionada').text(selectedDate);
+        $.ajax({
+            data: {"fechaSeleccionada": selectedDate}, //datos json recogidos del formulario formu
+            type: "POST", // método de envío de datos
+            url: "submit.php", //código a ejecutar en el servidor
+            success: function (respuesta) {
+                var citas = JSON.parse(respuesta); //conversión a json de los datos de respuesta
 
-                    if (citas.length != 0) {
+                if (citas.length !== 0) {
 
-                        var $boton = $('#reservar');
-                        $boton.prop('disabled', false);
-
-                        var $horas = $('#horasLibres');
-                        $horas.prop('disabled', false);
-                        $horas.empty();
-                        $.each(citas, function (index, item) {
-                            $horas.append($('<option></option>').val(item).html(item));
-                        });
-                    } else {
-                        var $horas = $('#horasLibres');
-                        $horas.empty();
-                        $horas.append($("<option></option>")
-                                .attr("value", 0)
-                                .text(" --- NO HAY HORAS LIBRES ---"));
-                        $horas.prop('disabled', true);
-                        var $boton = $('#reservar');
-                        $boton.prop('disabled', true);
-                    }
+                    var $boton = $('#reservar');
+                    $boton.prop('disabled', false);
+                    var $horas = $('#horasLibres');
+                    $horas.prop('disabled', false);
+                    $horas.empty();
+                    $.each(citas, function (index, item) {
+                        $horas.append($('<option></option>').val(item).html(item));
+                    });
+                } else {
+                    var $horas = $('#horasLibres');
+                    $horas.empty();
+                    $horas.append($("<option></option>")
+                            .attr("value", 0)
+                            .text(" --- NO HAY HORAS LIBRES ---"));
+                    $horas.prop('disabled', true);
+                    var $boton = $('#reservar');
+                    $boton.prop('disabled', true);
                 }
-            });
-            $.ajax({
-                data: {"fechaSeleccionadaCitas": selectedDate}, //datos json recogidos del formulario formu
-                type: "POST", // método de envío de datos
-                url: "submit2.php", //código a ejecutar en el servidor
-                success: function (respuesta) {
-                    var citas = JSON.parse(respuesta); //conversión a json de los datos de respuesta
+            }
+        });
+        $.ajax({
+            data: {"fechaSeleccionadaCitas": selectedDate}, //datos json recogidos del formulario formu
+            type: "POST", // método de envío de datos
+            url: "submit2.php", //código a ejecutar en el servidor
+            success: function (respuesta) {
+                var citas = JSON.parse(respuesta); //conversión a json de los datos de respuesta
 
-                    var $tabla_citas = $('#citas_dia');
+                var $tabla_citas = $('#citas_dia');
+                var $nsocio = $('#nsocio').val();
+                var $rol = $('#rol').val();
 
-                    $tabla_citas.empty();
-                    if (citas != null) {
-                        if (citas.length != 0) {
-                            for (var i = 0; i < citas.length; i++) {
-                                cita = citas[i];
-                                $tabla_citas.append($('<tr>'));
-//                                $tabla_citas.append($('<td></td>').val(i).html(cita["idCITA"]));
-                                $tabla_citas.append($('<td></td>').val(i).html(cita["NYA"]));
-                                $tabla_citas.append($('<td></td>').val(i).html(cita["OBSERVACIONES"]));
-                                $tabla_citas.append($('<td></td>').val(i).html(cita["HORA"]));
-                                $tabla_citas.append($('<td></td>').val(i).html("<input type='submit' value='Eliminar Cita'>"));
-//                                $tabla_citas.append($('<td></td>').val(i).html(cita["FECHA"]));
-                                $tabla_citas.append($('</tr>'));
+                $tabla_citas.empty();
+                if (citas !== null) {
+                    if (citas.length !== 0) {
+                        $tabla = "";
+                        $tabla += "<thead>";
+                        $tabla += "<th>Hora</th>";
+                        $tabla += "<th>Cliente/a</th>";
+                        $tabla += "<th>Observaciones</th>";
+                        $tabla += "<th></th>";
+                        $tabla += "</thead>";
+                        $tabla += "<tbody>";
+                        for (var i = 0; i < citas.length; i++) {
+                            cita = citas[i];
+                            $fila = "";
+                            if ($rol === "1") {
+                                $fila += '<tr>';
+                                $fila += '<input type="hidden" name="idCITA" id="' + cita["idCITA"] + '" value="' + cita["idCITA"] + '"/>';
+                                $fila += '<td>' + cita["HORA"] + '</td>';
+                                $fila += '<td>' + cita["NYA"] + '</td>';
+                                $fila += '<td>' + cita["OBSERVACIONES"] + '</td>';
+                                $fila += '<td><input type="submit" name="borrar_cita"  id="borrar_cita" class="btn btn-danger" value="Eliminar"/></td>';
+                            } else if ($nsocio !== cita["NSOCIO"]) {
+                                $fila += '<tr>';
+                                $fila += '<input type="hidden" name="idCITA" id="' + cita["idCITA"] + '" value="' + cita["idCITA"] + '"/>';
+                                $fila += '<td>' + cita["HORA"] + '</td>';
+//                                $fila += '<td>' + cita["NYA"] + '</td>';
+                                $fila += '<td> OCUPADO </td>';
+                                $fila += '<td> SIN OBSERVACIONES </td>';
+                                $fila += '<td><input type="submit" name="borrar_cita" disabled id="borrar_cita" class="btn btn-danger" value="Eliminar"/></td>';
+                            } else {
+                                $fila += '<tr>';
+                                $fila += '<input type="hidden" name="idCITA" id="' + cita["idCITA"] + '" value="' + cita["idCITA"] + '"/>';
+                                $fila += '<td>' + cita["HORA"] + '</td>';
+                                $fila += '<td>' + cita["NYA"] + '</td>';
+                                $fila += '<td>' + cita["OBSERVACIONES"] + '</td>';
+                                $fila += '<td><input type="submit" name="borrar_cita" id="borrar_cita" class="btn btn-danger" value="Eliminar"/></td>';
                             }
-                        } else {
-                            $tabla_citas.append($('<td></td>').text("No hay citas programadas para el dia seleccionado"));
+                            $fila += '</tr>';
+                            $tabla += $fila;
                         }
+                        $tabla += "</tbody>";
+                        $tabla_citas.html($tabla);
                     } else {
+                        $tabla_citas.append($('<tr>'));
                         $tabla_citas.append($('<td></td>').text("No hay citas programadas para el dia seleccionado"));
+                        $tabla_citas.append($('</tr>'));
                     }
+                } else {
+                    $tabla_citas.append($('<tr>'));
+                    $tabla_citas.append($('<td></td>').text("No hay citas programadas para el dia seleccionado"));
+                    $tabla_citas.append($('</tr>'));
                 }
-            });
+            }
         });
     });
+    $('#citas_dia').on('click', 'tbody tr', function (event) {
+        $(this).addClass('highlight').siblings().removeClass('highlight');
+        var selrow = getRow();
+        var idCITA = selrow.attr("value");
+        $.ajax({
+            data: {"citaSeleccionadaBorrar": idCITA}, //datos json recogidos del formulario formu
+            type: "POST", // método de envío de datos
+            url: "submit3.php", //código a ejecutar en el servidor
+            success: function (respuesta) {
+                var borrado = JSON.parse(respuesta); //conversión a json de los datos de respuesta
+
+                if (borrado) {
+                    alert("Se ha borrado la cita correctamente");
+                } else {
+                    alert("ERROR al borrar la cita");
+                }
+            }
+        });
+    });
+
+    function getRow() {
+        return $('table > tbody > tr.highlight > input');
+    }
+});
 </script>
 @endsection
 
 @section('contenido')
+<?php
+$usuario_log = json_decode(session()->get('usuario'), true);
+?>
+<input type="hidden" id="nsocio" value="<?php echo $usuario_log[0]['NSOCIO']; ?>">
+<input type="hidden" id="rol" value="<?php echo $usuario_log[0]['IDROL']; ?>">
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index">Inicio</a></li>
@@ -173,56 +234,25 @@ El Paisano - Citas
     </form>
 </div>
 <div class="horariocita">
-    <?php
-    $citas = session()->get("citas");
-    ?>
     <h4>Fecha Seleccionada: 
-        <label id="fechaSeleccionada">
-            <?php
-            if(isset($citas)){
-                
-                echo $citas[0]->FECHA;
-            }
-            ?>
+        <label id="fechaSeleccionada" name="fechaSeleccionada">
         </label>
     </h4>
     <table class="text-center" id="citas_dia">
+        <thead>
+        <th>Hora</th>
+        <th>Cliente/a</th>
+        <th>Observaciones</th>
+        <th></th>
+        </thead>
         <?php
-        if (isset($citas)) {
-            ?>
-            <thead>
-            <th>Hora</th>
-            <th>Cliente/a</th>
-            <th>Observaciones</th>
-            <th></th>
-            </thead>
-            <?php
-        }
-        ?>
-        <th>
-            <?php
-            if (isset($citas)) {
-                foreach ($citas as $cita) {
-                    $hora = $cita->HORA;
-                    $observaciones = $cita->OBSERVACIONES;
-                    $nombre = $cita->NYA;
-                    ?>
-                <tr>
-                    <td><?php echo $hora; ?></td>
-                    <td><?php echo $nombre; ?></td>
-                    <td><?php echo $observaciones; ?></td>
-                    <td><input type="submit" name="borrar_cita" id="borrar_cita" class="btn btn-danger" value="Eliminar cita"></td>
-                </tr>
-                <?php
-            }
-        } else {
+        if (!isset($citas)) {
             ?>
             <td class="texto_rojo">Seleccione una fecha para obtener las citas</td>
             <?php
         }
         ?>
     </table>
-
 </div>
 @endsection
 

@@ -66,7 +66,7 @@ function obtenerCitasDia($fecha) {
         die("Connection failed: " . mysqli_connect_error());
     }
 
-    $sql = "SELECT idCITA, NYA, FECHA, HORA, OBSERVACIONES FROM usuario, cita where usuario.NSOCIO = cita.usuario_NSOCIO and FECHA = '" . $fecha . "' ORDER BY HORA";
+    $sql = "SELECT idCITA, NYA, FECHA, HORA, OBSERVACIONES, NSOCIO FROM usuario, cita where usuario.NSOCIO = cita.usuario_NSOCIO and FECHA = '" . $fecha . "' ORDER BY HORA";
     $result = mysqli_query($conn, $sql);
 
     $citas = null;
