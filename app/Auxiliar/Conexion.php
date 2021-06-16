@@ -64,7 +64,8 @@ class Conexion {
         //Compruebo que el usuario y la password coincide con algun 
         //usuario de todos los que hay en la tabla usuarios
         $usuarios = \DB::Table('usuario')
-                ->select('NSOCIO', 'NYA')
+                ->select('NYA','NSOCIO')
+                ->orderBy('NYA')
                 ->get();
 
         return $usuarios;

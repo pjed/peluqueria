@@ -1,7 +1,7 @@
-@extends('maestra.maestra')
+@extends('maestra.maestra_admin')
 
 @section('titulo') 
-El Paisano - ¿Quíenes Somos?
+El Paisano - ¿Quíenes Somos? Admin
 @endsection
 
 @section('css')

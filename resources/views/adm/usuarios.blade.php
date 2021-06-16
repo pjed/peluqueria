@@ -1,7 +1,7 @@
 @extends('maestra.maestra_admin')
 
 @section('titulo') 
-El Paisano - Olvidar contraseña
+El Paisano - Usuarios - Admin
 @endsection
 
 @section('css')

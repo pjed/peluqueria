@@ -1,7 +1,7 @@
-@extends('maestra.maestra')
+@extends('maestra.maestra_admin')
 
 @section('titulo') 
-El Paisano - Privacidad
+El Paisano - Privacidad Admin
 @endsection
 
 @section('css')

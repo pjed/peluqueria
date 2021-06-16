@@ -70,15 +70,32 @@ div{
     align-items: center;
 }
 
-/*.caption{
+.caption{
     background-color: #111;
     color: #FFF;
     padding: 5px;
-    font-size: 18px;
+    font-size: 41px;
     color: white;
     letter-spacing: 10px;
     width: 80%;
-}*/
+}
+
+.caption_2{
+    background-color: #111;
+    color: #FFF;
+    padding: 18px;
+    font-size: 41px;
+    letter-spacing: 10px;
+    width: 80%;
+}
+
+.caption_3{
+    background-color: #111;
+    color: #FFF;
+    padding: 18px;
+    font-size: 31px;
+    letter-spacing: 10px;
+}
 
 p.texto{
     display: block;
@@ -89,29 +106,10 @@ p.texto{
 }
 p.texto2{
     display: block;
-    padding-top: 125px;
+    padding-top: 40px;
     text-align: justify;
     padding-left: 10px;
     padding-right: 10px;
-}
-
-/*.caption_2{
-    background-color: #111;
-    color: #FFF;
-    padding: 18px;
-    font-size: 41px;
-    letter-spacing: 10px;
-    width: 80%;
-}*/
-
-.caption_3{
-    background-color: #111;
-    color: #FFF;
-    padding: 18px;
-    font-size: 31px;
-    letter-spacing: 10px;
-    width: 80%;
-    margin-top: 220px;
 }
 
 .parallax {
@@ -154,11 +152,12 @@ p.texto2{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    padding-top: 240px;
 }
 
 
 /*Small devices (landscape phones, 576px and up)*/
-@media screen and (min-width: 375px) {
+/*@media screen and (min-width: 375px) {
 
     #cajacookies{
         font-size: 8px;
@@ -179,19 +178,19 @@ p.texto2{
         width: 80%;
     }
 
-/*    .caption_3{
+    .caption_3{
         background-color: #111;
         color: #FFF;
         padding: 18px;
         font-size: 31px;
         letter-spacing: 10px;
         width: 80%;
-    }*/
+    }
 
-}
+}*/
 
 /*Medium devices (tablets, 768px and up)*/
-@media screen and (min-width: 768px) {  
+/*@media screen and (min-width: 768px) {  
 
     #cajacookies{
         font-size: 10px;
@@ -230,4 +229,4 @@ p.texto2{
         width: 80%;
     }
 
-}
+}*/

@@ -1,11 +1,7 @@
-@if (isset($_SESSION['usuario']))
-@extends('maestra.maestra_login')
-@else
-@extends('maestra.maestra')
-@endif
+@extends('maestra.maestra_admin')
 
 @section('titulo') 
-El Paisano - Iniciar Sesión
+El Paisano - Iniciar Sesión - Admin
 @endsection
 
 @section('css')

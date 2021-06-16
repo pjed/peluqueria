@@ -1,7 +1,7 @@
-@extends('maestra.maestra')
+@extends('maestra.maestra_admin')
 
 @section('titulo') 
-El Paisano - Localización
+El Paisano - Localización Admin
 @endsection
 
 @section('css')
@@ -20,37 +20,38 @@ El Paisano - Localización
         <li class="breadcrumb-item active">Localización</li>
     </ol>
 </nav>
-<div class="localizacion">
-    <div class="div_contenedor">
-        <div class="div_centrado">
-            <h4 class="centrado">Dónde estamos</h4>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3114.0992599536576!2d-4.1115486852970315!3d38.69256416659816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6b8ddca5bcac2d%3A0x728636e9ed0f4fcf!2sPeluqueria%20El%20Paisano!5e0!3m2!1ses!2ses!4v1606837080335!5m2!1ses!2ses" width="400" height="300" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-        </div>
+<div class="contenido row">
+    <div class="col-6">
+        <h4>Localización</h4>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3114.0992599536576!2d-4.1115486852970315!3d38.69256416659816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6b8ddca5bcac2d%3A0x728636e9ed0f4fcf!2sPeluqueria%20El%20Paisano!5e0!3m2!1ses!2ses!4v1606837080335!5m2!1ses!2ses" width="400" height="300" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
     </div>
-</div>
-<div class="horario">
-    <h4>Horario Laboral</h4>
-    <p>De Lunes a Viernes:<br>Mañanas de 10:00 a 14:00<br>Tardes de 17:00 a 21:00</p>
-    <p>Fines de semana: Cerrado</p>
     <br>
-    <h4>Contacta con nosotros</h4>
-    <div class="form-group">
-        <div class="input-group flex-nowrap">
-            <div class="input-group-prepend">
-                <span class="input-group-text" >Email</span>
-            </div>
-            <input type="email" class="form-control" id="from" placeholder="nombre@dominio.com" required>
-        </div>
+    <div class="col-5">
+        <h4>Horario Laboral</h4>
+        <p>De Lunes a Viernes:<br>Mañanas de 10:00 a 14:00<br>Tardes de 17:00 a 21:00</p>
+        <p>Fines de semana: Cerrado</p>
         <br>
-        <div class="input-group flex-nowrap">
-            <div class="input-group-prepend">
-                <span class="input-group-text" >Motivo</span>
+        <h4>Contacta con nosotros</h4>
+        <div class="form-group">
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" >Email</span>
+                </div>
+                <input type="email" class="form-control" id="from" placeholder="nombre@dominio.com" required>
             </div>
-            <textarea id="body" name="motivo" rows="4" required cols="50" placeholder="Escriba aquí el texto"></textarea>
+            <br>
+            <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" >Motivo</span>
+                </div>
+                <textarea id="body" name="motivo" rows="4" required cols="50" placeholder="Escriba aquí el texto"></textarea>
+            </div>
         </div>
+        <button type="button" class="btn btn-info" onclick="sendEmail();">Enviar</button>
     </div>
-    <button type="button" class="btn btn-info" onclick="sendEmail();">Enviar</button>
+    <br>
 </div>
+
 @endsection
 
 @section('aside') 

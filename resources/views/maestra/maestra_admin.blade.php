@@ -9,18 +9,18 @@
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet"> 
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" type="text/css" href="{{asset ('css/bootstrap.min.css')}}" media="screen" /> 
+        <!--<link rel="stylesheet" type="text/css" href="{{asset ('css/bootstrap.min.css')}}" media="screen" />--> 
 
 
-        <link rel="stylesheet" type="text/css" href="{{asset ('css/maestra_admin.css')}}" media="screen" /> 
+        <link rel="stylesheet" type="text/css" href="{{asset ('css/maestra.css')}}" media="screen" /> 
         @yield('css')
 
         <link rel="stylesheet" type="text/css" href="{{asset ('css/cookies.css')}}" media="screen" /> 
 
         @yield('javascript')
-        <!-- Javascript bootstrap y jquery 
+        <!-- Javascript bootstrap y jquery -->
         <script src="{{asset ('js/jquery.min.js')}}"></script>
-        <script src="{{asset ('js/bootstrap.min.js')}}"></script>-->
+        <script src="{{asset ('js/bootstrap.min.js')}}"></script>
         <script src="{{asset ('js/cookies.js')}}"></script>
         <script src="{{asset ('js/maestra.js')}}"></script>
 
@@ -77,7 +77,7 @@
                                                 </audio>
                                             </li>
                                         </ul>-->
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav eliminar_margen_arriba">
                         <li class="nav-item">
                             <a class="nav-link" href="https://www.instagram.com/hudy_elpaisano/" target="_blank"><img class="redes" alt="instagram" src="{{asset ('img/instagram.png')}}"></a>
                         </li>
@@ -87,14 +87,12 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="perfilUsu"><img class="img_login" src="{{asset ('img/noimage.jpg')}}" alt="login"></a>
+                            <a class="nav-link" href="perfilUsuAdm"><img class="img_login redes" src="{{asset ('img/noimage.jpg')}}" alt="login"></a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <form action="desconectar" name="frmDesconectar" method="post"> 
-                                <input type="submit" name="Login" value="Desconectar" id="login" onclick="irLogin();" class="btn btn-info"/>
-                            </form>
+                            <input type="button" name="Login" value="Desconectar" id="login" onclick="irLogin();" class="btn btn-info"/>
                         </li>
                     </ul>
                 </div>

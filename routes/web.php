@@ -27,11 +27,11 @@ Route::get('index', function () {
 });
 
 Route::get('indexAdm', function () {
-    return view('adm.indexAdm');
+    return view('adm.index');
 });
 
 Route::get('indexCliente', function () {
-    return view('cliente.indexCliente');
+    return view('cliente.index');
 });
 
 Route::get('noticias', function () {
@@ -39,11 +39,11 @@ Route::get('noticias', function () {
 });
 
 Route::get('noticiasAdm', function () {
-    return view('adm.noticiasAdm');
+    return view('adm.noticias');
 });
 
 Route::get('noticiasCliente', function () {
-    return view('cliente.noticiasCliente');
+    return view('cliente.noticias');
 });
 
 Route::get('citas', function () {
@@ -51,11 +51,11 @@ Route::get('citas', function () {
 });
 
 Route::get('citasAdm', function () {
-    return view('adm.citasAdm');
+    return view('adm.citas');
 });
 
 Route::get('citasCliente', function () {
-    return view('cliente.citasCliente');
+    return view('cliente.citas');
 });
 
 Route::get('localizacion', function () {
@@ -63,22 +63,22 @@ Route::get('localizacion', function () {
 });
 
 Route::get('localizacionAdm', function () {
-    return view('adm.localizacionAdm');
+    return view('adm.localizacion');
 });
 
 Route::get('localizacionCliente', function () {
-    return view('cliente.localizacionCliente');
+    return view('cliente.localizacion');
 });
 Route::get('servicios', function () {
     return view('servicios');
 });
 
 Route::get('serviciosAdm', function () {
-    return view('adm.serviciosAdm');
+    return view('adm.servicios');
 });
 
 Route::get('serviciosCliente', function () {
-    return view('cliente.serviciosCliente');
+    return view('cliente.servicios');
 });
 
 Route::get('somos', function () {
@@ -86,11 +86,11 @@ Route::get('somos', function () {
 });
 
 Route::get('somosAdm', function () {
-    return view('adm.somosAdm');
+    return view('adm.somos');
 });
 
 Route::get('somosCliente', function () {
-    return view('cliente.somosCliente');
+    return view('cliente.somos');
 });
 
 Route::get('inicio', function () {
@@ -98,7 +98,7 @@ Route::get('inicio', function () {
 });
 
 Route::get('inicioAdm', function () {
-    return view('adm.inicioAdm');
+    return view('adm.inicio');
 });
 
 Route::get('olvidar', function () {
@@ -106,14 +106,14 @@ Route::get('olvidar', function () {
 });
 
 Route::get('olvidarAdm', function () {
-    return view('adm.olvidarAdm');
+    return view('adm.olvidar');
 });
 
 Route::get('crear', function () {
     return view('crear');
 });
 Route::get('crearAdm', function () {
-    return view('adm.crearAdm');
+    return view('adm.crear');
 });
 
 Route::get('privacidad', function () {
@@ -121,19 +121,19 @@ Route::get('privacidad', function () {
 });
 
 Route::get('privacidadAdm', function () {
-    return view('adm.privacidadAdm');
+    return view('adm.privacidad');
 });
 
 Route::get('adminUsuarios', function () {
     return view('adm.usuarios');
 });
 
-Route::get('perfilUsu', function () {
+Route::get('perfilUsuAdm', function () {
     return view('adm.perfilUsu');
 });
 
-Route::get('perfilUsuCliente', function () {
-    return view('cliente.perfilUsuCliente');
+Route::get('perfilUsu', function () {
+    return view('cliente.perfilUsu');
 });
 
 Route::get('usuarios', function () {

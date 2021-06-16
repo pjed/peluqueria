@@ -2,7 +2,7 @@
 html,body{ margin: 0; height: 100%;}
 /* declaramos un color y una altura full*/
 .div_contenedor{
-    height: 100vh;
+    min-height: 100vh;
 }
 /* declaramos un color, un ancho y una altura*/
 .div_centrado{
@@ -16,6 +16,7 @@ html,body{ margin: 0; height: 100%;}
     flex-direction: row;
     flex-wrap: nowrap;
     align-content: stretch;
+    min-height: 100vh;
 }
 
 .img_perfil{
@@ -92,7 +93,8 @@ main{
     top: 100px;
     background-color: whitesmoke;
     text-align: center;
-    width: 80%;
+    width: 100%;
+    min-height: 100%;
 }
 
 aside{
@@ -109,7 +111,7 @@ img.card-img{
 }
 
 footer{
-    height: 50px;
+    height: 75px;
     justify-content: center;
     align-items: center;
     color: white;

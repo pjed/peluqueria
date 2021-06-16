@@ -1,87 +1,107 @@
-@extends('maestra.maestra_admin')
+@extends('maestra.maestra_cliente')
 
 @section('titulo') 
-El Paisano - Crear Cuenta
+El Paisano - Perfil Cliente
 @endsection
 
 @section('css')
-<link rel="stylesheet" type="text/css" href="{{asset ('css/crear.css')}}" media="screen" />  
+<link rel="stylesheet" type="text/css" href="{{asset ('css/maestra.css')}}" media="screen" />  
 @endsection
 
 @section('javascript')
-<script src="{{asset ('js/crear.js')}}"></script>
+<!--<script src="{{asset ('js/noticias.js')}}"></script>-->
 @endsection
 
 @section('contenido') 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-        <li class="breadcrumb-item active">Crear Cuenta</li>
+        <li class="breadcrumb-item active">Perfil Usuario</li>
     </ol>
 </nav>
-<div class="div_contenedor">
-    <div class="div_centrado login">
-        <form action="#" method="POST">
-            <h5>Crear Cuenta</h5>
-            <div class="input-group flex-nowrap">
-                <div class="input-group-prepend">
-                    <span class="input-group-text bi bi-key" >Nombre</span>
-                </div>
-                <input type="text" class="form-control" required placeholder="Nombre">
+<section>
+    <form name="inicioSesion" action="inicioSesion" method="POST">
+        {{ csrf_field() }} 
+        <h5>Editar Perfil</h5>
+
+        <input type="image" class="img_perfil" src="{{asset ('img/noimage.jpg')}}" name="img" id="img"><br>
+        <input type="file" name="file" id="file"><br><br>
+        <h5>Datos Personales</h5>
+        <?php
+        $usuario = json_decode(session()->get('usuario'), true);
+        
+        foreach ($usuario as $valor) {
+            ?>
+            <div class="izquierda">
+                <fieldset>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="nsocio">Número de socio</label>
+                        </div>
+                        <input type="number" id="nsocio" name="nsocio" class="form-control" value="<?php echo $valor["NSOCIO"] ?>" readonly>
+                    </div>
+                    <br>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="dni">DNI</label>
+                        </div>
+                        <input type="text" id="dni" name="dni" class="form-control" placeholder="1234567X" value="<?php echo $valor["DNI"] ?>" required>
+                    </div>
+                    <br>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="email">Email</label>
+                        </div>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="nombre@dominio.com" value="<?php echo $valor["EMAIL"] ?>" required>
+                    </div>
+                    <br>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text bi bi-key" for="pwd">Password</label>
+                        </div>
+                        <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Escribe tu contraseña" value="<?php echo $valor["PASSWORD"] ?>" required>
+                    </div>
+                </fieldset>
             </div>
-            <br>
-            <div class="input-group flex-nowrap">
-                <div class="input-group-prepend">
-                    <span class="input-group-text bi bi-key" >Apellidos</span>
-                </div>
-                <input type="text" class="form-control" required placeholder="Apellidos">
+
+            <div class="izquierda">
+                <fieldset>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="nya">Nombre y Apellidos</label>
+                        </div>
+                        <input type="text" id="nya" name="nya" class="form-control" placeholder="Nombre y Apellidos" value="<?php echo $valor["NYA"] ?>" required>
+                    </div>
+                    <br>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="direccion">Dirección</label>
+                        </div>
+                        <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Dirección" value="<?php echo $valor["DIRECCION"] ?>" required>
+                    </div>
+                    <br>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="nacimiento">Fecha de Nacimiento</label>
+                        </div>
+                        <input type="date" id="nacimiento" name="nacimiento" class="form-control" required value="<?php echo $valor["F_NACIMIENTO"] ?>">
+                    </div>
+                    <br>
+                    <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="telefono">Teléfono</label>
+                        </div>
+                        <input type="number" maxlength="9" id="telefono" name="telefono" class="form-control" value="<?php echo $valor["TELEFONO"] ?>" required>
+                    </div>
+                    <br>
+                </fieldset>
             </div>
-            <br>
-            <div class="input-group flex-nowrap">
-                <div class="input-group-prepend">
-                    <span class="input-group-text bi bi-key" >Dirección</span>
-                </div>
-                <input type="text" class="form-control" required placeholder="Dirección">
-            </div>
-            <br>
-            <div class="input-group flex-nowrap">
-                <div class="input-group-prepend">
-                    <span class="input-group-text bi bi-key" >Fecha de Nacimiento</span>
-                </div>
-                <input type="date" class="form-control" required>
-            </div>
-            <br>
-            <div class="input-group flex-nowrap">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" >Email</span>
-                </div>
-                <input type="email" class="form-control" placeholder="Email" required>
-                <div class="input-group-append">
-                    <span class="input-group-text">@dominio.com</span>
-                </div>
-            </div>
-            <br>
-            <div class="input-group flex-nowrap">
-                <div class="input-group-prepend">
-                    <span class="input-group-text bi bi-key" >DNI</span>
-                </div>
-                <input type="text" class="form-control" pattern="[0-9]{7}[A-Z]{1}" maxlength="8" placeholder="1234567X" required>
-            </div>
-            <br>
-            <div class="input-group flex-nowrap">
-                <div class="input-group-prepend">
-                    <span class="input-group-text bi bi-key" >Télefono</span>
-                </div>
-                <input type="text" id="telefono" pattern="\d*" maxlength="9" class="form-control" placeholder="Fijo o movil" required>
-            </div>
-            <br>
-            <input type="submit" value="Registrarse" class="btn btn-info">
-            <input type="button" value="Volver" class="btn btn-dark" onclick="irInicio();"><br>
-            <br>
-            <input type="reset" value="Resetear Campos" class="btn btn-danger">
-        </form>
-    </div>
-</div>
+            <input type="submit" name="actualizar" value="Actualizar Datos" class="btn btn-info">
+            <?php
+        }
+        ?>
+    </form> 
+</section>
 @endsection
 
 @section('aside') 

@@ -1,8 +1,7 @@
-@extends('maestra.maestra')
-
+@extends('maestra.maestra_admin')
 
 @section('titulo') 
-El Paisano - Index
+El Paisano - Index Admin
 @endsection
 
 @section('css')
@@ -14,31 +13,56 @@ El Paisano - Index
 @endsection
 
 @section('contenido') 
-<div class="alert alert-danger" role="alert">
-    <strong>ERRORES O INFORMACIÓN</strong> DE INICIO DE SESION DEL USUARIO
+<div class="alert alert-success" role="alert">
+    <strong>Bienvenido/a 
+        <?php
+        $usuario_log = json_decode(session()->get('usuario'), true);
+
+        echo $usuario_log[0]['NYA'];
+        ?>
+    </strong>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
 
-<img alt="logo" src="{{asset ('img/logo.jpg')}}" class="logo_index">
-<table>
-    <tr>
-        <td><img src="{{asset ('img/modelo1.jpg')}}" alt="modelo1" class="imgModelo"></td>
-        <td><img src="{{asset ('img/modelo2.jpg')}}" alt="modelo2" class="imgModelo"></td>
-        <td><img src="{{asset ('img/modelo3.jpg')}}" alt="modelo3" class="imgModelo"></td>
-    </tr>
-    <tr>
-        <td colspan="3" class="lema">
-            <p>Peluquería de Caballeros y Barbería</p>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="3" class="lema">
-            <input type="button" value="Lista de precios" class="btn btn-dark" onclick="irServicios()"/>
-        </td>
-    </tr>
-</table>
+<div class="parallax">
+    <div class="contenedor_columna">
+        <span>PELUQUERÍA</span>    
+        <img class="w-25" src="{{asset ('img/logo.jpg')}}" alt="cortepelo">
+    </div>
+</div>
+<span class="caption">Nuevo look, nuevo comienzo</span>
+<p class="texto">
+    Son muchos los factores a tener en cuenta al realizar un servicio de corte, 
+    la forma de tu rostro (cuadrado, redondo o en forma de corazón), tus gustos 
+    o la moda, son algunos de ellos. Nuestros estilistas se forman en las últimas 
+    tendencias en peluquería y técnicas de corte para ofrecerte la solución que mejor 
+    se adapta a ti. En Peluquería el Paisano te ayudaremos a encontrar el corte de 
+    pelo que más te favorece.
+
+    La Peluqueria el Paisano esta diseñada para ofrecerte una experiencia única, 
+    siempre dispuestos a ayudarte, trabajamos mediante cita previa con nuestro servicio 
+    de cita online, relájate mientras lavamos tu cabello, disfruta del asesoramiento 
+    de nuestros estilistas profesionales, para sentirte bien por dentro y por fuera.
+</p>
+<div class="parallax_2"></div>
+<div>
+    <span class="caption_2">Todo para el cuidado de tu cabello</span>
+    <p class="texto2">
+        Los tratamientos capilares luchan contra los efectos de agentes externos sobre tu cabello: sequedad, 
+        aspereza, cabellos grasos o pérdidas de cabello. Con la cosmética capilar minimiza los efectos del sol, 
+        contaminación, secadores o tenacillas que lo debilitan poco a poco.
+
+        El cuidado del cabello es un hábito que debemos incorporar a nuestra rutina tanto desde el punto de vista 
+        reparador como preventivo. La salud de tu cabello es uno de nuestros objetivos principales, por ello te 
+        ofrecemos los tratamientos más punteros en cuidado capilar y reparación. Nuestros tratamientos Ritual te 
+        ofrecen diferentes soluciones y experiencias para cada tipo de cabello o necesidad. Un cabello sano es el 
+        mejor punto de partida para alcanzar ese look perfecto que buscas y que te mereces.
+    </p>
+</div>
+<div class="parallax_3"><span class="caption_3">Servicios</span></div>
+
 <div class="negro">
     <div class="card bg-light text-white tarjetas">
         <img class="card-img" src="{{asset ('img/cortepelo.jpg')}}" alt="cortepelo">
@@ -51,6 +75,10 @@ El Paisano - Index
     <div class="card bg-light text-white tarjetas">
         <img class="card-img" src="{{asset ('img/barbas.jpg')}}" alt="barbas">
         <input type="button" value="Barbas" class="btn btn-dark clases" onclick="irServicios()"/>
+    </div>
+    <div class="card bg-light text-white tarjetas">
+        <img class="card-img" src="{{asset ('img/tinte.jpg')}}" alt="tintes">
+        <input type="button" value="Tintes" class="btn btn-dark clases" onclick="irTintes()"/>
     </div>
 </div>
 @endsection

@@ -1,7 +1,7 @@
-@extends('maestra.maestra')
+@extends('maestra.maestra_admin')
 
 @section('titulo') 
-El Paisano - Crear Cuenta
+El Paisano - Crear Cuenta Admin
 @endsection
 
 @section('css')

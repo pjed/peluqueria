@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="es-ES">
     <head>
-        <meta charset="utf-8" name="viewport" content="width=device-width">
+        <!--<meta charset="utf-8" name="viewport" content="width=device-width">-->
         <title>@yield('titulo')</title>
 
         <!-- Fuente -->
         <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet"> 
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" type="text/css" href="{{asset ('css/bootstrap.min.css')}}" media="screen" /> 
+        <!--<link rel="stylesheet" type="text/css" href="{{asset ('css/bootstrap.min.css')}}" media="screen" />--> 
 
 
-        <link rel="stylesheet" type="text/css" href="{{asset ('css/maestra_login.css')}}" media="screen" /> 
+        <link rel="stylesheet" type="text/css" href="{{asset ('css/maestra.css')}}" media="screen" /> 
         @yield('css')
 
         <link rel="stylesheet" type="text/css" href="{{asset ('css/cookies.css')}}" media="screen" /> 
 
         @yield('javascript')
-        <!-- Javascript bootstrap y jquery 
+        <!-- Javascript bootstrap y jquery -->
         <script src="{{asset ('js/jquery.min.js')}}"></script>
-        <script src="{{asset ('js/bootstrap.min.js')}}"></script>-->
+        <script src="{{asset ('js/bootstrap.min.js')}}"></script>
         <script src="{{asset ('js/cookies.js')}}"></script>
         <script src="{{asset ('js/maestra.js')}}"></script>
 
-<!--        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>-->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
@@ -76,7 +76,7 @@
                             </audio>
                         </li>
                     </ul>-->
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav eliminar_margen_arriba">
                         <li class="nav-item">
                             <a class="nav-link" href="https://www.instagram.com/hudy_elpaisano/" target="_blank"><img class="redes" alt="instagram" src="{{asset ('img/instagram.png')}}"></a>
                         </li>
@@ -86,7 +86,7 @@
                     </ul>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="perfilUsuCliente"><img class="img_login" src="{{asset ('img/noimage.jpg')}}" alt="login"></a>
+                            <a class="nav-link" href="perfilUsu"><img class="img_login redes" src="{{asset ('img/noimage.jpg')}}" alt="login"></a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
@@ -101,9 +101,9 @@
             @yield('contenido')
         </main>
 
-        <aside>
+<!--        <aside>
             @yield('aside')
-        </aside>
+        </aside>-->
         <footer class="bg-dark">                     
             <div class="izquierda">
                 Teléfono: 658 230 110<br>
@@ -114,8 +114,8 @@
             </div>
             <div id="cajacookies" class="fixed-bottom bg-dark">
                 <p>
-                    <button onclick="aceptarCookies()" class="pull-right btn btn-info mr-3"><i class="fa fa-times"></i> Aceptar y cerrar éste mensaje</button>
-                    Éste sitio web usa cookies, si permanece aquí acepta su uso.
+                    <button onclick="aceptarCookies()" class="pull-right btn btn-info mr-3"><i class="fa fa-times"></i> Aceptar y cerrar éste mensaje</button><br>
+                    Éste sitio web usa cookies, si permanece aquí acepta su uso.<br>
                     Puede leer más sobre el uso de cookies en nuestra <a href="privacidad">política de privacidad</a>.
                 </p>
             </div>

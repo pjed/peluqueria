@@ -97,9 +97,9 @@
             @yield('contenido')
         </main>
 
-        <aside>
+<!--        <aside>
             @yield('aside')
-        </aside>
+        </aside>-->
         <footer class="bg-dark">                     
             <div class="izquierda">
                 Teléfono: 658 230 110<br>

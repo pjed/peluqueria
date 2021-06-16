@@ -63,8 +63,8 @@ if (session()->get("usuario") != null) {
         mejor punto de partida para alcanzar ese look perfecto que buscas y que te mereces.
     </p>
 </div>
-<span class="caption_3">Servicios</span>
-<div class="parallax_3"></div>
+<div class="parallax_3"><span class="caption_3">Servicios</span></div>
+
 <div class="negro">
     <div class="card bg-light text-white tarjetas">
         <img class="card-img" src="{{asset ('img/cortepelo.jpg')}}" alt="cortepelo">

@@ -39,12 +39,14 @@ class controlador extends Controller {
 
             //Miramos que permisos tiene el usuario en la BBDD
             //Si solo hay 1 es cliente
-            if (count($usuario) === 1) {
+            
+            if ($usuario[0]->IDROL !== 1) {
+
                 //Guardamos la sesion del usuario en la sesion
                 session()->put('usuario', $usuario);
 
                 //Redirigimos a la pagina cliente
-                return view('cliente.indexCliente');
+                return view('cliente.index');
             } else {
                 //Si tiene mas es administrador tambien
                 //Cargamos todos los usuarios que hay en el sistema
@@ -54,7 +56,7 @@ class controlador extends Controller {
                 //se necesiten
                 session()->put('usuarios', $usuarios);
 
-                return view('adm.indexAdm');
+                return view('adm.index');
             }
         } else {
             session()->put('usuario', $usuario);
@@ -157,7 +159,7 @@ class controlador extends Controller {
                   </div>';
             }
 
-            return view('cliente.citasCliente', $cita);
+            return view('cliente.citas', $cita);
         }
     }
 
@@ -191,7 +193,7 @@ class controlador extends Controller {
             $idCITA = null;
             $cita = Conexion::obtenerCitasFecha($fechacita);
             session()->put("citas", $cita);
-            return view('cliente.citasCliente', $cita);
+            return view('cliente.citas', $cita);
         }
     }
 

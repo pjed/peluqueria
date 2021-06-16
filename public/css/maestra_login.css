@@ -76,10 +76,10 @@ main{
     color: black;
     float: left;
     top: 100px;
-    min-height: 800px;
     background-color: whitesmoke;
     text-align: center;
-    width: 80%;
+    width: 100%;
+    min-height: 100%;
 }
 aside{
     top: 10px;

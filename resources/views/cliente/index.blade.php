@@ -1,55 +1,85 @@
 @extends('maestra.maestra_cliente')
 
 @section('titulo') 
-El Paisano - Localización
+El Paisano - IndexCliente
 @endsection
 
 @section('css')
-<link rel="stylesheet" type="text/css" href="{{asset ('css/localizacion.css')}}" media="screen" />  
+<link rel="stylesheet" type="text/css" href="{{asset ('css/index.css')}}" media="screen" />  
 @endsection
 
 @section('javascript')
-<script src="{{asset ('js/localizacion.js')}}"></script>
-<script src="{{asset ('js/smtp.js')}}"></script>
+<script src="{{asset ('js/inicio.js')}}"></script>
 @endsection
 
 @section('contenido') 
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index">Inicio</a></li>
-        <li class="breadcrumb-item active">Localización</li>
-    </ol>
-</nav>
-<div class="localizacion">
-    <div class="div_contenedor">
-        <div class="div_centrado">
-            <h4 class="centrado">Dónde estamos</h4>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3114.0992599536576!2d-4.1115486852970315!3d38.69256416659816!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6b8ddca5bcac2d%3A0x728636e9ed0f4fcf!2sPeluqueria%20El%20Paisano!5e0!3m2!1ses!2ses!4v1606837080335!5m2!1ses!2ses" width="400" height="300" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-        </div>
+<div class="alert alert-success" role="alert">
+    <strong>Bienvenido/a 
+        <?php
+        $usuario_log = json_decode(session()->get('usuario'), true);
+
+        echo $usuario_log[0]['NYA'];
+        ?>
+    </strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="parallax">
+    <div class="contenedor_columna">
+        <span>PELUQUERÍA</span>    
+        <img class="w-25" src="{{asset ('img/logo.jpg')}}" alt="cortepelo">
     </div>
 </div>
-<div class="horario">
-    <h4>Horario Laboral</h4>
-    <p>De Lunes a Viernes:<br>Mañanas de 10:00 a 14:00<br>Tardes de 17:00 a 21:00</p>
-    <p>Fines de semana: Cerrado</p>
-    <br>
-    <h4>Contacta con nosotros</h4>
-    <div class="form-group">
-        <div class="input-group flex-nowrap">
-            <div class="input-group-prepend">
-                <span class="input-group-text" >Email</span>
-            </div>
-            <input type="email" class="form-control" id="from" placeholder="nombre@dominio.com" required>
-        </div>
-        <br>
-        <div class="input-group flex-nowrap">
-            <div class="input-group-prepend">
-                <span class="input-group-text" >Motivo</span>
-            </div>
-            <textarea id="body" name="motivo" rows="4" required cols="50" placeholder="Escriba aquí el texto"></textarea>
-        </div>
+<span class="caption">Nuevo look, nuevo comienzo</span>
+<p class="texto">
+    Son muchos los factores a tener en cuenta al realizar un servicio de corte, 
+    la forma de tu rostro (cuadrado, redondo o en forma de corazón), tus gustos 
+    o la moda, son algunos de ellos. Nuestros estilistas se forman en las últimas 
+    tendencias en peluquería y técnicas de corte para ofrecerte la solución que mejor 
+    se adapta a ti. En Peluquería el Paisano te ayudaremos a encontrar el corte de 
+    pelo que más te favorece.
+
+    La Peluqueria el Paisano esta diseñada para ofrecerte una experiencia única, 
+    siempre dispuestos a ayudarte, trabajamos mediante cita previa con nuestro servicio 
+    de cita online, relájate mientras lavamos tu cabello, disfruta del asesoramiento 
+    de nuestros estilistas profesionales, para sentirte bien por dentro y por fuera.
+</p>
+<div class="parallax_2"></div>
+<div>
+    <span class="caption_2">Todo para el cuidado de tu cabello</span>
+    <p class="texto2">
+        Los tratamientos capilares luchan contra los efectos de agentes externos sobre tu cabello: sequedad, 
+        aspereza, cabellos grasos o pérdidas de cabello. Con la cosmética capilar minimiza los efectos del sol, 
+        contaminación, secadores o tenacillas que lo debilitan poco a poco.
+
+        El cuidado del cabello es un hábito que debemos incorporar a nuestra rutina tanto desde el punto de vista 
+        reparador como preventivo. La salud de tu cabello es uno de nuestros objetivos principales, por ello te 
+        ofrecemos los tratamientos más punteros en cuidado capilar y reparación. Nuestros tratamientos Ritual te 
+        ofrecen diferentes soluciones y experiencias para cada tipo de cabello o necesidad. Un cabello sano es el 
+        mejor punto de partida para alcanzar ese look perfecto que buscas y que te mereces.
+    </p>
+</div>
+<div class="parallax_3"><span class="caption_3">Servicios</span></div>
+
+<div class="negro">
+    <div class="card bg-light text-white tarjetas">
+        <img class="card-img" src="{{asset ('img/cortepelo.jpg')}}" alt="cortepelo">
+        <input type="button" value="Cortes de Pelo" class="btn btn-dark clases" onclick="irServicios()"/>
     </div>
-    <button type="button" class="btn btn-info" onclick="sendEmail();">Enviar</button>
+    <div class="card bg-light text-white tarjetas">
+        <img class="card-img" src="{{asset ('img/degradado.jpg')}}" alt="degradado">
+        <input type="button" value="Degradados" class="btn btn-dark clases" onclick="irServicios()"/>
+    </div>
+    <div class="card bg-light text-white tarjetas">
+        <img class="card-img" src="{{asset ('img/barbas.jpg')}}" alt="barbas">
+        <input type="button" value="Barbas" class="btn btn-dark clases" onclick="irServicios()"/>
+    </div>
+    <div class="card bg-light text-white tarjetas">
+        <img class="card-img" src="{{asset ('img/tinte.jpg')}}" alt="tintes">
+        <input type="button" value="Tintes" class="btn btn-dark clases" onclick="irTintes()"/>
+    </div>
 </div>
 @endsection
 
