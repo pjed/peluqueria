@@ -46,9 +46,9 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="indexCliente" >Inicio</a>
                         </li>
-                        <li class="nav-item">
+<!--                        <li class="nav-item">
                             <a class="nav-link" href="noticiasCliente">Noticias</a>
-                        </li>
+                        </li>-->
                         <li class="nav-item">
                             <a class="nav-link" href="serviciosCliente">Servicios</a>
                         </li>

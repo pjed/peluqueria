@@ -35,7 +35,7 @@ El Paisano - Usuarios - Admin
                 ?>
                 <tr>
                     <td><input type="text" id="nya" name="nya" value="<?php echo $usuario["NYA"] ?>"></td>
-                    <td><input type="text" id="direccion" name="direccion" value="<?php echo $usuario["DIRECCION"] ?>"></td>
+                    <!--<td><input type="text" id="direccion" name="direccion" value="<?php echo $usuario["DIRECCION"] ?>"></td>-->
                     <td><input type="text" id="telefono" name="telefono" value="<?php echo $usuario["TELEFONO"] ?>"></td>
                     <td>
                         <select>

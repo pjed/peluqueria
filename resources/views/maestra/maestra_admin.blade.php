@@ -47,9 +47,9 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="indexAdm" >Inicio</a>
                         </li>
-                        <li class="nav-item">
+<!--                        <li class="nav-item">
                             <a class="nav-link" href="noticiasAdm">Noticias</a>
-                        </li>
+                        </li>-->
                         <li class="nav-item">
                             <a class="nav-link" href="serviciosAdm">Servicios</a>
                         </li>
@@ -77,19 +77,19 @@
                                                 </audio>
                                             </li>
                                         </ul>-->
-                    <ul class="navbar-nav eliminar_margen_arriba">
+<!--                    <ul class="navbar-nav eliminar_margen_arriba">
                         <li class="nav-item">
                             <a class="nav-link" href="https://www.instagram.com/hudy_elpaisano/" target="_blank"><img class="redes" alt="instagram" src="{{asset ('img/instagram.png')}}"></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="https://facebook.com/elpaisanopeluqueria/" target="_blank"><img class="redes" alt="facebook" src="{{asset ('img/facebook.png')}}"></a>
                         </li>
-                    </ul>
-                    <ul class="navbar-nav">
+                    </ul>-->
+<!--                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="perfilUsuAdm"><img class="img_login redes" src="{{asset ('img/noimage.jpg')}}" alt="login"></a>
                         </li>
-                    </ul>
+                    </ul>-->
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <input type="button" name="Login" value="Desconectar" id="login" onclick="irLogin();" class="btn btn-info"/>

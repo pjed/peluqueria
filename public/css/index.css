@@ -1,232 +1,264 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 30-nov-2020, 17:34:05
-    Author     : elearning
-*/
-
-.contenedor_columna{
-    font-size: 20px;
-    background-color: white;
-    padding-top: 25px;
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-}
-
-.lema{
-    font-size: 32pt;
-}
-
-.logo_index{
-    height: 150px;
-    margin-bottom: 25px;
-    margin-top: 25px;
-}
-
-
-.imgModelo{
-    height: 50%;
-}
-table{
-    margin: 0 auto;
-}
-div{
-    text-align: center;
-}
-
-.linea{
-    border: 2px solid black;
-}
-
-.negro{
-    display: flex;
-    background-color: black;
-    flex-wrap: wrap;
-    height: auto;
-    align-items: center;
-    justify-content: center;
-}
-
-.tarjetas{
-    display: flex;
-}
-
-.clases{
-    margin: 7px;
-}
-
-.contenido{
-    display: flex;
-    margin-top: 15px;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-}
-
-.caption{
-    background-color: #111;
-    color: #FFF;
-    padding: 5px;
-    font-size: 41px;
-    color: white;
-    letter-spacing: 10px;
-    width: 80%;
-}
-
-.caption_2{
-    background-color: #111;
-    color: #FFF;
-    padding: 18px;
-    font-size: 41px;
-    letter-spacing: 10px;
-    width: 80%;
-}
-
-.caption_3{
-    background-color: #111;
-    color: #FFF;
-    padding: 18px;
-    font-size: 31px;
-    letter-spacing: 10px;
-}
-
-p.texto{
-    display: block;
-    padding-top: 65px;
-    text-align: justify;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-p.texto2{
-    display: block;
-    padding-top: 40px;
-    text-align: justify;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.parallax {
-    /* The image used */
-    background-image: url("../img/barbas.jpg");
-
-    /* Set a specific height */
-    min-height: 300px; 
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.parallax_2 {
-    /* The image used */
-    background-image: url("../img/cortepelo.jpg");
-
-    /* Set a specific height */
-    min-height: 300px; 
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.parallax_3 {
-    /* The image used */
-    background-image: url("../img/degradado.jpg");
-
-    /* Set a specific height */
-    min-height: 300px; 
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    padding-top: 240px;
-}
-
+/* X-Small devices (portrait phones, less than 576px)
+ No media query for `xs` since this is the default in Bootstrap*/
 
 /*Small devices (landscape phones, 576px and up)*/
-/*@media screen and (min-width: 375px) {
-
-    #cajacookies{
-        font-size: 8px;
+@media (min-width: 576px) { 
+    a{
+        font-size: 22pt;
     }
 
-    #cajacookies > p > button{
-        font-size: 8px;
+    .contenedor_columna{
+        font-size: 90px;
+        background-color: white;
+        padding-top: 25px;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
     }
 
-
-
-    .caption_2{
-        background-color: #111;
-        color: #FFF;
-        padding: 18px;
-        font-size: 20px;
-        letter-spacing: 10px;
-        width: 80%;
+    div{
+        text-align: center;
     }
 
-    .caption_3{
-        background-color: #111;
-        color: #FFF;
-        padding: 18px;
-        font-size: 31px;
-        letter-spacing: 10px;
-        width: 80%;
+    .negro{
+        display: flex;
+        background-color: black;
+        flex-wrap: wrap;
+        height: auto;
+        align-items: center;
+        justify-content: center;
     }
 
-}*/
-
-/*Medium devices (tablets, 768px and up)*/
-/*@media screen and (min-width: 768px) {  
-
-    #cajacookies{
-        font-size: 10px;
-    }
-
-    #cajacookies > p > button{
-        width: 25%;
-        font-size: 8px;
+    .clases{
+        margin: 7px;
     }
 
     .caption{
-        background-color: #000;
+        background-color: #111;
         color: #FFF;
         padding: 5px;
-        font-size: 20px;
+        font-size: 55px;
         color: white;
         letter-spacing: 10px;
         width: 80%;
     }
 
     .caption_2{
-        background-color: #000;
+        background-color: #111;
         color: #FFF;
         padding: 18px;
-        font-size: 13px;
+        font-size: 55px;
         letter-spacing: 10px;
-        width: 80%;
+        width: 100%;
     }
 
     .caption_3{
-        background-color: #000;
+        background-color: #111;
         color: #FFF;
         padding: 18px;
+        font-size: 70px;
+        letter-spacing: 10px;
+    }
+
+    p.texto{
+        display: block;
+        padding-top: 65px;
+        text-align: justify;
+        font-size: 40pt;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    p.texto2{
+        display: block;
+        padding-top: 40px;
+        font-size: 40pt;
+        text-align: justify;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .parallax {
+        /* The image used */
+        background-image: url("../img/barbas.jpg");
+
+        /* Set a specific height */
+        min-height: 700px; 
+
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .parallax_2 {
+        /* The image used */
+        background-image: url("../img/cortepelo.jpg");
+
+        /* Set a specific height */
+        min-height: 500px; 
+
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .parallax_3 {
+        /* The image used */
+        background-image: url("../img/degradado.jpg");
+
+        /* Set a specific height */
+        min-height: 500px; 
+
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 240px;
+    }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) { 
+
+}
+
+/*Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) { 
+
+}
+
+/*X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { 
+
+}
+
+/*XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) { 
+    
+    a{
+        font-size: 12pt;
+    }
+    
+    .contenedor_columna{
         font-size: 20px;
+        background-color: white;
+        padding-top: 25px;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+    }
+
+    div{
+        text-align: center;
+    }
+
+    .negro{
+        display: flex;
+        background-color: black;
+        flex-wrap: wrap;
+        height: auto;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .clases{
+        margin: 7px;
+    }
+
+    .caption{
+        background-color: #111;
+        color: #FFF;
+        padding: 5px;
+        font-size: 41px;
+        color: white;
         letter-spacing: 10px;
         width: 80%;
     }
 
-}*/
+    .caption_2{
+        background-color: #111;
+        color: #FFF;
+        padding: 18px;
+        font-size: 41px;
+        letter-spacing: 10px;
+        width: 100%;
+    }
+
+    .caption_3{
+        background-color: #111;
+        color: #FFF;
+        padding: 18px;
+        font-size: 41px;
+        letter-spacing: 10px;
+    }
+
+    p.texto{
+        display: block;
+        padding-top: 65px;
+        font-size: 18pt;
+        text-align: justify;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    p.texto2{
+        display: block;
+        padding-top: 40px;
+        font-size: 18pt;
+        text-align: justify;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .parallax {
+        /* The image used */
+        background-image: url("../img/barbas.jpg");
+
+        /* Set a specific height */
+        min-height: 300px; 
+
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .parallax_2 {
+        /* The image used */
+        background-image: url("../img/cortepelo.jpg");
+
+        /* Set a specific height */
+        min-height: 300px; 
+
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .parallax_3 {
+        /* The image used */
+        background-image: url("../img/degradado.jpg");
+
+        /* Set a specific height */
+        min-height: 300px; 
+
+        /* Create the parallax scrolling effect */
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding-top: 240px;
+    }
+}

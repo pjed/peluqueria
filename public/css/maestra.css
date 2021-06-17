@@ -1,142 +1,16 @@
 /*Reseteamos el margen de html y body*/
 html,body{ margin: 0; height: 100%;}
-/* declaramos un color y una altura full*/
-.div_contenedor{
-    min-height: 100vh;
-}
-/* declaramos un color, un ancho y una altura*/
-.div_centrado{
-    width: 400px;       
-    height: 400px;
-    margin: 0 auto;
-}
-
-.contenido{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: stretch;
-    min-height: 100vh;
-}
-
-.img_perfil{
-    width: 100px;
-    height: 100px;
-}
-
-img{
-    padding: 3px;
-    border: solid 1px black;
-    background-color: white;
-    border-radius: 25px;
-}
-
-table{
-    width: 100%;
-}
-
-img.patrocinadores{
-    width: 80%;
-}
-
-.patrocinadores{
-    font-size: 18px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.cuerpo{
-    text-align: justify;
-    padding-left: 50px;
-    padding-right: 50px;
-}
-
-.izquierda{
-    display: inline-block;
-    float: left;
-    margin-left: 25px;
-    text-align: center;
-    justify-content: center;
-}
-
-.derecha{
-    display: inline-block;
-    float: right;
-    margin-right: 25px;
-    text-align: center;
-    justify-content: center;
-    vertical-align: middle;
-}
-
-.tarifas{
-    margin-top: 20px;
-}
-
-.logo{
-    width: 50px; height: 50px;
-}
-.redes{
-    width: 50px; 
-    height: 50px;
-}
-nav{
-    margin: 0 auto;
-    text-align: center;
-    margin: 0 auto;
-    height: 10%;
-    background-color: #ffffff;
-}
-
-main{
-    color: black;
-    float: left;
-    top: 100px;
-    background-color: whitesmoke;
-    text-align: center;
-    width: 100%;
-    min-height: 100%;
-}
-
-aside{
-    top: 10px;
-    width: 20%; 
-    float: right;
-    position: relative;
-    text-align: center;
-    background-color: white;
-}
-
-img.card-img{
-    width: 209px;
-}
-
-footer{
-    height: 75px;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    bottom: 0px;
-    width: 100%;
-    clear: both;
-    position: relative;
-
-}
-
-
-.mostrar_logo{
-    visibility: visible;
-}
 
 /* X-Small devices (portrait phones, less than 576px)
  No media query for `xs` since this is the default in Bootstrap*/
 
 /*Small devices (landscape phones, 576px and up)*/
-@media (max-width: 576px) {
+@media (min-width: 576px) {
 
 }
 
 /*Medium devices (tablets, 768px and up)*/
-@media (max-width: 768px) {  
+@media (min-width: 768px) {  
 
     img.patrocinadores{
         width: 50%;
@@ -195,7 +69,6 @@ footer{
     }
 
     .navbar-nav{
-        margin-top: 70px;
         text-align: left;
         margin-left: 15px;
     }
@@ -211,7 +84,7 @@ footer{
         margin-left: 25px;
         text-align: center;
         justify-content: center;
-        font-size: 12px;
+        font-size: 20px;
     }
 
     a.navbar-brand{
@@ -226,48 +99,19 @@ footer{
         text-align: center;
         justify-content: center;
         vertical-align: middle;
-        font-size: 12px;
+        font-size: 20px;
     }
 
     .eliminar_margen_arriba{
         margin-top: -1px;
     }
-    
+
     #cajacookies{
         font-size: 10px;
     }
-    
+
     #cajacookies > p > button{
         font-size: 8px;
-    }
-    
-    .caption{
-        position: absolute;
-        left: 0;
-        text-align: center;
-        background-color: #111;
-        padding: 5px;
-        /*font-size: 20px;*/
-        color: white;
-        letter-spacing: 10px;
-        width: 80%;
-        padding-bottom: 15px;
-    }
-
-    .caption_2{
-        position: absolute;
-        left: 0;
-        width: 80%;
-        text-align: center;
-        color: #000;
-    }
-
-    .caption_3{
-        position: absolute;
-        left: 0;
-        width: 80%;
-        text-align: center;
-        color: #000;
     }
 
     .caption span.border{
@@ -314,4 +158,126 @@ footer{
 @media (min-width: 1200px) { }
 
 /*XX-Large devices (larger desktops, 1400px and up)*/
-@media (min-width: 1400px) {  }
+@media (min-width: 1400px) { 
+
+    /* declaramos un color y una altura full*/
+    .div_contenedor{
+        min-height: 100vh;
+    }
+    /* declaramos un color, un ancho y una altura*/
+    .div_centrado{
+        width: 400px;       
+        height: 400px;
+        margin: 0 auto;
+    }
+
+    .contenido{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: stretch;
+    }
+
+    .img_perfil{
+        width: 100px;
+        height: 100px;
+    }
+
+    img{
+        padding: 3px;
+        border: solid 1px black;
+        background-color: white;
+        border-radius: 25px;
+    }
+
+    table{
+        width: 100%;
+    }
+
+    .cuerpo{
+        text-align: justify;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+
+    .izquierda{
+        display: inline-block;
+        float: left;
+        margin-left: 25px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .derecha{
+        display: inline-block;
+        float: right;
+        margin-right: 25px;
+        text-align: center;
+        justify-content: center;
+        vertical-align: middle;
+    }
+
+    .tarifas{
+        margin-top: 20px;
+    }
+
+    .logo{
+        width: 50px; height: 50px;
+    }
+    .redes{
+        width: 50px; 
+        height: 50px;
+    }
+    nav{
+        margin: 0 auto;
+        text-align: center;
+        margin: 0 auto;
+        height: 10%;
+        background-color: #ffffff;
+    }
+
+    main{
+        color: black;
+        float: left;
+        top: 100px;
+        background-color: whitesmoke;
+        text-align: center;
+        width: 100%;
+        min-height: 100%;
+    }
+
+    .card{
+        width: auto;
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+    }
+
+    aside{
+        top: 10px;
+        width: 20%; 
+        float: right;
+        position: relative;
+        text-align: center;
+        background-color: white;
+    }
+
+    img.card-img{
+        width: 470px;
+    }
+
+    footer{
+        height: 75px;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        bottom: 0px;
+        width: 100%;
+        clear: both;
+        position: relative;
+
+    }
+
+    .mostrar_logo{
+        visibility: visible;
+    }
+}
