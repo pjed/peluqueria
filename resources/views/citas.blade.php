@@ -19,7 +19,7 @@ El Paisano - Citas
         <li class="breadcrumb-item active">Citas</li>
     </ol>
 </nav>
-<h4>Reservar / Consultar Cita</h4>
+<h4>Reservar / Consultar Cita </h4>
 <br>
 <div class="datoscliente">
     <form action="#" method="get" class="form_citas">
