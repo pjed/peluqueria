@@ -150,7 +150,7 @@ $usuario_log = json_decode(session()->get('usuario'), true);
         <li class="breadcrumb-item active">Citas</li>
     </ol>
 </nav>
-<h4>Reservar / Consultar Cita</h4>
+<h4>Reservar / Consultar Cita </h4>
 <br>
 <div class="datoscliente row justify-content-center">
     <form action="reservarCita" name="reservarCita" method="post" class="col-lg-4 col-md-10 col-sm-10 m-5 mb-5 text-center">
