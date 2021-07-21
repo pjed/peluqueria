@@ -33,9 +33,7 @@ class Conexion {
                 ->join('tiene', 'usuario.NSOCIO', '=', 'tiene.usuario_NSOCIO')
                 ->join('rol', 'rol.IDROL', '=', 'tiene.rol_IDROL')
                 ->where('EMAIL', $correo)
-                ->where('PASSWORD', $pass)
                 ->get();
-
         return $usuario;
     }
 
@@ -105,11 +103,10 @@ class Conexion {
             $usuario_NSOCIO = \DB::Table('usuario')
                     ->select('NSOCIO')
                     ->where('EMAIL', $correo)
-                    ->where('PASSWORD', hash('sha256', $pwd))
+                    //->where('PASSWORD', hash('sha256', $pwd))
                     ->get();
 
             $nsocio = json_decode(json_encode($usuario_NSOCIO), true);
-
             //Creamos el objeto tiene para dar de alta al usuario con 
             // el rol de Cliente
             $tiene = new tiene();

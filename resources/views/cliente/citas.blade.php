@@ -14,6 +14,15 @@ El Paisano - CitasCliente
 <script>
 
 $(function () {
+    /*Funcion que oculta los alerts de crear citas y borrar citas*/
+    mensajesOcultos();
+
+    var fecha;
+    $("#fechacita").change(function () {
+        fecha = $(this).val();
+        $('#fechaSeleccionada').text(fecha);
+    });
+
     $("#fechacita").change(function () {
         var selectedDate = $(this).val();
         $('#fechaSeleccionada').text(selectedDate);
@@ -123,9 +132,33 @@ $(function () {
                 var borrado = JSON.parse(respuesta); //conversión a json de los datos de respuesta
 
                 if (borrado) {
-                    alert("Se ha borrado la cita correctamente");
+                    citaBorrarOK();
+                    actualizarFecha();
                 } else {
-                    alert("ERROR al borrar la cita");
+                    citaBorrarERROR();
+                }
+            }
+        });
+    });
+
+    // Boton para reservar cita por jquery
+    $('#reservar').click(function () {
+        var nombre = $('#nombre').val();
+        var observaciones = $('#observaciones').val();
+        var hora = $('#horasLibres').val();
+        var email = $('#email').val();
+
+        $.ajax({
+            data: {"nombre": nombre, "observaciones": observaciones, "fecha": fecha, "hora": hora, "email": email}, //datos json recogidos del formulario formu
+            type: "POST", // método de envío de datos
+            url: "submit4.php", //código a ejecutar en el servidor
+            success: function (respuesta) {
+                var insertado = JSON.parse(respuesta); //conversión a json de los datos de respuesta
+                if (insertado) {
+                    citaOK();
+                    actualizarFecha();
+                } else {
+                    citaERROR();
                 }
             }
         });
@@ -134,16 +167,95 @@ $(function () {
     function getRow() {
         return $('table > tbody > tr.highlight > input');
     }
+
+    function actualizarFecha() {
+        $('#fechacita').val(new Date().toISOString().substring(0, 10)).change();
+    }
+
+
+    function mensajesOcultos() {
+        $('#citaOK').hide();
+        $('#citaERROR').hide();
+        $('#citaBorrarOK').hide();
+        $('#citaBorrarERROR').hide();
+    }
+
+    function citaOK() {
+        $('#citaOK').show();
+        setTimeout(function () {
+            // Closing the alert
+            $('#citaOK').alert('hide');
+        }, 5000);
+        $('#citaERROR').hide();
+    }
+
+    function citaERROR() {
+        $('#citaOK').hide();
+        $('#citaERROR').show();
+        setTimeout(function () {
+            // Closing the alert
+            $('#citaERROR').alert('hide');
+        }, 5000);
+    }
+
+    function citaBorrarOK() {
+        $('#citaBorrarOK').show();
+        setTimeout(function () {
+            // Closing the alert
+            $('#citaBorrarOK').alert('hide');
+        }, 5000);
+        $('#citaBorrarERROR').hide();
+    }
+
+    function citaBorrarERROR() {
+        $('#citaBorrarOK').hide();
+        $('#citaBorrarERROR').show();
+        setTimeout(function () {
+            // Closing the alert
+            $('#citaBorrarERROR').alert('hide');
+        }, 5000);
+    }
+
 });
 </script>
 @endsection
 
 @section('contenido')
+<!--ALERT PARA CREAR LAS CITAS-->
+<div class="m-0 alert alert-success alert-dismissible fade show" id="citaOK" role="alert">
+    Cita CREADA con éxito. Se le ha enviado a su correo electronico un mensaje con la fecha y hora de la cita. 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">X</span>
+    </button>
+</div>
+
+<div class="m-0 alert alert-danger alert-dismissible fade show" id="citaERROR" role="alert">
+    ERROR al CREAR la cita. 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">X</span>
+    </button>
+</div>
+
+<!--ALERT PARA ELIMINAR LAS CITAS-->
+<div class="m-0 alert alert-success alert-dismissible fade show" id="citaBorrarOK" role="alert">
+    Cita BORRADA con éxito. Se le ha enviado a su correo electronico notificando el borrado de su cita. 
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">X</span>
+    </button>
+</div>
+
+<div class="m-0 alert alert-danger alert-dismissible fade show" id="citaBorrarERROR" role="alert">
+    ERROR al BORRAR la cita. Este mensaje se cerrará en 5 segundos.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">X</span>
+    </button>
+</div>
 <?php
 $usuario_log = json_decode(session()->get('usuario'), true);
 ?>
 <input type="hidden" id="nsocio" value="<?php echo $usuario_log[0]['NSOCIO']; ?>">
 <input type="hidden" id="rol" value="<?php echo $usuario_log[0]['IDROL']; ?>">
+<input type="hidden" id="email" value="<?php echo $usuario_log[0]['EMAIL']; ?>">
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index">Inicio</a></li>
@@ -153,7 +265,7 @@ $usuario_log = json_decode(session()->get('usuario'), true);
 <h4>Reservar / Consultar Cita </h4>
 <br>
 <div class="datoscliente row justify-content-center">
-    <form action="reservarCita" name="reservarCita" method="post" class="col-lg-4 col-md-10 col-sm-10 m-5 mb-5 text-center">
+    <form action="" name="reservarCita" method="post" class="col-lg-4 col-md-10 col-sm-10 m-5 mb-5 text-center">
         {{ csrf_field() }} 
         <table>
             <tr>
@@ -186,7 +298,7 @@ $usuario_log = json_decode(session()->get('usuario'), true);
                                 } else {
                                     if ($usuario_log[0]['DESC_ROL'] !== "Admin") {
                                         ?>
-                                        <!--<option value="<?php echo $usuario["NSOCIO"] ?>" disabled><?php echo $usuario["NYA"] ?></option>-->
+                                                                                                                                <!--<option value="<?php echo $usuario["NSOCIO"] ?>" disabled><?php echo $usuario["NYA"] ?></option>-->
                                         <?php
                                     } else {
                                         ?>
@@ -217,7 +329,7 @@ $usuario_log = json_decode(session()->get('usuario'), true);
             <div class="input-group-prepend">
                 <span class="input-group-text">Fecha</span>
             </div>
-            <input type="date" class="form-control" required id="fechacita" name="fechacita">
+            <input type="date" class="form-control" required id="fechacita" name="fechacita" ">
         </div>
         <br>
         <div class="input-group flex-nowrap">
@@ -229,7 +341,7 @@ $usuario_log = json_decode(session()->get('usuario'), true);
             </select>
         </div>
         <br>
-        <input type="submit" value="Reservar Cita" id="reservar" name="reservar" class="btn btn-info">                
+        <input type="button" value="Reservar Cita" id="reservar" class="btn btn-info">                
     </form>
     <div class="col-lg-7 m-3">
         <h4>Fecha Seleccionada: 

@@ -117,6 +117,7 @@ class controlador extends Controller {
         $nombre = $req->get("nombre");
         $observaciones = $req->get("observaciones");
         $fechacita = $req->get("fechacita");
+        session()->put('fechacita', $fechacita);
         $horaLibre = $req->get("horasLibres");
 
         $reservaCita = false;
