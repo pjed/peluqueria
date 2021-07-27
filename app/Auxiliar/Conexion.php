@@ -33,6 +33,24 @@ class Conexion {
                 ->join('tiene', 'usuario.NSOCIO', '=', 'tiene.usuario_NSOCIO')
                 ->join('rol', 'rol.IDROL', '=', 'tiene.rol_IDROL')
                 ->where('EMAIL', $correo)
+                ->where('PASSWORD', $pass)
+                ->get();
+        return $usuario;
+    }
+    
+    /**
+     * Método para comprobar si un usuario existe en la BD para hacer login
+     * @param type $correo email del usuario
+     * @param type $pass contraseña del usuario
+     * @return type usuario
+     */
+    static function existeUsuarioCorreo($correo) {
+        //Compruebo que el usuario y la password coincide con algun 
+        //usuario de todos los que hay en la tabla usuarios
+        $usuario = \DB::Table('usuario')
+                ->join('tiene', 'usuario.NSOCIO', '=', 'tiene.usuario_NSOCIO')
+                ->join('rol', 'rol.IDROL', '=', 'tiene.rol_IDROL')
+                ->where('EMAIL', $correo)
                 ->get();
         return $usuario;
     }
@@ -90,7 +108,7 @@ class Conexion {
             $usuario->NSOCIO = NULL;
             $usuario->DNI = $dni;
             $usuario->EMAIL = $correo;
-            $usuario->PASSWORD = hash('sha256', 1);
+            $usuario->PASSWORD = hash('sha256', $pwd);
             $usuario->NYA = $nombre;
             $usuario->DIRECCION = $direccion;
             $usuario->F_NACIMIENTO = $fecha;

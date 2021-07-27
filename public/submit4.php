@@ -1,8 +1,5 @@
 <?php
-//
-//function processDrpdown($selectedVal) {
-//    echo "Fecha Seleccionada" . $selectedVal;
-//}
+require_once "../app/Auxiliar/Correo.php";
 
 $nombre = "";
 $fecha = "";
@@ -55,39 +52,8 @@ function revervarCitaID($nombre, $fecha, $hora, $observaciones, $email) {
     mysqli_close($conn);
 
     /* ENVIAMOS EL CORREO DE NOTIFICACION PARA EL USUARIO QUE HA CREADO LA CITA */
-
-// Multiple recipients
-    $to = $email;
-
-// Subject
-    $subject = 'Reserva Cita';
-
-// Message
-    $message = '
-        <html>
-        <head>
-          <title>CITA PELUQUERIA</title>
-        </head>
-        <body>
-          <p>SU CITA CON EL PELUQUERIA ES EL DIA</p>
-          <p>' . $fecha . '</p><br>
-          <p>' . $hora . '</p><br>
-          <p>' . $observaciones . '</p><br>
-        </body>
-        </html>
-        ';
-
-// To send HTML mail, the Content-type header must be set
-    $headers[] = 'MIME-Version: 1.0';
-    $headers[] = 'Content-type: text/html; charset=iso-8859-1';
-
-// Additional headers
-//$headers[] = 'To: Pedro <espinosaduque@gmail.com>';
-    $headers[] = 'From: Peluqueria El Paisano <peluqueriaelpaisano@gmail.com>';
-//$headers[] = 'Cc: birthdayarchive@example.com';
-//$headers[] = 'Bcc: birthdaycheck@example.com';
-// Mail it
-    mail($to, $subject, $message, implode("\r\n", $headers));
+    $correo = new \App\Auxiliar\Correo;
+    $correo->enviarCorreoCita($email, "RESERVA CITA", $fecha, $hora, $observaciones);
 
     echo json_encode($result);
 }

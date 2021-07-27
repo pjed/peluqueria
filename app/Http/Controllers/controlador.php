@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\usuario;
 use App\Auxiliar\Conexion;
 use App\Http\Controllers\Sesion;
+use App\Auxiliar\Correo;
 
 class controlador extends Controller {
 
@@ -23,7 +24,7 @@ class controlador extends Controller {
         //Desencriptamos la contraseña que ha introducido el usuario
         $passHash = hash('sha256', $pass);
 
-        //Comprobamos que existe el usuario
+        //Comprobamos que existe el usuario y la contraseña es correcta
         $usuario = Conexion::existeUsuario($correo, $passHash);
 
         //Si existe creamos la sesion
@@ -39,7 +40,7 @@ class controlador extends Controller {
 
             //Miramos que permisos tiene el usuario en la BBDD
             //Si solo hay 1 es cliente
-            
+
             if ($usuario[0]->IDROL !== 1) {
 
                 //Guardamos la sesion del usuario en la sesion
@@ -77,8 +78,8 @@ class controlador extends Controller {
         $dni = $req->get('dni');
         $telefono = $req->get('telefono');
 
-        //Comprobamos que existe el usuario
-        $usuario = Conexion::existeUsuario($correo, $pwd);
+        //Comprobamos que existe el usuario solo comprobando si ese email esta ya registrado
+        $usuario = Conexion::existeUsuarioCorreo($correo);
 
         //comprobamos si el usuario existe
         if (count($usuario) !== 0) {
@@ -97,6 +98,10 @@ class controlador extends Controller {
             //y lo redirigimos a la pantalla de login
             //para que inicie sesion con su cuenta.
             $usuario = Conexion::crearUsuario($nombre, $direccion, $fecha, $correo, $pwd, $dni, $telefono, 2);
+
+            //Enviamos los datos de la cuenta al correo electronico facilitado en el registro
+            $email = new \App\Auxiliar\Correo;
+            $email->enviarCorreoUsuarioCreado("NUEVO USUARIO", $correo, $pwd, $nombre);
 
             //Mostramos que se ha creado el usuario correctamente
             echo '<div class="m-0 alert alert-success alert-dismissible fade show" role="alert">
@@ -137,9 +142,9 @@ class controlador extends Controller {
         if ($reservaCita) {
             //Registramos la cita en la bbdd en la tabla citas 
             $aux = Conexion::addCita($nombre, $observaciones, $fechacita, $horaLibre);
-            
+
             $cita = Conexion::obtenerCitasFecha($fechacita);
-            
+
             if ($aux) {
                 //Mostramos que se ha creado la cita correctamente
                 echo '<div class="m-0 alert alert-success alert-dismissible fade show" role="alert">

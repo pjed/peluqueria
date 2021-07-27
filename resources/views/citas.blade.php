@@ -1,7 +1,7 @@
 @extends('maestra.maestra_cliente')
 
 @section('titulo') 
-El Paisano - CitasCliente
+El Paisano - CitasClienteA
 @endsection
 
 @section('css')
@@ -83,6 +83,7 @@ $(function () {
                             if ($rol === "1") {
                                 $fila += '<tr>';
                                 $fila += '<input type="hidden" name="idCITA" id="' + cita["idCITA"] + '" value="' + cita["idCITA"] + '"/>';
+                                $fila += '<input type="hidden" name="EMAIL" id="' + cita["EMAIL"] + '" value="' + cita["EMAIL"] + '"/>';
                                 $fila += '<td>' + cita["HORA"] + '</td>';
                                 $fila += '<td>' + cita["NYA"] + '</td>';
                                 $fila += '<td>' + cita["OBSERVACIONES"] + '</td>';
@@ -123,9 +124,20 @@ $(function () {
     $('#citas_dia').on('click', 'tbody tr', function (event) {
         $(this).addClass('highlight').siblings().removeClass('highlight');
         var selrow = getRow();
-        var idCITA = selrow.attr("value");
+        var idCITA =0;
+        var email ="";
+        
+        selrow.each(function (index, value) {
+            if (index === 0) {
+                idCITA = value.value;
+            }
+            if (index === 1) {
+                email = value.value;
+            }
+        });
+
         $.ajax({
-            data: {"citaSeleccionadaBorrar": idCITA}, //datos json recogidos del formulario formu
+            data: {"citaSeleccionadaBorrar": idCITA, "email": email}, //datos json recogidos del formulario formu
             type: "POST", // método de envío de datos
             url: "submit3.php", //código a ejecutar en el servidor
             success: function (respuesta) {
@@ -146,7 +158,7 @@ $(function () {
         var nombre = $('#nombre').val();
         var observaciones = $('#observaciones').val();
         var hora = $('#horasLibres').val();
-        var email = $('#email').val();
+        var email = $('#EMAIL').val();
 
         $.ajax({
             data: {"nombre": nombre, "observaciones": observaciones, "fecha": fecha, "hora": hora, "email": email}, //datos json recogidos del formulario formu
@@ -255,7 +267,13 @@ $usuario_log = json_decode(session()->get('usuario'), true);
 ?>
 <input type="hidden" id="nsocio" value="<?php echo $usuario_log[0]['NSOCIO']; ?>">
 <input type="hidden" id="rol" value="<?php echo $usuario_log[0]['IDROL']; ?>">
-<input type="hidden" id="email" value="<?php echo $usuario_log[0]['EMAIL']; ?>">
+<?php
+if ($usuario_log[0]['IDROL'] == 1) {
+    ?>
+    <input type="hidden" id="EMAIL" value="<?php echo $usuario_log[0]['EMAIL']; ?>">
+    <?php
+}
+?>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index">Inicio</a></li>
@@ -298,7 +316,7 @@ $usuario_log = json_decode(session()->get('usuario'), true);
                                 } else {
                                     if ($usuario_log[0]['DESC_ROL'] !== "Admin") {
                                         ?>
-                                                                                                                                <!--<option value="<?php echo $usuario["NSOCIO"] ?>" disabled><?php echo $usuario["NYA"] ?></option>-->
+                                                                                                                                                <!--<option value="<?php echo $usuario["NSOCIO"] ?>" disabled><?php echo $usuario["NYA"] ?></option>-->
                                         <?php
                                     } else {
                                         ?>
