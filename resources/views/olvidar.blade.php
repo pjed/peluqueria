@@ -21,20 +21,14 @@ El Paisano - Olvidar contraseña
 </nav>
 <div class="div_contenedor">
     <div class="div_centrado login">
-        <form action="#" method="POST">
+        <form name="olvidarContrasena" action="olvidarContrasena" method="POST">
+            {{ csrf_field() }} 
             <h5>¿Has olvidado tu contraseña?</h5>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
                     <span class="input-group-text" >Usuario</span>
                 </div>
-                <input type="email" class="form-control" placeholder="nombre@dominio.com" required>
-            </div>
-            <br>
-            <div class="input-group flex-nowrap">
-                <div class="input-group-prepend">
-                    <span class="input-group-text bi bi-key" >Password</span>
-                </div>
-                <input type="password" class="form-control" placeholder="Escribe tu contraseña" required>
+                <input type="email" class="form-control" name="correo" placeholder="Introduce tu correo electrónico" required>
             </div>
             <br>
             <input type="submit" value="Restablecer Contraseña" class="btn btn-info">

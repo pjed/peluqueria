@@ -225,5 +225,18 @@ class Conexion {
 
         return $cita;
     }
-
+    
+    /**
+     * Función que permite cambiar la contraseña en la base de datos
+     * @param type $usuario
+     * @param type $password
+     */
+    static function cambiarPassword($usuario, $password){
+        $nsocio = $usuario[0]->NSOCIO;
+        
+        $usu = \DB::table('usuario')
+            ->where('NSOCIO', $nsocio)
+            ->update(['PASSWORD' => (hash('sha256', $password))]);
+        return $usu;
+    }
 }

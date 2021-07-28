@@ -41,20 +41,21 @@ El Paisano - Iniciar Sesión
                 <div class="input-group-prepend">
                     <label class="input-group-text" for="usuario">Usuario</label>
                 </div>
-                <input type="email" id="usuario" name="usuario" class="form-control" placeholder="nombre@dominio.com" required>
+                <input type="email" id="usuario" name="usuario" class="form-control" placeholder="nombre@dominio.com">
             </div>
             <br>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
                     <label class="input-group-text bi bi-key" for="pwd">Password</label>
                 </div>
-                <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Escribe tu contraseña" required>
+                <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Escribe tu contraseña">
             </div>
             <br>
             <input type="submit" name="Iniciar Sesión" class="btn btn-info">
-            <input type="button" value="Crear Cuenta" class="btn btn-dark" onclick="irCrearCuenta();"><br>
+            <input type="button" value="Crear Cuenta" class="btn btn-dark" onclick="irCrearCuenta();">
             <br>
-            <input type="submit" class="btn btn-dark" value="¿Has olvidado la contraseña?">
+            <br>
+            <input type="button" class="btn btn-dark" name="olvidar" value="¿Has olvidado la contraseña?" onclick="irOlvidar();">
         </form>
     </div>
 </div>

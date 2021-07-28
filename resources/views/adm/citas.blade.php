@@ -1,7 +1,7 @@
-@extends('maestra.maestra_cliente')
+@extends('maestra.maestra_admin')
 
 @section('titulo') 
-El Paisano - CitasClienteA
+El Paisano - CitasCliente Admin
 @endsection
 
 @section('css')
@@ -18,27 +18,9 @@ $(function () {
     mensajesOcultos();
 
     var fecha;
-    var nombre;
-
     $("#fechacita").change(function () {
         fecha = $(this).val();
         $('#fechaSeleccionada').text(fecha);
-    });
-
-
-    $("#nombre").change(function () {
-        nombre = $(this).val();
-        $.ajax({
-            data: {"nombre": nombre}, //datos json recogidos del formulario formu
-            type: "POST", // método de envío de datos
-            url: "submit5.php", //código a ejecutar en el servidor
-            success: function (respuesta) {
-                var correo = JSON.parse(respuesta); //conversión a json de los datos de respuesta
-                if (correo.length !== 0) {
-                    $('#EMAIL').val(correo);
-                }
-            }
-        });
     });
 
     $("#fechacita").change(function () {
@@ -116,6 +98,7 @@ $(function () {
                             } else {
                                 $fila += '<tr>';
                                 $fila += '<input type="hidden" name="idCITA" id="' + cita["idCITA"] + '" value="' + cita["idCITA"] + '"/>';
+                                $fila += '<input type="hidden" name="EMAIL" id="' + cita["EMAIL"] + '" value="' + cita["EMAIL"] + '"/>';
                                 $fila += '<td>' + cita["HORA"] + '</td>';
                                 $fila += '<td>' + cita["NYA"] + '</td>';
                                 $fila += '<td>' + cita["OBSERVACIONES"] + '</td>';
@@ -178,7 +161,13 @@ $(function () {
         var observaciones = $('#observaciones').val();
         var hora = $('#horasLibres').val();
         var rol = $('#rol').val();
-        var email = $('#EMAIL').val();
+
+        if (rol === 1) {
+            var email; //recuperamos el email con el nombre
+        }else{
+            //recuperamos el email del input type hidden del email con el que nos hemos logueado
+            var email = $('#EMAIL').val();
+           } 
 
 
         $.ajax({
@@ -288,6 +277,13 @@ $usuario_log = json_decode(session()->get('usuario'), true);
 ?>
 <input type="hidden" id="nsocio" value="<?php echo $usuario_log[0]['NSOCIO']; ?>">
 <input type="hidden" id="rol" value="<?php echo $usuario_log[0]['IDROL']; ?>">
+<?php
+if ($usuario_log[0]['IDROL'] != 1) {
+    ?>
+    <input type="hidden" id="EMAIL" value="<?php echo $usuario_log[0]['EMAIL']; ?>">
+    <?php
+}
+?>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index">Inicio</a></li>
@@ -330,7 +326,7 @@ $usuario_log = json_decode(session()->get('usuario'), true);
                                 } else {
                                     if ($usuario_log[0]['DESC_ROL'] !== "Admin") {
                                         ?>
-                                                                                                                                                                                            <!--<option value="<?php echo $usuario["NSOCIO"] ?>" disabled><?php echo $usuario["NYA"] ?></option>-->
+                                                                                                                                                                    <!--<option value="<?php echo $usuario["NSOCIO"] ?>" disabled><?php echo $usuario["NYA"] ?></option>-->
                                         <?php
                                     } else {
                                         ?>
@@ -343,24 +339,6 @@ $usuario_log = json_decode(session()->get('usuario'), true);
                         </select>
                     </div>
                 </td>
-            </tr>
-            <tr>
-                <td>
-                    <br>
-                    <div class="input-group flex-nowrap">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Correo Electrónico</span>
-                        </div>
-                        <input type="email" id="EMAIL" name="EMAIL" class="form-control" value="
-                        <?php
-                        if ($usuario_log[0]['IDROL'] === 2) {
-                            echo $usuario_log[0]['EMAIL'];
-                        } else {
-                            echo "espinosaduque@gmail.com";
-                        }
-                        ?>" disabled>
-                    </div>
-                </td>  
             </tr>
             <tr>
                 <td>
@@ -406,9 +384,9 @@ $usuario_log = json_decode(session()->get('usuario'), true);
             <th>Observaciones</th>
             <th></th>
             </thead>
-<?php
-if (!isset($citas)) {
-    ?>
+            <?php
+            if (!isset($citas)) {
+                ?>
                 <td colspan="3" class="texto_rojo">Seleccione una fecha para obtener las citas</td>
                 <?php
             }
