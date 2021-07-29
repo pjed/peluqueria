@@ -25,7 +25,7 @@ class controlador extends Controller {
 
         //Comprobamos que existe el usuario y la contraseña es correcta
         $usuario = Conexion::existeUsuario($correo, $passHash);
-
+        
         //Si existe creamos la sesion
         if (count($usuario) !== 0) {
 
@@ -92,8 +92,16 @@ class controlador extends Controller {
                 return view('adm.index');
             }
         } else {
-            session()->put('usuario', $usuario);
-            return view('index');
+            $mensajeError = "Usuario y/o contraseña no son correctos";
+            if ($correo == null && $pass == null) {
+                $mensajeError = "El usuario y la contraseña no pueden estar vacías";
+            }else if ($correo == null) {
+                $mensajeError = "El correo no puede estar vacío";
+            }else if ($pass == null) {
+                $mensajeError = "La contraseña no puede estar vacía";
+            }
+            session()->put('error', $mensajeError);
+            return view('inicio');
         }
     }
 

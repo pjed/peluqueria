@@ -20,17 +20,16 @@ El Paisano - Iniciar Sesión
     </ol>
 </nav>
 <?php
-//if (!isset(session()->get('usuario'))) {
-?>
-<!--div class="alert alert-danger" role="alert">
-    <strong>USUARIO Y/O CONTRASEÑA INCORRECTOS</strong> 
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div-->
-<?php
-//}
-//
+if (session()->get("error") != null) {
+        ?>
+        <div class="alert alert-danger" role="alert">
+            <strong><?php echo session()->get("error"); ?></strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <?php
+}
 ?>
 <div class="div_contenedor">
     <div class="div_centrado login">
