@@ -204,12 +204,12 @@ class Conexion {
      * @param Request $req
      * @return type
      */
-    static function cerrarSesion(Request $req) {
+    static function cerrarSesion() {
         session_unset();
-        session_destroy();
+        //session_destroy();
         session()->invalidate();
         session()->regenerate();
-        return view('index');
+        //return view('index');
     }
 
     /**
@@ -238,5 +238,50 @@ class Conexion {
             ->where('NSOCIO', $nsocio)
             ->update(['PASSWORD' => (hash('sha256', $password))]);
         return $usu;
+    }
+    
+    /**
+     * Función que permite actualizar el perfil del usuario
+     * @param type $correo
+     * @param type $password
+     * @param type $nya
+     * @param type $direccion
+     * @param type $telefono
+     * @return type
+     */
+    static function actualizarPerfilUsuario($correo, $password, $nya, $direccion, $telefono){
+        $usu = \DB::table('usuario')
+            ->where('EMAIL', $correo)
+            ->update(['PASSWORD' => (hash('sha256', $password)), 'NYA' => $nya],['DIRECCION' => $direccion , 'TELEFONO' => $telefono]);
+        return $usu;
+    }
+    
+    /**
+     * Función que permite actualizar el perfil del usuario sin la password
+     * @param type $correo
+     * @param type $nya
+     * @param type $direccion
+     * @param type $telefono
+     * @return type
+     */
+    static function actualizarPerfilUsuarioNoPassword($correo, $nya, $direccion, $telefono){
+        $usu = \DB::table('usuario')
+            ->where('EMAIL', $correo)
+            ->update(['NYA' => $nya , 'DIRECCION' => $direccion , 'TELEFONO' => $telefono]);
+        
+        return $usu;
+    }
+    
+    /**
+     * Función que obtiene las ultimas citas del socio
+     * @param type $nsocio
+     */
+    static function obtenerUltimasCitasSocio($nsocio){
+        $citas = \DB::Table('usuario')
+                ->join('cita', 'usuario.NSOCIO', '=', 'cita.usuario_NSOCIO')
+                ->where('NSOCIO',$nsocio)
+                ->orderBy('FECHA','DESC')
+                ->get();
+        return $citas;
     }
 }

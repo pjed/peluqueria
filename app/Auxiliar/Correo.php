@@ -162,5 +162,41 @@ class Correo {
         // Enviar el correo
         mail($to, $subject, $message, implode("\r\n", $headers));
     }
+    
+    
+    public function enviarCambiarContrasena($email, $tipo, $contrasena) {
+
+        // Multiples destinatarios
+        $to = $email;
+
+        // Asunto
+        $subject = $tipo;
+
+        // Mensaje
+        $message = '
+        <html>
+        <head>
+          <title>' . $tipo . '</title>
+        </head>
+        <body>
+          <p> LA CONTRASEÑA NUEVA ES </p>
+          <p>' . $contrasena . '</p><br>
+          <p>LA PROXIMA INICIE CON LA NUEVA CONTRASEÑA EN LA WEB. GRACIAS</p>
+        </body>
+        </html>
+        ';
+
+        // Cabeceras obligatorias para enviar el correo electronico
+        $headers[] = 'MIME-Version: 1.0';
+        $headers[] = 'Content-type: text/html; charset=iso-8859-1';
+
+        // Cabeceras opcionales
+        //$headers[] = 'To: Pedro <espinosaduque@gmail.com>';
+        $headers[] = 'From: Peluqueria El Paisano <peluqueriaelpaisano@gmail.com>';
+        //$headers[] = 'Cc: birthdayarchive@example.com';
+        //$headers[] = 'Bcc: birthdaycheck@example.com';
+        // Enviar el correo
+        mail($to, $subject, $message, implode("\r\n", $headers));
+    }
 
 }

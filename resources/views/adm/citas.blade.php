@@ -18,9 +18,26 @@ $(function () {
     mensajesOcultos();
 
     var fecha;
+    var nombre; 
+    
     $("#fechacita").change(function () {
         fecha = $(this).val();
         $('#fechaSeleccionada').text(fecha);
+    });
+    
+    //Funcion que cambia el email del nombre seleccionado
+    $("#nombre").change(function () {
+        nombre = $(this).val();
+        
+        $.ajax({
+            data: {"nombre": nombre}, //datos json recogidos del formulario formu
+            type: "POST", // método de envío de datos
+            url: "submit5.php", //código a ejecutar en el servidor
+            success: function (respuesta) {
+                var email = JSON.parse(respuesta); //conversión a json de los datos de respuesta
+                $('#EMAIL').val(email);
+            }
+        });
     });
 
     $("#fechacita").change(function () {
@@ -164,10 +181,10 @@ $(function () {
 
         if (rol === 1) {
             var email; //recuperamos el email con el nombre
-        }else{
+        } else {
             //recuperamos el email del input type hidden del email con el que nos hemos logueado
             var email = $('#EMAIL').val();
-           } 
+        }
 
 
         $.ajax({
@@ -326,7 +343,7 @@ if ($usuario_log[0]['IDROL'] != 1) {
                                 } else {
                                     if ($usuario_log[0]['DESC_ROL'] !== "Admin") {
                                         ?>
-                                                                                                                                                                    <!--<option value="<?php echo $usuario["NSOCIO"] ?>" disabled><?php echo $usuario["NYA"] ?></option>-->
+                                                                                                                                                                        <!--<option value="<?php echo $usuario["NSOCIO"] ?>" disabled><?php echo $usuario["NYA"] ?></option>-->
                                         <?php
                                     } else {
                                         ?>
@@ -342,6 +359,19 @@ if ($usuario_log[0]['IDROL'] != 1) {
             </tr>
             <tr>
                 <td>
+                    <br>
+                    <?php
+                    if ($usuario_log[0]['IDROL'] == 1) {
+                        ?>
+                        <div class="input-group flex-nowrap">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">EMAIL</span>
+                        </div>
+                            <input type="email" readonly id="EMAIL" class="form-control" name="EMAIL" value="espinosaduque@gmail.com">
+                    </div>
+                        <?php
+                    }
+                    ?>
                     <br>
                     <div class="input-group flex-nowrap">
                         <div class="input-group-prepend">

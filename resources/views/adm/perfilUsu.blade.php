@@ -20,7 +20,7 @@ El Paisano - Perfil Admin
     </ol>
 </nav>
 <section>
-    <form name="inicioSesion" action="inicioSesion" method="POST">
+    <form name="actualizarPerfil" action="actualizarPerfil" method="POST">
         {{ csrf_field() }} 
         <h5>Editar Perfil</h5>
 
@@ -45,21 +45,21 @@ El Paisano - Perfil Admin
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="dni">DNI</label>
                         </div>
-                        <input type="text" id="dni" name="dni" class="form-control" placeholder="1234567X" value="<?php echo $valor["DNI"] ?>" required>
+                        <input type="text" id="dni" name="dni" class="form-control" placeholder="1234567X" value="<?php echo $valor["DNI"] ?>" disabled>
                     </div>
                     <br>
                     <div class="input-group flex-nowrap">
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="email">Email</label>
                         </div>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="nombre@dominio.com" value="<?php echo $valor["EMAIL"] ?>" required>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="nombre@dominio.com" value="<?php echo $valor["EMAIL"] ?>" readonly>
                     </div>
                     <br>
                     <div class="input-group flex-nowrap">
                         <div class="input-group-prepend">
                             <label class="input-group-text bi bi-key" for="pwd">Password</label>
                         </div>
-                        <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Escribe tu contraseña" value="<?php echo $valor["PASSWORD"] ?>" required>
+                        <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Escribe tu nueva contraseña" value="">
                     </div>
                 </fieldset>
             </div>
@@ -84,7 +84,7 @@ El Paisano - Perfil Admin
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="nacimiento">Fecha de Nacimiento</label>
                         </div>
-                        <input type="date" id="nacimiento" name="nacimiento" class="form-control" required value="<?php echo $valor["F_NACIMIENTO"] ?>">
+                        <input type="date" id="nacimiento" name="nacimiento" class="form-control" disabled value="<?php echo $valor["F_NACIMIENTO"] ?>">
                     </div>
                     <br>
                     <div class="input-group flex-nowrap">

@@ -142,6 +142,7 @@ Route::get('usuarios', function () {
 
 
 Route::post('inicioSesion', 'App\Http\Controllers\controlador@inicioSesion');
+Route::post('actualizarPerfil', 'App\Http\Controllers\controlador@actualizarPerfil');
 Route::post('olvidarContrasena', 'App\Http\Controllers\controlador@olvidarContrasena');
 Route::post('crearCuenta', 'App\Http\Controllers\controlador@crearCuenta');
 Route::post('reservarCita', 'App\Http\Controllers\controlador@reservarCita');

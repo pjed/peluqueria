@@ -30,7 +30,7 @@ class controlador extends Controller {
         if (count($usuario) !== 0) {
 
             //Si el usuario ha restaurado la contraseña y no la ha cambiado vamos a monstar un mensaje de advertencia para cambiar la contraseña
-            if($usuario[0]->PASSWORD ==="098839d7476f9f50f875e650a10dc666400e2da8f8da637ade514f93470c9249"){
+            if ($usuario[0]->PASSWORD === "098839d7476f9f50f875e650a10dc666400e2da8f8da637ade514f93470c9249") {
                 //Mensaje para cambiar la contraseña
                 echo '<div class="m-0 alert alert-warning alert-dismissible fade show" role="alert">
                         Debe de cambiar la contraseña que ha restablecido por una mas segura. Para ello pulse en la foto de perfil e introduzca la nueva contraseña.
@@ -39,7 +39,29 @@ class controlador extends Controller {
                         </button>
                       </div>';
             }
+
+            $citasSocio = Conexion::obtenerUltimasCitasSocio($usuario[0]->NSOCIO);
             
+            $fecha = $citasSocio[0]->FECHA;
+            $date = new \DateTime($fecha);
+            
+            if (count($citasSocio) > 2) {
+                //Mostramos el mensaje emergente de la ultima cita que tiene
+                echo '<div class="m-0 alert alert-warning alert-dismissible fade show" role="alert">
+                        La próxima cita en la peluquería es el dia ' . date_format($date, 'd-m-Y') . ' a las ' . $citasSocio[0]->HORA . '. 
+                            <br>Si quiere anular su reserva ir a Citas, seleccionar el dia y pulsar eliminar
+                      </div>';
+            } else {
+                //Mensaje que no tiene reservada ninguna cita 
+                echo '<div class="m-0 alert alert-info alert-dismissible fade show" role="alert">
+                        No tiene ninguna cita. 
+                        <br>Para reservar una ir al apartado Citas
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">X</span>
+                        </button>
+                      </div>';
+            }
+
             $usuariosCitas = Conexion::obtenerTodosUsuarios();
 
             //Obtenemos los usuarios de la aplicacion para mostrar en citas y lo guardamos en sesion
@@ -253,11 +275,59 @@ class controlador extends Controller {
     }
 
     /**
+     * Método que permite actualizar el perfil del usuario
+     * @param Request $req
+     */
+    static function actualizarPerfil(Request $req) {
+        $email = $req->get("email");
+        $password = $req->get("pwd");
+        $nya = $req->get("nya");
+        $direccion = $req->get("direccion");
+        $telefono = $req->get("telefono");
+
+        $cambiarContrasena = false;
+
+        if ($password !== null) {
+            $cambiarContrasena = true;
+        }
+
+        if ($cambiarContrasena) {
+            //Guardamos los datos del usuario con la contraseña nueva actualizada
+            Conexion::actualizarPerfilUsuario($email, $password, $nya, $direccion, $telefono);
+
+            //Mostramos OK para que sepa que la contraseña se ha cambiado correctamente
+            echo '<div class="m-0 alert alert-success alert-dismissible fade show" role="alert">
+                    La contraseña se ha cambiado correctamente. Inicie sesión con la nueva contraseña que se le ha enviado al correo eletronico.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">X</span>
+                    </button>
+                  </div>';
+
+            //Notificamos por correo el cambio de contraseña enviandole al correo su nueva contraseña
+            $correo = new Correo();
+            $correo->enviarCambiarContrasena($email, "CONTRASENA ACTUALIZADA", $password);
+        } else {
+            //Guardamos los datos del usuario sin la nueva contraseña por que no ha especificado ninguna nueva
+            Conexion::actualizarPerfilUsuarioNoPassword($email, $nya, $direccion, $telefono);
+
+            //Se ha actualizado el perfil correctamente
+            echo '<div class="m-0 alert alert-success alert-dismissible fade show" role="alert">
+                    El perfil se ha actualizado correctamente. Inicie sesion nuevamente.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">X</span>
+                    </button>
+                  </div>';
+        }
+
+        self::cerrarSesion();
+        return view('index');
+    }
+
+    /**
      * Función que cierra la sesion del programa
      */
-    static function cerrarSesion(Request $req) {
-        Conexion::cerrarSesion($req);
-        return view('index');
+    static function cerrarSesion() {
+        Conexion::cerrarSesion();
     }
 
     static function generarContrasena() {
