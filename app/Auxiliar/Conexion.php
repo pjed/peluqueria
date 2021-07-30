@@ -273,6 +273,22 @@ class Conexion {
     }
     
     /**
+     * Función que permite actualizar la foto del perfil del usuario
+     * @param type $foto
+     * @return type
+     */
+    static function actualizarFotoPerfilUsuario($foto, $correo){
+        
+        $usu = \DB::table('usuario')
+            ->where('EMAIL', $correo)
+            ->update(['FOTO' => $foto]);
+        
+        return $usu;
+    }
+    
+    
+    
+    /**
      * Función que obtiene las ultimas citas del socio
      * @param type $nsocio
      */

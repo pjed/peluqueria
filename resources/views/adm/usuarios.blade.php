@@ -15,7 +15,7 @@ El Paisano - Usuarios - Admin
 @section('contenido') 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="indexAdm">Inicio</a></li>
         <li class="breadcrumb-item active">Usuarios</li>
     </ol>
 </nav>

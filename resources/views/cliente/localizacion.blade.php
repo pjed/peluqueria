@@ -16,7 +16,7 @@ El Paisano - Localización Cliente
 @section('contenido') 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="indexCliente">Inicio</a></li>
         <li class="breadcrumb-item active">Localización</li>
     </ol>
 </nav>

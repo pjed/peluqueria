@@ -15,21 +15,46 @@ El Paisano - Perfil Admin
 @section('contenido') 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="indexAdm">Inicio</a></li>
         <li class="breadcrumb-item active">Perfil Usuario</li>
     </ol>
 </nav>
 <section>
-    <form name="actualizarPerfil" action="actualizarPerfil" method="POST">
-        {{ csrf_field() }} 
-        <h5>Editar Perfil</h5>
 
-        <input type="image" class="img_perfil" src="{{asset ('img/noimage.jpg')}}" name="img" id="img"><br>
-        <input type="file" name="file" id="file"><br><br>
+    <!--    <form action="upload.php" enctype="multipart/form-data" method="post" >
+            {{ csrf_field() }} 
+            <h5>Editar Perfil</h5>
+            Select Image File to Upload:
+            <input type="file" name="file" accept="image/*">
+            <input type="submit" name="submit" value="Actualizar Foto" class="btn btn-info">
+            <br>
+        </form>-->
+    <br>
+    <br>
+    <form name="actualizarPerfil" action="actualizarPerfil" method="POST" enctype="multipart/form-data" >
+        {{ csrf_field() }} 
+
+        <h5>Editar Perfil</h5>
+        <?php
+        $usuarioLog = session()->get('usuario');
+        $foto = $usuarioLog[0]->FOTO;
+        if ($foto == "noimage.jpg") {
+            $rutaImagen = 'img/noimage.jpg';
+        } else {
+            $rutaImagen = 'img/perfil/' . $foto;
+        }
+        ?>
+        <ul class="navbar-nav text-center">
+            <li class="nav-item">
+                <img class="redes_perfil" src="<?php echo $rutaImagen; ?>" alt="login">
+            </li>
+        </ul>
+        Selecciona una foto para subirla de perfil:
+        <input type="file" name="file" accept="image/*">
         <h5>Datos Personales</h5>
         <?php
         $usuario = json_decode(session()->get('usuario'), true);
-        
+
         foreach ($usuario as $valor) {
             ?>
             <div class="izquierda">

@@ -47,9 +47,9 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="indexAdm" >Inicio</a>
                         </li>
-<!--                        <li class="nav-item">
-                            <a class="nav-link" href="noticiasAdm">Noticias</a>
-                        </li>-->
+                        <!--                        <li class="nav-item">
+                                                    <a class="nav-link" href="noticiasAdm">Noticias</a>
+                                                </li>-->
                         <li class="nav-item">
                             <a class="nav-link" href="serviciosAdm">Servicios</a>
                         </li>
@@ -86,8 +86,17 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav">
+                        <?php
+                        $usuarioLog = session()->get('usuario');
+                        $foto = $usuarioLog[0]->FOTO;
+                        if ($foto == "noimage.jpg") {
+                            $rutaImagen = 'img/noimage.jpg';
+                        } else {
+                            $rutaImagen = 'img/perfil/' . $foto;
+                        }
+                        ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="perfilUsuAdm"><img class="img_login redes" src="{{asset ('img/noimage.jpg')}}" alt="login"></a>
+                            <a class="nav-link" href="perfilUsuAdm"><img class="img_login redes" src="<?php echo $rutaImagen; ?>" alt="login"></a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">

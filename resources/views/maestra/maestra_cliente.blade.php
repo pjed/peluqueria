@@ -46,9 +46,9 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="indexCliente" >Inicio</a>
                         </li>
-<!--                        <li class="nav-item">
-                            <a class="nav-link" href="noticiasCliente">Noticias</a>
-                        </li>-->
+                        <!--                        <li class="nav-item">
+                                                    <a class="nav-link" href="noticiasCliente">Noticias</a>
+                                                </li>-->
                         <li class="nav-item">
                             <a class="nav-link" href="serviciosCliente">Servicios</a>
                         </li>
@@ -61,21 +61,21 @@
                         <li class="nav-item">
                             <a class="nav-link" href="citasCliente">Citas</a>
                         </li>
-<!--                        <li class="nav-item">
-                            <a class="nav-link" href="usuarios">Usuarios</a>
-                        </li>-->
+                        <!--                        <li class="nav-item">
+                                                    <a class="nav-link" href="usuarios">Usuarios</a>
+                                                </li>-->
 
 
                     </ul>
-<!--                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <audio controls autoplay>
-                                <source src="{{asset ('audio/audio.ogg')}}" type="audio/ogg">
-                                <source src="{{asset ('audio/audio.mp3')}}" type="audio/mpeg">
-                                El navegador no admite el elemento de audio.
-                            </audio>
-                        </li>
-                    </ul>-->
+                    <!--                    <ul class="navbar-nav">
+                                            <li class="nav-item">
+                                                <audio controls autoplay>
+                                                    <source src="{{asset ('audio/audio.ogg')}}" type="audio/ogg">
+                                                    <source src="{{asset ('audio/audio.mp3')}}" type="audio/mpeg">
+                                                    El navegador no admite el elemento de audio.
+                                                </audio>
+                                            </li>
+                                        </ul>-->
                     <ul class="navbar-nav eliminar_margen_arriba">
                         <li class="nav-item">
                             <a class="nav-link" href="https://www.instagram.com/hudy_elpaisano/" target="_blank"><img class="redes" alt="instagram" src="{{asset ('img/instagram.png')}}"></a>
@@ -84,9 +84,18 @@
                             <a class="nav-link" href="https://facebook.com/elpaisanopeluqueria/" target="_blank"><img class="redes" alt="facebook" src="{{asset ('img/facebook.png')}}"></a>
                         </li>
                     </ul>
+                    <?php
+                    $usuarioLog = session()->get('usuario');
+                    $foto = $usuarioLog[0]->FOTO;
+                    if ($foto == "noimage.jpg") {
+                        $rutaImagen = 'img/noimage.jpg';
+                    } else {
+                        $rutaImagen = 'img/perfil/' . $foto;
+                    }
+                    ?>
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="perfilUsu"><img class="img_login redes" src="{{asset ('img/noimage.jpg')}}" alt="login"></a>
+                            <a class="nav-link" href="perfilUsu"><img class="img_login redes" src="<?php echo $rutaImagen; ?>" alt="login"></a>
                         </li>
                     </ul>
                     <ul class="navbar-nav">
@@ -101,9 +110,9 @@
             @yield('contenido')
         </main>
 
-<!--        <aside>
-            @yield('aside')
-        </aside>-->
+        <!--        <aside>
+                    @yield('aside')
+                </aside>-->
         <footer class="bg-dark">                     
             <div class="izquierda">
                 Teléfono: 658 230 110<br>

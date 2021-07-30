@@ -25,7 +25,7 @@ class controlador extends Controller {
 
         //Comprobamos que existe el usuario y la contraseña es correcta
         $usuario = Conexion::existeUsuario($correo, $passHash);
-        
+
         //Si existe creamos la sesion
         if (count($usuario) !== 0) {
 
@@ -41,10 +41,10 @@ class controlador extends Controller {
             }
 
             $citasSocio = Conexion::obtenerUltimasCitasSocio($usuario[0]->NSOCIO);
-            
+
             $fecha = $citasSocio[0]->FECHA;
             $date = new \DateTime($fecha);
-            
+
             if (count($citasSocio) > 2) {
                 //Mostramos el mensaje emergente de la ultima cita que tiene
                 echo '<div class="m-0 alert alert-warning alert-dismissible fade show" role="alert">
@@ -95,9 +95,9 @@ class controlador extends Controller {
             $mensajeError = "Usuario y/o contraseña no son correctos";
             if ($correo == null && $pass == null) {
                 $mensajeError = "El usuario y la contraseña no pueden estar vacías";
-            }else if ($correo == null) {
+            } else if ($correo == null) {
                 $mensajeError = "El correo no puede estar vacío";
-            }else if ($pass == null) {
+            } else if ($pass == null) {
                 $mensajeError = "La contraseña no puede estar vacía";
             }
             session()->put('error', $mensajeError);
@@ -298,6 +298,81 @@ class controlador extends Controller {
         if ($password !== null) {
             $cambiarContrasena = true;
         }
+        
+        if ($_FILES["file"]["name"] != "") {
+            $statusMsg = '';
+
+            // File upload path
+            $targetDir = "img/perfil/";
+            $fileName = basename($_FILES["file"]["name"]);
+            $targetFilePath = $targetDir . $fileName;
+            $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+
+
+            if (!empty($_FILES["file"]["name"])) {
+                // Allow certain file formats
+                $allowTypes = array('jpg', 'png', 'jpeg', 'gif', 'pdf');
+                if (in_array($fileType, $allowTypes)) {
+                    // Upload file to server
+                    if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
+
+                        $update = Conexion::actualizarFotoPerfilUsuario($fileName, $email);
+
+                        if ($update) {
+                            $statusMsg = "La foto " . $fileName . " se ha subido correctamente.";
+
+                            //Mostramos la alerta
+                            echo '<div class="m-0 alert alert-info alert-dismissible fade show" role="alert">
+                                    ' . $statusMsg . '
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">X</span>
+                                    </button>
+                                  </div>';
+                        } else {
+                            $statusMsg = "La foto ya existe, foto actualizada.";
+
+                            //Mostramos la alerta
+                            echo '<div class="m-0 alert alert-warning alert-dismissible fade show" role="alert">
+                                    ' . $statusMsg . '
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">X</span>
+                                    </button>
+                                  </div>';
+                        }
+                    } else {
+                        $statusMsg = "Se ha producido un error al subir la foto, intentelo mas tarde.";
+
+                        //Mostramos la alerta
+                        echo '<div class="m-0 alert alert-danger alert-dismissible fade show" role="alert">
+                                ' . $statusMsg . '
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">X</span>
+                                </button>
+                              </div>';
+                    }
+                } else {
+                    $statusMsg = 'Perdona, solo admite fotos de tipo JPG, JPEG, PNG, GIF, & PDF para subir.';
+
+                    //Mostramos la alerta
+                    echo '<div class="m-0 alert alert-warning alert-dismissible fade show" role="alert">
+                            ' . $statusMsg . '
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                              <span aria-hidden="true">X</span>
+                            </button>
+                          </div>';
+                }
+            } else {
+                $statusMsg = 'Selecciona un archivo para subir.';
+
+                //Mostramos la alerta
+                echo '<div class="m-0 alert alert-info alert-dismissible fade show" role="alert">
+                        ' . $statusMsg . '
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">X</span>
+                        </button>
+                      </div>';
+            }
+        }
 
         if ($cambiarContrasena) {
             //Guardamos los datos del usuario con la contraseña nueva actualizada
@@ -314,18 +389,19 @@ class controlador extends Controller {
             //Notificamos por correo el cambio de contraseña enviandole al correo su nueva contraseña
             $correo = new Correo();
             $correo->enviarCambiarContrasena($email, "CONTRASENA ACTUALIZADA", $password);
-        } else {
-            //Guardamos los datos del usuario sin la nueva contraseña por que no ha especificado ninguna nueva
-            Conexion::actualizarPerfilUsuarioNoPassword($email, $nya, $direccion, $telefono);
+        }
 
-            //Se ha actualizado el perfil correctamente
-            echo '<div class="m-0 alert alert-success alert-dismissible fade show" role="alert">
+        //Guardamos los datos del usuario sin la nueva contraseña por que no ha especificado ninguna nueva
+        Conexion::actualizarPerfilUsuarioNoPassword($email, $nya, $direccion, $telefono);
+
+        //Se ha actualizado el perfil correctamente
+        echo '<div class="m-0 alert alert-success alert-dismissible fade show" role="alert">
                     El perfil se ha actualizado correctamente. Inicie sesion nuevamente.
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">X</span>
                     </button>
                   </div>';
-        }
+
 
         self::cerrarSesion();
         return view('index');
