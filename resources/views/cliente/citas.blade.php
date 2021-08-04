@@ -1,7 +1,7 @@
-@extends('maestra.maestra_admin')
+@extends('maestra.maestra_cliente')
 
 @section('titulo') 
-El Paisano - CitasCliente Admin
+El Paisano - CitasCliente Cliente
 @endsection
 
 @section('css')

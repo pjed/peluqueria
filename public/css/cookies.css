@@ -1,8 +1,12 @@
 #cajacookies {
   padding: 10px;
-  text-align: center;
 }
 
 #cajacookies button {
   color: black;
+  height: 50px;
+}
+
+#cajacookies > div > div.col-9 > p{
+    font-size: 0.9rem;
 }

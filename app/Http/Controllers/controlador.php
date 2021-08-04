@@ -39,19 +39,21 @@ class controlador extends Controller {
                         </button>
                       </div>';
             }
-
             $citasSocio = Conexion::obtenerUltimasCitasSocio($usuario[0]->NSOCIO);
 
-            $fecha = $citasSocio[0]->FECHA;
-            $date = new \DateTime($fecha);
+            if (count($citasSocio) != 0) {
+                $fecha = $citasSocio[0]->FECHA;
+                $date = new \DateTime($fecha);
 
-            if (count($citasSocio) > 2) {
-                //Mostramos el mensaje emergente de la ultima cita que tiene
-                echo '<div class="m-0 alert alert-warning alert-dismissible fade show" role="alert">
+                if (count($citasSocio) >= 1) {
+                    //Mostramos el mensaje emergente de la ultima cita que tiene
+                    echo '<div class="m-0 alert alert-warning alert-dismissible fade show" role="alert">
                         La próxima cita en la peluquería es el dia ' . date_format($date, 'd-m-Y') . ' a las ' . $citasSocio[0]->HORA . '. 
                             <br>Si quiere anular su reserva ir a Citas, seleccionar el dia y pulsar eliminar
                       </div>';
+                }
             } else {
+
                 //Mensaje que no tiene reservada ninguna cita 
                 echo '<div class="m-0 alert alert-info alert-dismissible fade show" role="alert">
                         No tiene ninguna cita. 
@@ -298,7 +300,7 @@ class controlador extends Controller {
         if ($password !== null) {
             $cambiarContrasena = true;
         }
-        
+
         if ($_FILES["file"]["name"] != "") {
             $statusMsg = '';
 

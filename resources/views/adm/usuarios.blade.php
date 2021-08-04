@@ -31,31 +31,40 @@ El Paisano - Usuarios - Admin
         <tbody>
             <?php
             $usuarios = json_decode(session()->get('usuarios'), true);
-            foreach ($usuarios as $usuario) {
+
+            if ($usuarios != null) {
+                foreach ($usuarios as $usuario) {
+                    ?>
+                    <tr>
+                        <td><input type="text" id="nya" name="nya" value="<?php echo $usuario["NYA"] ?>"></td>
+                        <!--<td><input type="text" id="direccion" name="direccion" value="<?php echo $usuario["DIRECCION"] ?>"></td>-->
+                        <td><input type="text" id="telefono" name="telefono" value="<?php echo $usuario["TELEFONO"] ?>"></td>
+                        <td>
+                            <select>
+                                <?php
+                                if ($usuario["DESC_ROL"] === "Admin") {
+                                    ?>
+                                    <option value="1" selected>Admin</option>
+                                    <option value="2">Cliente</option>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <option value="1">Admin</option>
+                                    <option value="2" selected>Cliente</option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                        </td>
+                        <td><input type="submit" class="btn btn-dark w-100" name="editar" id="editar" value="Editar"></td>
+                        <td><input type="submit" class="btn btn-dark w-100" name="eliminar" id="eliminar" value="Eliminar"></td>
+                    </tr>
+                    <?php
+                }
+            } else {
                 ?>
                 <tr>
-                    <td><input type="text" id="nya" name="nya" value="<?php echo $usuario["NYA"] ?>"></td>
-                    <!--<td><input type="text" id="direccion" name="direccion" value="<?php echo $usuario["DIRECCION"] ?>"></td>-->
-                    <td><input type="text" id="telefono" name="telefono" value="<?php echo $usuario["TELEFONO"] ?>"></td>
-                    <td>
-                        <select>
-                            <?php
-                            if ($usuario["DESC_ROL"] === "Admin") {
-                                ?>
-                                <option value="1" selected>Admin</option>
-                                <option value="2">Cliente</option>
-                                <?php
-                            } else {
-                                ?>
-                                <option value="1">Admin</option>
-                                <option value="2" selected>Cliente</option>
-                                <?php
-                            }
-                            ?>
-                        </select>
-                    </td>
-                    <td><input type="submit" class="btn btn-dark w-100" name="editar" id="editar" value="Editar"></td>
-                    <td><input type="submit" class="btn btn-dark w-100" name="eliminar" id="eliminar" value="Eliminar"></td>
+                    <td colspan="4" style="color: red;">No hay usuario registrados</td>
                 </tr>
                 <?php
             }
