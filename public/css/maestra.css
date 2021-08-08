@@ -1,12 +1,64 @@
 /*Reseteamos el margen de html y body*/
-html,body{ margin: 0; height: 100%;}
+html,body{ margin: 0; height: 100vh;}
 
 /* X-Small devices (portrait phones, less than 576px)
  No media query for `xs` since this is the default in Bootstrap*/
 
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 300px) {
+
+    #collapsibleNavbar > ul:nth-child(1) > li > a > img{
+        width: 50px; 
+        height: 50px;
+        margin-left: 12px;
+    }
+    
+    body > header > nav{
+        text-align: center;
+    }
+    .redes{
+        width: 50px; 
+        height: 50px;
+    }
+    
+    img{
+        padding: 3px;
+        border: solid 1px black;
+        background-color: white;
+        border-radius: 25px;
+    }
+
+    img.card-img{
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+}
+
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
 
+    #collapsibleNavbar > a > img{
+        width: 50px; height: 50px;
+    }
+    .redes{
+        width: 50px; 
+        height: 50px;
+    }
+    
+    img{
+        padding: 3px;
+        border: solid 1px black;
+        background-color: white;
+        border-radius: 25px;
+    }
+
+    img.card-img{
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
 }
 
 /*Medium devices (tablets, 768px and up)*/
@@ -14,6 +66,11 @@ html,body{ margin: 0; height: 100%;}
 
     img.patrocinadores{
         width: 50%;
+    }
+
+
+    .logo{
+        width: 50px; height: 50px;
     }
 
     .patrocinadores{
@@ -45,6 +102,15 @@ html,body{ margin: 0; height: 100%;}
         justify-content: center;
         align-items: center;
         align-content: center;
+    }
+    
+    
+
+    img{
+        padding: 3px;
+        border: solid 1px black;
+        background-color: white;
+        border-radius: 25px;
     }
 
     .card{
@@ -152,14 +218,38 @@ html,body{ margin: 0; height: 100%;}
 }
 
 /*Large devices (desktops, 992px and up)*/
-@media (min-width: 992px) {  }
+@media (min-width: 992px) { 
+
+
+    img{
+        padding: 3px;
+        border: solid 1px black;
+        background-color: white;
+        border-radius: 25px;
+    }
+}
 
 /*X-Large devices (large desktops, 1200px and up)*/
-@media (min-width: 1200px) { }
+@media (min-width: 1200px) { 
+
+
+    img{
+        padding: 3px;
+        border: solid 1px black;
+        background-color: white;
+        border-radius: 25px;
+    }
+}
 
 /*XX-Large devices (larger desktops, 1400px and up)*/
 @media (min-width: 1400px) { 
 
+    /*iframe video presentacion*/
+    iframe{
+        width: 700px;
+        height: 400px;
+    }
+    
     /* declaramos un color y una altura full*/
     .div_contenedor{
         min-height: 100vh;
@@ -224,13 +314,13 @@ html,body{ margin: 0; height: 100%;}
     .logo{
         width: 50px; height: 50px;
     }
-    .redes{
-        width: 50px; 
-        height: 50px;
-    }
     .redes_perfil{
         width: 150px; 
         height: 150px;
+    }
+    .redes{
+        width: 50px; 
+        height: 50px;
     }
     nav{
         margin: 0 auto;

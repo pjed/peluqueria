@@ -401,7 +401,7 @@ if ($usuario_log[0]['IDROL'] != 1) {
         <br>
         <input type="button" value="Reservar Cita" id="reservar" class="btn btn-info">                
     </form>
-    <div class="col-lg-7 m-3">
+    <div class="col-lg-6 m-3">
         <h4>Fecha Seleccionada: 
             <label id="fechaSeleccionada" name="fechaSeleccionada">
             </label>

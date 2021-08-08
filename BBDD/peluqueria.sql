@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-06-2021 a las 16:07:30
--- Versión del servidor: 10.1.38-MariaDB
--- Versión de PHP: 7.3.2
+-- Tiempo de generación: 08-08-2021 a las 23:01:09
+-- Versión del servidor: 10.4.19-MariaDB
+-- Versión de PHP: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -43,48 +42,50 @@ CREATE TABLE `cita` (
 --
 
 INSERT INTO `cita` (`idCITA`, `FECHA`, `TURNO`, `HORA`, `NOMBRE`, `OBSERVACIONES`, `usuario_NSOCIO`) VALUES
-(40, '2021-05-28', '1', '12:00', NULL, 'Corte de pelo', 18),
-(41, '2021-05-28', '1', '18:00', NULL, 'Corte de pelo', 1),
-(42, '2021-05-28', '1', '10:00', NULL, NULL, 1),
-(43, '2021-05-28', '1', '10:30', NULL, 'AKSDJHAKSJDHAKSJD', 1),
-(44, '2021-05-28', '1', '11:00', NULL, 'KJADKAHKSDJ', 1),
-(45, '2021-05-28', '1', '20:00', NULL, 'asdasd', 1),
-(49, '2021-05-28', '1', '19:00', NULL, 'aksjdnakjds', 19),
-(50, '2021-05-28', '1', '17:00', NULL, 'lakjdlkasd', 19),
-(51, '2021-05-28', '1', '17:30', NULL, 'lkajdasd123', 18),
-(52, '2021-05-31', '1', '13:30', NULL, 'Mechas nose que', 2),
-(53, '2021-05-31', '1', '13:30', NULL, 'Mechas nose que', 2),
-(54, '2021-05-31', '1', '13:30', NULL, 'Mechas nose que', 2),
-(55, '2021-05-31', '1', '13:30', NULL, 'Mechas nose que', 2),
-(56, '2021-05-31', '1', '13:30', NULL, 'Mechas nose que', 2),
-(57, '2021-05-31', '1', '14:00', NULL, 'lkkajsldkas12319283', 18),
-(78, '2021-05-28', '1', '11:30', NULL, 'Pos eso', 1),
-(79, '2021-05-28', '1', '12:30', NULL, 'POS ESO', 18),
-(80, '2021-05-28', '1', '14:00', NULL, 'hora de comer', 19),
-(81, '2021-05-28', '1', '14:00', NULL, 'hora de comer', 19),
-(82, '2021-05-27', '1', '10:00', NULL, 'Son las 10 de la mañana', 1),
-(84, '2021-05-27', '1', '17:30', NULL, 'Tinte', 18),
-(91, '2021-05-27', '1', '17:00', NULL, 'Corte y mechas', 19),
-(92, '2021-06-08', '1', '10:00', NULL, 'Corte de pelo', 1),
-(93, '2021-06-08', '1', '10:30', NULL, 'ajsdhasd', 19),
-(94, '2021-06-08', '1', '18:00', NULL, 'asjdaksd', 18),
-(95, '2021-06-08', '1', '11:00', NULL, 'kqheew', 18),
-(96, '2021-06-08', '1', '11:30', NULL, ',adsjhdsjkas', 19),
-(97, '2021-06-08', '1', '12:00', NULL, 'akjsdhakjsd', 18),
-(98, '2021-06-08', '1', '12:30', NULL, 'qkhkewqwe', 1),
-(99, '2021-06-08', '1', '19:00', NULL, 'qweqwe', 1),
-(100, '2021-06-08', '1', '13:00', NULL, 'qwehjkqeh7123', 18),
-(101, '2021-06-08', '1', '18:30', NULL, 'jkh3123', 18),
-(102, '2021-06-08', '1', '19:30', NULL, 'asdasd', 1),
-(103, '2021-06-08', '1', '13:30', NULL, 'hkjh', 18),
-(104, '2021-06-08', '1', '14:00', NULL, '213123', 18),
-(105, '2021-06-08', '1', '20:00', NULL, 'qehqew', 18),
-(106, '2021-06-08', '1', '17:00', NULL, 'akjdasd', 2),
-(107, '2021-06-08', '1', '17:30', NULL, 'kjdqwe1', 1),
-(108, '2021-06-09', '1', '10:00', NULL, 'Tinte de pelo', 18),
-(111, '2021-06-09', '1', '18:00', NULL, 'Cortar el pelo', 1),
-(112, '2021-06-09', '1', '19:00', NULL, 'Tinte de pelo n8', 2),
-(113, '2021-06-09', '1', '10:30', NULL, '1o82739817239812', 18);
+(310, '2021-07-15', '1', '19:00', 'NULL', 'CORTE DE PELO', 20),
+(312, '2021-07-15', '1', '17:30', 'NULL', 'CORTE', 2),
+(313, '2021-07-15', '1', '12:30', 'NULL', 'CORTE Y BARBA', 1),
+(370, '2021-07-14', '1', '10:00', 'NULL', '13123', 1),
+(374, '2021-07-20', '1', '18:00', 'NULL', 'asdasdasd', 19),
+(386, '2021-07-19', '1', '17:00', 'NULL', 'aaaaaaa', 19),
+(388, '2021-07-19', '1', '13:00', 'NULL', 'qqqqqqqqq222222222', 18),
+(390, '2021-07-19', '1', '18:30', 'NULL', 'teweeeeeeeeeeeeeeee', 18),
+(392, '2021-07-19', '1', '14:00', 'NULL', 'hhhhhhhhh', 18),
+(394, '2021-07-19', '1', '11:00', 'NULL', 'weeeee', 20),
+(395, '2021-07-19', '1', '11:30', 'NULL', 'weeeee', 20),
+(398, '2021-07-20', '1', '11:00', 'NULL', 'HOLA QUE PASA LOCO', 19),
+(410, '2021-07-21', '1', '18:00', 'NULL', 'CORTE DE PELO A NAVAJA', 28),
+(446, '2021-07-23', '1', '10:00', 'NULL', '123123132', 29),
+(449, '2021-07-23', '1', '14:00', 'NULL', '123123132', 29),
+(454, '2021-07-23', '1', '11:00', 'NULL', '1AAAAA', 37),
+(456, '2021-07-23', '1', '19:30', 'NULL', '3C', 37),
+(502, '2021-07-26', '1', '17:00', 'NULL', 'CORTE DE PELO', 28),
+(513, '2021-07-28', '1', '13:30', 'NULL', 'ey', 28),
+(514, '2021-07-28', '1', '18:30', 'NULL', 'ey 123123', 28),
+(516, '2021-07-29', '1', '13:30', 'NULL', 'asdasd', 29),
+(518, '2021-07-29', '1', '10:00', 'NULL', 'asdasd', 29),
+(520, '2021-07-29', '1', '20:00', 'NULL', 'asdadasd', 28),
+(521, '2021-07-29', '1', '13:00', 'NULL', 'asdadasdqewqweqwe1231231', 28),
+(533, '2021-08-04', '1', '10:00', 'NULL', '1', 39),
+(535, '2021-08-04', '1', '10:30', 'NULL', '2', 1),
+(536, '2021-08-05', '1', '10:00', 'NULL', '1', 1),
+(537, '2021-08-05', '1', '10:30', 'NULL', '2', 1),
+(538, '2021-08-05', '1', '11:00', 'NULL', '3', 1),
+(539, '2021-08-05', '1', '11:30', 'NULL', '4', 1),
+(540, '2021-08-05', '1', '12:00', 'NULL', '5', 1),
+(541, '2021-08-05', '1', '12:30', 'NULL', '6', 1),
+(542, '2021-08-05', '1', '13:00', 'NULL', '7', 1),
+(543, '2021-08-05', '1', '13:30', 'NULL', '8', 1),
+(544, '2021-08-05', '1', '14:00', 'NULL', '9', 1),
+(545, '2021-08-05', '1', '17:00', 'NULL', '10', 1),
+(546, '2021-08-05', '1', '17:30', 'NULL', '11', 1),
+(547, '2021-08-05', '1', '18:00', 'NULL', '12', 1),
+(548, '2021-08-05', '1', '18:30', 'NULL', '13', 1),
+(549, '2021-08-05', '1', '19:00', 'NULL', '14', 1),
+(550, '2021-08-05', '1', '19:30', 'NULL', '15', 1),
+(551, '2021-08-05', '1', '20:00', 'NULL', '16', 1),
+(552, '2021-08-06', '1', '10:00', 'NULL', '1', 29),
+(553, '2021-08-06', '1', '10:30', 'NULL', '2', 29);
 
 -- --------------------------------------------------------
 
@@ -127,7 +128,12 @@ INSERT INTO `tiene` (`idtiene`, `usuario_NSOCIO`, `rol_IDROL`, `updated_at`, `cr
 (1, 1, 1, '2020-12-18', '2020-12-18'),
 (2, 2, 1, '2020-12-18', '2020-12-18'),
 (5, 18, 2, '2020-12-18', '2020-12-18'),
-(6, 19, 2, '2021-05-25', '2021-05-25');
+(6, 19, 2, '2021-05-25', '2021-05-25'),
+(7, 20, 2, '2021-06-15', '2021-06-15'),
+(9, 28, 2, '2021-07-21', '2021-07-21'),
+(10, 29, 2, '2021-07-23', '2021-07-23'),
+(18, 37, 2, '2021-07-23', '2021-07-23'),
+(20, 39, 2, '2021-08-04', '2021-08-04');
 
 -- --------------------------------------------------------
 
@@ -154,10 +160,15 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`NSOCIO`, `DNI`, `EMAIL`, `PASSWORD`, `NYA`, `DIRECCION`, `F_NACIMIENTO`, `TELEFONO`, `FOTO`, `updated_at`, `created_at`) VALUES
-(1, '5933283L', 'espinosaduque@gmail.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b', 'Pedro Espinosa', 'CARDENAL MONESCILLO 5', '1987-03-11', '638288641', 'noimage.jpg', '2020-12-18', '2020-12-18'),
+(1, '5933283L', 'espinosaduque@gmail.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b', 'Pedro Javier Espinosa', 'Cardenal Monescillo 5', '1987-03-11', '638288641', 'semon.jpg', '2020-12-18', '2020-12-18'),
 (2, '1234567Z', 'rocio@gmail.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b', 'Rocio Espinosa', 'PUES NO LO SE 5', '1995-07-25', '123456789', 'noimage.jpg', '2020-12-18', '2020-12-18'),
 (18, '1234567X', 'laura@gmail.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b', 'Laura Martinez', 'Cardenal Monescillo 5', '1987-03-11', '546897231', 'noimage.jpg', '2020-12-18', '2020-12-18'),
-(19, '5873404D', 'antonia@gmail.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b', 'Antonia Gonzalez', 'False 123', '1777-03-11', '632548714', 'noimage.jpg', '2021-05-25', '2021-05-25');
+(19, '5873404D', 'antonia@gmail.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b', 'Antonia Gonsales', 'Pos vaya', '1777-03-11', '123456789', 'sasel.png', '2021-05-25', '2021-05-25'),
+(20, '0572125J', 'josefa@gmail.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b', 'Josefa Gonzalez', 'Cardenal Monescillo 5', '1972-04-04', '123456789', 'noimage.jpg', '2021-06-15', '2021-06-15'),
+(28, '5873404D', 'espinosasanchezamable@gmail.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b', 'Amable Espinosa', 'Cardenal Monescillo 3', '1987-03-11', '639616826', 'semon.jpg', '2021-07-21', '2021-07-21'),
+(29, '5933283L', 'maria@gmail.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b', 'Maria Antonia Gonzaler', 'C/ Alameda 222', '1987-03-11', '123456789', 'platano.jpg', '2021-07-23', '2021-07-23'),
+(37, '5933283L', 'pedrojespinosa1987@gmail.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b', 'PEDRITO ARIADNE', 'ALAMEDA 12', '2021-07-23', '639616826', 'platano.jpg', '2021-07-23', '2021-07-23'),
+(39, '5933283L', 'peluqueriaelpaisano@gmail.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b', 'Paisano', 'Paseo', '1855-02-11', '123456789', 'teamwork.png', '2021-08-04', '2021-08-04');
 
 --
 -- Índices para tablas volcadas
@@ -198,7 +209,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `cita`
 --
 ALTER TABLE `cita`
-  MODIFY `idCITA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `idCITA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=554;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -210,13 +221,13 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `tiene`
 --
 ALTER TABLE `tiene`
-  MODIFY `idtiene` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idtiene` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `NSOCIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `NSOCIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Restricciones para tablas volcadas

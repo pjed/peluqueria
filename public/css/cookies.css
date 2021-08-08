@@ -1,12 +1,46 @@
 #cajacookies {
-  padding: 10px;
+    padding: 10px;
 }
 
 #cajacookies button {
-  color: black;
-  height: 50px;
+    color: black;
+    height: 50px;
 }
 
 #cajacookies > div > div.col-9 > p{
     font-size: 0.9rem;
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 300px) {
+    #cajacookies button {
+        color: black;
+        font-size: 12pt;
+    }
+    #cajacookies > div > div.col-2.mt-2 > button > i{
+        display: none;
+    }
+    #cajacookies > div > div.col-10.mt-3 > p{
+        font-size: 8pt;
+    }
+}
+
+
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) { 
+    #cajacookies button {
+        color: black;
+        font-size: 12pt;
+    }
+    #cajacookies > div > div.col-2.mt-2 > button > i{
+        display: none;
+    }
+}
+
+/*XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) { 
+    #cajacookies button {
+        color: black;
+    }
 }

@@ -365,7 +365,7 @@ if ($usuario_log[0]['IDROL'] != 1) {
                         ?>
                         <div class="input-group flex-nowrap">
                         <div class="input-group-prepend">
-                            <span class="input-group-text">EMAIL</span>
+                            <span class="input-group-text">Email</span>
                         </div>
                             <input type="email" readonly id="EMAIL" class="form-control" name="EMAIL" value="espinosaduque@gmail.com">
                     </div>
@@ -401,7 +401,7 @@ if ($usuario_log[0]['IDROL'] != 1) {
         <br>
         <input type="button" value="Reservar Cita" id="reservar" class="btn btn-info">                
     </form>
-    <div class="col-lg-7 m-3">
+    <div class="col-lg-6 m-3">
         <h4>Fecha Seleccionada: 
             <label id="fechaSeleccionada" name="fechaSeleccionada">
             </label>

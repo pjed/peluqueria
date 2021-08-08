@@ -234,7 +234,7 @@
 
             <!-- Copyright -->
             <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-                © 2021 Copyright Todos los derechos reservados
+                © 2021 Copyright <br> Todos los derechos reservados
                 <!--<a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>-->
             </div>
             <!-- Copyright -->
@@ -245,7 +245,7 @@
                     </div>
                     <div class="col-10 mt-3">
                         <p>
-                            Éste sitio web usa cookies, si permanece aquí acepta su uso. &nbsp;Puede leer más sobre el uso de cookies en nuestra <a href="privacidad">política de privacidad</a>.
+                            Éste sitio web usa cookies, si permanece aquí acepta su uso. &nbsp;<br>Puede leer más sobre el uso de cookies en nuestra <a href="privacidad">política de privacidad</a>.
                         </p>
                     </div>
                 </div>
