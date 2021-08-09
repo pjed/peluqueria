@@ -32,29 +32,29 @@ El Paisano - Servicios
     </div>
     <div class="row m-0 justify-content-center">
         <div class="col-12 justify-content-center">
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Corte de pelo normal</td>
-                    <td>10 €</td>
-                </tr>
-                <tr>
-                    <td>Arreglo de Barba</td>
-                    <td>6 €</td>
-                </tr>
-                <tr>
-                    <td>Cejas</td>
-                    <td>3 €</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Corte de pelo normal</td>
+                        <td>10 €</td>
+                    </tr>
+                    <tr>
+                        <td>Arreglo de Barba</td>
+                        <td>6 €</td>
+                    </tr>
+                    <tr>
+                        <td>Cejas</td>
+                        <td>3 €</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 @endsection

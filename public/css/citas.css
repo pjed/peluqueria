@@ -1,37 +1,18 @@
+/*Reseteamos el margen de html y body*/
+html,body{ margin: 0; height: 100vh;}
 
-input[type=text]{
-    width: 175px;
-}
-.form_citas{
-    width: 300px;
-}
-
-select, textarea, input[type=date]{
-    width: 100%;
-}
-
-.texto_rojo{
-    color: red;
-}
-
-.libre{
-    background-color: greenyellow;
-    padding: 5px;
-    width: 100px;
-    border: solid 1px black;
-}
+/* X-Small devices (portrait phones, less than 576px)
+ No media query for `xs` since this is the default in Bootstrap*/
 
 
-.ocupado{
-    background-color: red;
-    padding: 5px;
-    width: 100px;
-    border: solid 1px black;
-}
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 300px) {
 
-.table-striped tbody tr:nth-child(odd) td {
-    background-color: green;
-}
-.table-striped tbody tr.highlight td {
-    background-color: red;
+    #nombre, #horasLibres{
+        width: 100%;
+    }
+    
+    select, textarea, input[type=date], input[type=email]{
+        width: 210px;
+    }
 }

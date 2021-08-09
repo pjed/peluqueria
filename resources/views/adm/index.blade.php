@@ -32,20 +32,22 @@ El Paisano - Index Admin
         <img class="w-25" src="{{asset ('img/logo.jpg')}}" alt="cortepelo">
     </div>
 </div>
-<span class="caption">Nuevo look, nuevo comienzo</span>
-<p class="texto">
-    Son muchos los factores a tener en cuenta al realizar un servicio de corte, 
-    la forma de tu rostro (cuadrado, redondo o en forma de corazón), tus gustos 
-    o la moda, son algunos de ellos. Nuestros estilistas se forman en las últimas 
-    tendencias en peluquería y técnicas de corte para ofrecerte la solución que mejor 
-    se adapta a ti. En Peluquería el Paisano te ayudaremos a encontrar el corte de 
-    pelo que más te favorece.
+<div>
+    <span class="caption">Nuevo look, nuevo comienzo</span>
+    <p class="texto">
+        Son muchos los factores a tener en cuenta al realizar un servicio de corte, 
+        la forma de tu rostro (cuadrado, redondo o en forma de corazón), tus gustos 
+        o la moda, son algunos de ellos. Nuestros estilistas se forman en las últimas 
+        tendencias en peluquería y técnicas de corte para ofrecerte la solución que mejor 
+        se adapta a ti. En Peluquería el Paisano te ayudaremos a encontrar el corte de 
+        pelo que más te favorece.
 
-    La Peluqueria el Paisano esta diseñada para ofrecerte una experiencia única, 
-    siempre dispuestos a ayudarte, trabajamos mediante cita previa con nuestro servicio 
-    de cita online, relájate mientras lavamos tu cabello, disfruta del asesoramiento 
-    de nuestros estilistas profesionales, para sentirte bien por dentro y por fuera.
-</p>
+        La Peluqueria el Paisano esta diseñada para ofrecerte una experiencia única, 
+        siempre dispuestos a ayudarte, trabajamos mediante cita previa con nuestro servicio 
+        de cita online, relájate mientras lavamos tu cabello, disfruta del asesoramiento 
+        de nuestros estilistas profesionales, para sentirte bien por dentro y por fuera.
+    </p>
+</div>
 <div class="parallax_2"></div>
 <div>
     <span class="caption_2">Todo para el cuidado de tu cabello</span>

@@ -14,3 +14,7 @@ tr:hover{
     background-color: grey;
     color: white;
 }
+
+input, select{
+    width: 100%;
+}

@@ -9,7 +9,46 @@ El Paisano - Usuarios - Admin
 @endsection
 
 @section('javascript')
-<script src="{{asset ('js/olvidar.js')}}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+
+function getRow() {
+    return $('table > tbody > tr.highlight > input');
+}
+
+$('#usuarios').on('click', 'tbody tr', function (event) {
+    $(this).addClass('highlight').siblings().removeClass('highlight');
+    var selrow = getRow();
+    var $rol = $('#rol').val();
+    var idCITA = 0;
+    var email = "";
+//
+//    selrow.each(function (index, value) {
+//        if (index === 0) {
+//            idCITA = value.value;
+//        }
+//        if (index === 1) {
+//            email = value.value;
+//        }
+//    });
+//
+//    $.ajax({
+//        data: {"citaSeleccionadaBorrar": idCITA, "email": email}, //datos json recogidos del formulario formu
+//        type: "POST", // método de envío de datos
+//        url: "submit3.php", //código a ejecutar en el servidor
+//        success: function (respuesta) {
+//            var borrado = JSON.parse(respuesta); //conversión a json de los datos de respuesta
+//
+//            if (borrado) {
+//                citaBorrarOK();
+//                actualizarFecha();
+//            } else {
+//                citaBorrarERROR();
+//            }
+//        }
+//    });
+});
+</script>
 @endsection
 
 @section('contenido') 
@@ -21,10 +60,11 @@ El Paisano - Usuarios - Admin
 </nav>
 <h5>Administrar Usuarios</h5>
 <form action="#" method="POST">
-    <table>
+    {{ csrf_field() }} 
+    <table id="usuarios">
         <thead>
         <th>NOMBRE</th>
-        <th>DIRECCIÓN</th>
+        <!--<th>DIRECCIÓN</th>-->
         <th>TELÉFONO</th>
         <th>ROL</th>
         </thead>
@@ -56,8 +96,8 @@ El Paisano - Usuarios - Admin
                                 ?>
                             </select>
                         </td>
-                        <td><input type="submit" class="btn btn-dark w-100" name="editar" id="editar" value="Editar"></td>
-                        <td><input type="submit" class="btn btn-dark w-100" name="eliminar" id="eliminar" value="Eliminar"></td>
+                        <td><input type="button" class="btn btn-dark w-100" id="editar" value="Editar"></td>
+                        <td><input type="button" class="btn btn-dark w-100" id="eliminar" value="Eliminar"></td>
                     </tr>
                     <?php
                 }

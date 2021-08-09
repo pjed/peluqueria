@@ -33,8 +33,6 @@
         <!-- Header --> 
         <header>
             <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-                <!-- Brand -->
-                <a href="index" class="navbar-brand"><img class="logo" alt="logo" src="{{asset ('img/logo.jpg')}}"></a>
 
                 <!-- Toggler/collapsibe Button -->
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -43,6 +41,12 @@
 
                 <!-- Navbar links -->
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                    <ul class="navbar-nav eliminar_margen_arriba">
+                        <li class="nav-item">
+                            <!-- Brand -->
+                            <a href="index" class="navbar-brand"><img class="logo" alt="logo" src="{{asset ('img/logo.jpg')}}"></a>
+                        </li>
+                    </ul>
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active">
                             <a class="nav-link" href="indexCliente" >Inicio</a>
@@ -127,24 +131,12 @@
                 <!-- Left -->
 
                 <!-- Right -->
-                <div class="mr-5">
-                    <a href="" class="me-4 text-reset mr-5">
-                        <i class="fab fa-facebook-f"></i>
+                <div class="justify-content-center">
+                    <a href="" class="me-4 text-reset mr-3">
+                        <a href="https://facebook.com/elpaisanopeluqueria/"><i class="fab fa-facebook-f"></i></a>
                     </a>
-                    <a href="" class="me-4 text-reset mr-5">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="" class="me-4 text-reset mr-5">
-                        <i class="fab fa-google"></i>
-                    </a>
-                    <a href="" class="me-4 text-reset mr-5">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="" class="me-4 text-reset mr-5">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="" class="me-4 text-reset mr-5">
-                        <i class="fab fa-github"></i>
+                    <a href="" class="me-4 text-reset mr-3">
+                        <a href="https://www.instagram.com/hudy_elpaisano/"><i class="fab fa-instagram"></i></a>
                     </a>
                 </div>
                 <!-- Right -->
@@ -239,10 +231,10 @@
             <!-- Copyright -->
             <div id="cajacookies" class="bg-dark">
                 <div class="row justify-content-center align-content-center">
-                    <div class="col-2 mt-2">
-                        <button onclick="aceptarCookies()" class="btn btn-info"><i class="fa fa-times"></i> Aceptar y cerrar mensaje</button>
+                    <div class="col-sm-12 mt-2">
+                        <button onclick="aceptarCookies()" class="btn btn-info"><i class="fa fa-times"></i> Aceptar</button>
                     </div>
-                    <div class="col-10 mt-3">
+                    <div class="col-sm-12 mt-3">
                         <p>
                             Éste sitio web usa cookies, si permanece aquí acepta su uso. &nbsp;<br>Puede leer más sobre el uso de cookies en nuestra <a href="privacidad">política de privacidad</a>.
                         </p>

@@ -31,8 +31,8 @@ if (session()->get("error") != null) {
         <?php
 }
 ?>
-<div class="div_contenedor">
-    <div class="div_centrado login">
+<div class="row justify-content-center mb-3">
+    <div class="col-auto login text-center">
         <form name="inicioSesion" action="inicioSesion" method="POST">
             {{ csrf_field() }} 
             <h5>Iniciar Sesión</h5>

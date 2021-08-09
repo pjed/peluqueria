@@ -34,6 +34,10 @@ html,body{ margin: 0; height: 100vh;}
         align-items: center;
         align-content: center;
     }
+    
+    body > div{
+        text-align: center;
+    }
 }
 
 /*Small devices (landscape phones, 576px and up)*/

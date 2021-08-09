@@ -19,8 +19,8 @@ El Paisano - Crear Cuenta
         <li class="breadcrumb-item active">Crear Cuenta</li>
     </ol>
 </nav>
-<div class="div_contenedor">
-    <div class="div_centrado login">
+<div class="row justify-content-center mb-3">
+    <div class="col-11 login text-center">
         <form name="crearCuenta" action="crearCuenta" method="POST">
             {{ csrf_field() }} 
             <h5>Crear Cuenta</h5>
@@ -40,7 +40,7 @@ El Paisano - Crear Cuenta
             <br>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
-                    <span class="input-group-text bi bi-key" >Fecha de Nacimiento</span>
+                    <span class="input-group-text bi bi-key" >Fecha Nacimiento</span>
                 </div>
                 <input type="date" class="form-control" required name="fecha">
             </div>

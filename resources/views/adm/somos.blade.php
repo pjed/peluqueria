@@ -19,41 +19,36 @@ El Paisano - ¿Quíenes Somos? Admin
         <li class="breadcrumb-item active">¿Quienes Somos?</li>
     </ol>
 </nav>
-<h4>¿Quíenes Somos?</h4>
-<table>
-    <tr>
-        <td>
-    <picture>
-        <source srcset="{{asset ('img/fachada.png')}}" type="image/png">
-        <source srcset="{{asset ('img/fachada.jpg')}}" type="image/jpeg">
-        <img src=" {{asset ('img/fachada.png')}}" alt="fachada" class="imgFachada"/>
-    </picture>
-</td>
-<td>
-    <article>
-        <h4 class="cuerpo">
-            EL PAISANO
-        </h4>
-        <p class="cuerpo">
-            EL PAISANO es una firma de peluquería y belleza que nace en 2017 de la mano de personas con una amplia 
-            trayectoria en el mundo de la belleza y peluquería.
+<div class="row">
+    <div class="col-auto m-3">
+        <h4>¿Quíenes Somos?</h4>
+    </div>
+    <div class="col-auto mt-5 mb-5 justify-content-center align-content-center">
+        <picture class="m-0 row">
+            <div class="col-auto text-center">
+                <source srcset="{{asset ('img/fachada.png')}}" type="image/png">
+                <source srcset="{{asset ('img/fachada.jpg')}}" type="image/jpeg">
+                <img src=" {{asset ('img/fachada.png')}}" alt="fachada" class="w-75"/>
+            </div>
+        </picture>
+        <article class="p-3 text-center">
+            <p>
+                <strong>EL PAISANO</strong> es una firma de peluquería y belleza que nace en 2017 de la mano de personas con una amplia 
+                trayectoria en el mundo de la belleza y peluquería.
 
-            Los pilares sobre los que se basa la filosofía de trabajo EL PAISANO son la técnica, la pasión por la peluquería, 
-            el esfuerzo y la formación continua de nuestros profesionales. 
-            Sin olvidar que este proyecto llega acompañado de un 
-            gran equipo de personas.
-        </p>
-    </article>
-</td>
-</tr>
-<tr>
-    <td colspan="2">
-        <br>
-        <iframe width="400" height="225" src="https://www.youtube.com/embed/s4Zd-YsFjaA" 
-                allowfullscreen></iframe>
-    </td>
-</tr>
-</table>
+                Los pilares sobre los que se basa la filosofía de trabajo EL PAISANO son la técnica, la pasión por la peluquería, 
+                el esfuerzo y la formación continua de nuestros profesionales. 
+                Sin olvidar que este proyecto llega acompañado de un 
+                gran equipo de personas.
+            </p>
+        </article>
+    </div>
+    <div class="col-auto m-0 row">
+        <div class="col-auto text-center">
+            <iframe src="https://www.youtube.com/embed/s4Zd-YsFjaA" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('aside') 

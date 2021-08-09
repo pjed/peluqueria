@@ -19,8 +19,8 @@ El Paisano - Olvidar contraseña
         <li class="breadcrumb-item active">¿Has olvidado la contraseña?</li>
     </ol>
 </nav>
-<div class="div_contenedor">
-    <div class="div_centrado login">
+<div class="row justify-content-center mb-3">
+    <div class="col-11 login text-center">
         <form name="olvidarContrasena" action="olvidarContrasena" method="POST">
             {{ csrf_field() }} 
             <h5>¿Has olvidado tu contraseña?</h5>

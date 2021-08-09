@@ -19,8 +19,8 @@ El Paisano - Servicios Admin
         <li class="breadcrumb-item active">Servicios</li>
     </ol>
 </nav>
-<div class="div_contenedor">
-    <div class="div_centrado tarifas">
+<div class="row m-0 justify-content-center">
+    <div class="col-auto text-center">
         <h4>Listado de Servicios</h4>
         <h6>Cortes de Pelo</h6>
         <ol id="lista2">
@@ -29,29 +29,32 @@ El Paisano - Servicios Admin
             <li>A navaja</li>
             <li>A tijera</li>
         </ol>
-        <br>
-        <table>
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Precio</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Corte de pelo normal</td>
-                    <td>10 €</td>
-                </tr>
-                <tr>
-                    <td>Arreglo de Barba</td>
-                    <td>6 €</td>
-                </tr>
-                <tr>
-                    <td>Cejas</td>
-                    <td>3 €</td>
-                </tr>
-            </tbody>
-        </table>
+    </div>
+    <div class="row m-0 justify-content-center">
+        <div class="col-12 justify-content-center">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Corte de pelo normal</td>
+                        <td>10 €</td>
+                    </tr>
+                    <tr>
+                        <td>Arreglo de Barba</td>
+                        <td>6 €</td>
+                    </tr>
+                    <tr>
+                        <td>Cejas</td>
+                        <td>3 €</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 @endsection

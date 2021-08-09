@@ -10,6 +10,7 @@ El Paisano - CitasCliente Cliente
 
 @section('javascript')
 <script src="{{asset ('js/citas.js')}}"></script>
+<script src="https://kit.fontawesome.com/f0b6346b66.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
 
@@ -18,17 +19,17 @@ $(function () {
     mensajesOcultos();
 
     var fecha;
-    var nombre; 
-    
+    var nombre;
+
     $("#fechacita").change(function () {
         fecha = $(this).val();
         $('#fechaSeleccionada').text(fecha);
     });
-    
+
     //Funcion que cambia el email del nombre seleccionado
     $("#nombre").change(function () {
         nombre = $(this).val();
-        
+
         $.ajax({
             data: {"nombre": nombre}, //datos json recogidos del formulario formu
             type: "POST", // método de envío de datos
@@ -90,7 +91,7 @@ $(function () {
                         $tabla += "<thead>";
                         $tabla += "<th>Hora</th>";
                         $tabla += "<th>Cliente/a</th>";
-                        $tabla += "<th>Observaciones</th>";
+                        $tabla += "<th>Servicio</th>";
                         $tabla += "<th></th>";
                         $tabla += "</thead>";
                         $tabla += "<tbody>";
@@ -303,127 +304,127 @@ if ($usuario_log[0]['IDROL'] != 1) {
 ?>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="indexCliente">Inicio</a></li>
+        <li class="breadcrumb-item"><a href="indexAdm">Inicio</a></li>
         <li class="breadcrumb-item active">Citas</li>
     </ol>
 </nav>
-<h4>Reservar / Consultar Cita </h4>
-<br>
-<div class="datoscliente row justify-content-center">
-    <form action="" name="reservarCita" method="post" class="col-lg-4 col-md-10 col-sm-10 m-5 mb-5 text-center">
-        {{ csrf_field() }} 
-        <table>
-            <tr>
-                <td>
-                    <div class="input-group flex-nowrap">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Nombre Cliente</span>
-                        </div>
-                        <?php
-                        $usuario_log = json_decode(session()->get('usuario'), true);
+<div class="row justify-content-center">
+    <div class="col-auto">
+        <h4>Reservar / Consultar Cita </h4>
+    </div>
+    <div class="col-auto">
+        <div class="row">
+            <form action="" name="reservarCita" method="post" class="col-lg-4 col-md-10 col-sm-10 m-5 mb-5 text-center">
+                {{ csrf_field() }} 
+                <div class="row input-group flex-nowrap">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Nombre</span>
+                    </div>
+                    <?php
+                    $usuario_log = json_decode(session()->get('usuario'), true);
 
 //                        if ($usuario_log[0]['DESC_ROL'] === "Admin") {
-                        ?>
-                        <select id="nombre" name="nombre" required="">
-                            <?php
+                    ?>
+                    <select id="nombre" name="nombre" required="">
+                        <?php
 //                            } else {
-                            ?>
-                                <!--<select id="nombre" name="nombre" disabled>-->
-                            <?php
+                        ?>
+                            <!--<select id="nombre" name="nombre" disabled>-->
+                        <?php
 //                                }
-                            $usuariosCitas = json_decode(session()->get('usuariosCitas'), true);
+                        $usuariosCitas = json_decode(session()->get('usuariosCitas'), true);
 
-                            foreach ($usuariosCitas as $usuario) {
-                                $usuario_log = json_decode(session()->get('usuario'), true);
+                        foreach ($usuariosCitas as $usuario) {
+                            $usuario_log = json_decode(session()->get('usuario'), true);
 
-                                if ($usuario_log[0]['NYA'] == $usuario["NYA"]) {
+                            if ($usuario_log[0]['NYA'] == $usuario["NYA"]) {
+                                ?>
+                                <option value="<?php echo $usuario["NSOCIO"] ?>" selected><?php echo $usuario["NYA"] ?></option>
+                                <?php
+                            } else {
+                                if ($usuario_log[0]['DESC_ROL'] !== "Admin") {
                                     ?>
-                                    <option value="<?php echo $usuario["NSOCIO"] ?>" selected><?php echo $usuario["NYA"] ?></option>
+                                                                                                                                                                                                                    <!--<option value="<?php echo $usuario["NSOCIO"] ?>" disabled><?php echo $usuario["NYA"] ?></option>-->
                                     <?php
                                 } else {
-                                    if ($usuario_log[0]['DESC_ROL'] !== "Admin") {
-                                        ?>
-                                                                                                                                                                        <!--<option value="<?php echo $usuario["NSOCIO"] ?>" disabled><?php echo $usuario["NYA"] ?></option>-->
-                                        <?php
-                                    } else {
-                                        ?>
-                                        <option value="<?php echo $usuario["NSOCIO"] ?>"><?php echo $usuario["NYA"] ?></option>
-                                        <?php
-                                    }
+                                    ?>
+                                    <option value="<?php echo $usuario["NSOCIO"] ?>"><?php echo $usuario["NYA"] ?></option>
+                                    <?php
                                 }
                             }
-                            ?>
-                        </select>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <br>
-                    <?php
-                    if ($usuario_log[0]['IDROL'] == 1) {
+                        }
                         ?>
-                        <div class="input-group flex-nowrap">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">EMAIL</span>
-                        </div>
-                            <input type="email" readonly id="EMAIL" class="form-control" name="EMAIL" value="espinosaduque@gmail.com">
-                    </div>
-                        <?php
-                    }
-                    ?>
-                    <br>
-                    <div class="input-group flex-nowrap">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Observaciones</span>
-                        </div>
-                        <textarea rows="4" cols="30" name="observaciones" id="observaciones" required placeholder="Escribe alguna observación ..."></textarea>
-                    </div>
-                </td>  
-            </tr>
-        </table>
-        <br>
-        <div class="input-group flex-nowrap">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Fecha</span>
-            </div>
-            <input type="date" class="form-control" required id="fechacita" name="fechacita" ">
-        </div>
-        <br>
-        <div class="input-group flex-nowrap">
-            <div class="input-group-prepend">
-                <span class="input-group-text" >Hora</span>
-            </div>
-            <select id="horasLibres" name="horasLibres">
-                <!--<option value="">-- SELECCIONA UNA FECHA --</option>-->
-            </select>
-        </div>
-        <br>
-        <input type="button" value="Reservar Cita" id="reservar" class="btn btn-info">                
-    </form>
-    <div class="col-lg-6 m-3">
-        <h4>Fecha Seleccionada: 
-            <label id="fechaSeleccionada" name="fechaSeleccionada">
-            </label>
-        </h4>
-        <BR>
-        <table class="text-center" id="citas_dia">
-            <thead>
-            <th>Hora</th>
-            <th>Cliente/a</th>
-            <th>Observaciones</th>
-            <th></th>
-            </thead>
-            <?php
-            if (!isset($citas)) {
-                ?>
-                <td colspan="3" class="texto_rojo">Seleccione una fecha para obtener las citas</td>
+                    </select>
+                </div>
                 <?php
-            }
-            ?>
-        </table>
+                if ($usuario_log[0]['IDROL'] == 1) {
+                    ?>
+                    <div class="row input-group flex-nowrap mt-3 mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Email</span>
+                        </div>
+                        <input type="email" readonly id="EMAIL" class="form-control" name="EMAIL" value="espinosaduque@gmail.com">
+                    </div>
+                    <?php
+                }
+                ?>
+                <div class="row input-group flex-nowrap mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Servicio</span>
+                    </div>
+                    <textarea rows="4" cols="30" name="observaciones" id="observaciones" required placeholder="El servicio a realizar..."></textarea>
+                </div>
+                <br>
+                <div class="row input-group flex-nowrap mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Fecha</span>
+                    </div>
+                    <input type="date" class="form-control" required id="fechacita" name="fechacita" ">
+                </div>
+                <br>
+                <div class="row input-group flex-nowrap mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" >Hora</span>
+                    </div>
+                    <select id="horasLibres" name="horasLibres">
+                        <!--<option value="">-- SELECCIONA UNA FECHA --</option>-->
+                    </select>
+                </div>
+                <br>
+                <input type="button" value="Reservar Cita" id="reservar" class="row btn btn-info">                
+            </form>
+        </div>
+    </div>
+    <div class="col-auto">
+        <div class="row justify-content-center">
+            <h4>Fecha Seleccionada 
+                <label id="fechaSeleccionada" name="fechaSeleccionada">
+                </label>
+            </h4>
+        </div>
+        <div class="row justify-content-center">
+            <table class="col-10 text-center justify-content-center table-striped" id="citas_dia">
+                <thead>
+                <th>Hora</th>
+                <th>Cliente/a</th>
+                <th>Servicio</th>
+                <th></th>
+                </thead>
+                <?php
+                if (!isset($citas)) {
+                    ?>
+                    <td colspan="3" class="texto_rojo">Seleccione una fecha para obtener las citas</td>
+                    <?php
+                }
+                ?>
+            </table>
+        </div>
     </div>
 </div>
+</div>
+</div>
+<br>
+
 @endsection
 
 <!--@section('aside') 

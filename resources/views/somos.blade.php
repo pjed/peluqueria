@@ -49,7 +49,6 @@ El Paisano - ¿Quíenes Somos?
         </div>
     </div>
 </div>
-</div>
 @endsection
 
 @section('aside') 

@@ -45,11 +45,10 @@
 
                 <!-- Navbar links -->
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                    
                     <ul class="navbar-nav eliminar_margen_arriba">
                         <li class="nav-item">
-                    <!-- Brand -->
-                    <a href="index" class="navbar-brand"><img class="logo" alt="logo" src="{{asset ('img/logo.jpg')}}"></a>
+                            <!-- Brand -->
+                            <a href="index" class="navbar-brand"><img class="logo" alt="logo" src="{{asset ('img/logo.jpg')}}"></a>
                         </li>
                     </ul>
                     <ul class="navbar-nav mr-auto">  
@@ -116,7 +115,7 @@
                 >
                 <!-- Left -->
                 <div class="me-5 d-none d-lg-block ml-5">
-                    <span>Conecta con nosotros el redes sociales:</span>
+                    <span>Conecta con nosotros en redes sociales:</span>
                 </div>
                 <!-- Left -->
 
@@ -233,27 +232,5 @@
             </div>
         </footer>
         <!-- Footer -->
-
-
-        <!--        <footer class="bg-dark">     
-                    <div class="row">
-                        <div class="izquierda">
-                            Teléfono: 658 230 110<br>
-                            Ubicación: Paseo de San Gregorio 91
-                        </div> 
-                        <div class="derecha">
-                            Copyright © Todos los Derechos Reservados
-                        </div>
-                    </div> 
-                    <div class="row">
-                        <div id="cajacookies" class="bg-dark">
-                            <p>
-                                <button onclick="aceptarCookies()" class="pull-right btn btn-info"><i class="fa fa-times"></i> Aceptar y cerrar éste mensaje</button><br>
-                                Éste sitio web usa cookies, si permanece aquí acepta su uso.<br>
-                                Puede leer más sobre el uso de cookies en nuestra <a href="privacidad">política de privacidad</a>.
-                            </p>
-                        </div>
-                    </div>
-                </footer>-->
     </body>
 </html>
