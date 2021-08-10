@@ -58,13 +58,13 @@ El Paisano - Crear Cuenta
                 </div>
                 <input type="password" class="form-control" placeholder="Password" name="pwd" required>
             </div>
-            <br>
+<!--            <br>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">
                     <span class="input-group-text bi bi-key" >DNI</span>
                 </div>
                 <input type="text" class="form-control" pattern="[0-9]{7}[A-Z]{1}" name="dni" maxlength="8" placeholder="1234567X" required>
-            </div>
+            </div>-->
             <br>
             <div class="input-group flex-nowrap">
                 <div class="input-group-prepend">

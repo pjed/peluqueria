@@ -99,14 +99,14 @@ class Conexion {
      * @param type $tipo tipo de rol del usuario 1-Admin 2-Cliente
      * @return type
      */
-    static function crearUsuario($nombre, $direccion, $fecha, $correo, $pwd, $dni, $telefono, $tipo) {
+    static function crearUsuario($nombre, $direccion, $fecha, $correo, $pwd, $telefono, $tipo) {
         //Si el tipo es 2-Cliente creamos 
         //el usuario con rol cliente
         if ($tipo == 2) {
             //Creamos el objeto usuario y lo rellenamos con los datos
             $usuario = new usuario();
             $usuario->NSOCIO = NULL;
-            $usuario->DNI = $dni;
+//            $usuario->DNI = $dni;
             $usuario->EMAIL = $correo;
             $usuario->PASSWORD = hash('sha256', $pwd);
             $usuario->NYA = $nombre;

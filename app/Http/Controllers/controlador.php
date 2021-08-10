@@ -156,7 +156,7 @@ class controlador extends Controller {
         $fecha = $req->get('fecha');
         $correo = $req->get('correo');
         $pwd = $req->get('pwd');
-        $dni = $req->get('dni');
+//        $dni = $req->get('dni');
         $telefono = $req->get('telefono');
 
         //Comprobamos que existe el usuario solo comprobando si ese email esta ya registrado
@@ -178,7 +178,7 @@ class controlador extends Controller {
             //Que no existe lo creamos con tipo 2-Cliente 
             //y lo redirigimos a la pantalla de login
             //para que inicie sesion con su cuenta.
-            $usuario = Conexion::crearUsuario($nombre, $direccion, $fecha, $correo, $pwd, $dni, $telefono, 2);
+            $usuario = Conexion::crearUsuario($nombre, $direccion, $fecha, $correo, $pwd, $telefono, 2);
 
             //Enviamos los datos de la cuenta al correo electronico facilitado en el registro
             $email = new \App\Auxiliar\Correo;

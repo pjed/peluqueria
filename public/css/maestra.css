@@ -38,6 +38,10 @@ html,body{ margin: 0; height: 100vh;}
     body > div{
         text-align: center;
     }
+    
+    body > main > section > form > div:nth-child(3) > div > ul > li > div > div > a > img{
+        width: 200px;
+    }
 }
 
 /*Small devices (landscape phones, 576px and up)*/
