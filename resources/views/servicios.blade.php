@@ -19,20 +19,26 @@ El Paisano - Servicios
         <li class="breadcrumb-item active">Servicios</li>
     </ol>
 </nav>
-<div class="row m-0 justify-content-center">
-    <div class="col-auto text-center">
-        <h4>Listado de Servicios</h4>
-        <h6>Cortes de Pelo</h6>
-        <ol id="lista2">
-            <li>Normal</li>
-            <li>Americano</li>
-            <li>A navaja</li>
-            <li>A tijera</li>
-        </ol>
+<div class="row m-0 col-12 justify-content-center">
+    <div class="col-12 text-center">
+        <div class="row m-0 col-auto justify-content-center">
+            <h4>Listado de Servicios</h4>
+        </div>
+        <div class="row m-0 col-auto justify-content-center">
+            <h6>Cortes de Pelo</h6>
+        </div>
+        <div class="row m-0 col-auto justify-content-center">
+            <ol id="lista2">
+                <li>Normal</li>
+                <li>Americano</li>
+                <li>A navaja</li>
+                <li>A tijera</li>
+            </ol>
+        </div>
     </div>
-    <div class="row m-0 justify-content-center">
-        <div class="col-12 justify-content-center">
-            <table>
+    <div class="row text-center">
+        <div class="col-auto">
+<!--            <table>
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -53,7 +59,31 @@ El Paisano - Servicios
                         <td>3 €</td>
                     </tr>
                 </tbody>
-            </table>
+            </table>-->
+            <div class="columns">
+                <ul class="price">
+                    <li class="header">Corte de pelo</li>
+                    <li class="grey">10€</li>
+                    <li><img src="{{asset ('img/cortepelo.jpg')}}"></li>
+                    <!--<li class="grey"><a href="#" class="button">Sign Up</a></li>-->
+                </ul>
+            </div>
+            <div class="columns">
+                <ul class="price">
+                    <li class="header">Arreglo de barba</li>
+                    <li class="grey">6€</li>
+                    <li><img src="{{asset ('img/barbas.jpg')}}"></li>
+                    <!--<li class="grey"><a href="#" class="button">Sign Up</a></li>-->
+                </ul>
+            </div>
+            <div class="columns">
+                <ul class="price">
+                    <li class="header">Arreglo de Cejas</li>
+                    <li class="grey">3€</li>
+                    <li><img src="{{asset ('img/degradado.jpg')}}"></li>
+                    <!--<li class="grey"><a href="#" class="button">Sign Up</a></li>-->
+                </ul>
+            </div>
         </div>
     </div>
 </div>

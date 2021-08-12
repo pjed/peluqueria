@@ -65,20 +65,20 @@ El Paisano - Index Admin
 </div>
 <div class="parallax_3"><span class="caption_3">Servicios</span></div>
 
-<div class="negro">
-    <div class="card bg-light text-white tarjetas">
+<div class="negro pt-5 pb-3">
+    <div class="card bg-light text-white">
         <img class="card-img" src="{{asset ('img/cortepelo.jpg')}}" alt="cortepelo">
         <input type="button" value="Cortes de Pelo" class="btn btn-dark clases" onclick="irServicios()"/>
     </div>
-    <div class="card bg-light text-white tarjetas">
+    <div class="card bg-light text-white">
         <img class="card-img" src="{{asset ('img/degradado.jpg')}}" alt="degradado">
         <input type="button" value="Degradados" class="btn btn-dark clases" onclick="irServicios()"/>
     </div>
-    <div class="card bg-light text-white tarjetas">
+    <div class="card bg-light text-white">
         <img class="card-img" src="{{asset ('img/barbas.jpg')}}" alt="barbas">
         <input type="button" value="Barbas" class="btn btn-dark clases" onclick="irServicios()"/>
     </div>
-    <div class="card bg-light text-white tarjetas">
+    <div class="card bg-light text-white">
         <img class="card-img" src="{{asset ('img/tinte.jpg')}}" alt="tintes">
         <input type="button" value="Tintes" class="btn btn-dark clases" onclick="irTintes()"/>
     </div>

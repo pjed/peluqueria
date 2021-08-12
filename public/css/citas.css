@@ -1,5 +1,8 @@
-/*Reseteamos el margen de html y body*/
-html,body{ margin: 0; height: 100vh;}
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
 
 /* X-Small devices (portrait phones, less than 576px)
  No media query for `xs` since this is the default in Bootstrap*/

@@ -9,19 +9,11 @@ El Paisano - Usuarios - Admin
 @endsection
 
 @section('javascript')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+$(".fila").on("click", function (ev) {
+    el = $(this);
+    el.css("background-color", "red");
 
-function getRow() {
-    return $('table > tbody > tr.highlight > input');
-}
-
-$('#usuarios').on('click', 'tbody tr', function (event) {
-    $(this).addClass('highlight').siblings().removeClass('highlight');
-    var selrow = getRow();
-    var $rol = $('#rol').val();
-    var idCITA = 0;
-    var email = "";
 //
 //    selrow.each(function (index, value) {
 //        if (index === 0) {
@@ -52,66 +44,82 @@ $('#usuarios').on('click', 'tbody tr', function (event) {
 @endsection
 
 @section('contenido') 
+<!-- HTML -->
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="indexAdm">Inicio</a></li>
         <li class="breadcrumb-item active">Usuarios</li>
     </ol>
 </nav>
-<h5>Administrar Usuarios</h5>
-<form action="#" method="POST">
-    {{ csrf_field() }} 
-    <table id="usuarios">
-        <thead>
-        <th>NOMBRE</th>
-        <!--<th>DIRECCIÓN</th>-->
-        <th>TELÉFONO</th>
-        <th>ROL</th>
-        </thead>
-        <tbody>
-            <?php
-            $usuarios = json_decode(session()->get('usuarios'), true);
+<div class="row justify-content-center">
+    <div class="col-12 text-center">
+        <h5>Administrar Usuarios</h5>
+    </div>
+    <div class="col-auto">
+        <table>
+            <thead>
+            <th>NSOCIO</th>
+            <th>EMAIL</th>
+            <!--<th>PASSWORD</th>-->
+            <th>NYA</th>
+            <th>DIRECCION</th>
+            <!--<th>FECHA NACIMIENTO</th>-->
+            <th>TELÉFONO</th>
+            <th>ROL</th>
+            </thead>
+            <tbody>
+                <?php
+                $usuarios = json_decode(session()->get('usuarios'), true);
 
-            if ($usuarios != null) {
-                foreach ($usuarios as $usuario) {
-                    ?>
-                    <tr>
-                        <td><input type="text" id="nya" name="nya" value="<?php echo $usuario["NYA"] ?>"></td>
-                        <!--<td><input type="text" id="direccion" name="direccion" value="<?php echo $usuario["DIRECCION"] ?>"></td>-->
-                        <td><input type="text" id="telefono" name="telefono" value="<?php echo $usuario["TELEFONO"] ?>"></td>
-                        <td>
-                            <select>
-                                <?php
-                                if ($usuario["DESC_ROL"] === "Admin") {
-                                    ?>
-                                    <option value="1" selected>Admin</option>
-                                    <option value="2">Cliente</option>
+                if ($usuarios != null) {
+                    foreach ($usuarios as $usuario) {
+                        ?>
+                    <form action="usuarios" name="frmGestionUsuarios" method="post">
+                        {{ csrf_field() }} 
+                        <tr>
+                            <td><input type="text" name="nsocio" value="<?php echo $usuario["NSOCIO"] ?>"></td>
+                            <td><input type="text" name="email" value="<?php echo $usuario["EMAIL"] ?>"></td>
+                            <!--<td><input type="password" name="password" value="<?php echo $usuario["PASSWORD"] ?>"></td>-->
+                            <td><input type="text" name="nya" value="<?php echo $usuario["NYA"] ?>"></td>
+                            <td><input type="text" name="direccion" value="<?php echo $usuario["DIRECCION"] ?>"></td>
+                            <!--<td><input type="date" name="nacimiento" value="<?php echo $usuario["F_NACIMIENTO"] ?>"></td>-->
+                            <td><input type="text" name="telefono" value="<?php echo $usuario["TELEFONO"] ?>"></td>
+                            <td>
+                                <select name="rol">
                                     <?php
-                                } else {
+                                    if ($usuario["DESC_ROL"] === "Admin") {
+                                        ?>
+                                        <option value="1" selected>Admin</option>
+                                        <option value="2">Cliente</option>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <option value="1">Admin</option>
+                                        <option value="2" selected>Cliente</option>
+                                        <?php
+                                    }
                                     ?>
-                                    <option value="1">Admin</option>
-                                    <option value="2" selected>Cliente</option>
-                                    <?php
-                                }
-                                ?>
-                            </select>
-                        </td>
-                        <td><input type="button" class="btn btn-dark w-100" id="editar" value="Editar"></td>
-                        <td><input type="button" class="btn btn-dark w-100" id="eliminar" value="Eliminar"></td>
-                    </tr>
+                                </select>
+                            </td>
+                            <td><input type="submit" class="btn btn-dark w-100" id="editar" value="Editar"></td>
+                            <td><input type="submit" class="btn btn-dark w-100" id="eliminar" value="Eliminar"></td>
+                        </tr>
+                    </form>
                     <?php
                 }
             } else {
                 ?>
-                <tr>
+                <tr class="fila">
                     <td colspan="4" style="color: red;">No hay usuario registrados</td>
                 </tr>
                 <?php
             }
             ?>
-        </tbody>
-    </table>
-</form>
+        </table>
+    </div>
+</div>
+
+<!-- /HTML -->
 @endsection
 
 <!--@section('aside') 

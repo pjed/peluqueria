@@ -81,14 +81,14 @@
                                                 </audio>
                                             </li>
                                         </ul>-->
-                    <ul class="navbar-nav eliminar_margen_arriba">
+<!--                    <ul class="navbar-nav eliminar_margen_arriba">
                         <li class="nav-item">
                             <a class="nav-link" href="https://www.instagram.com/hudy_elpaisano/" target="_blank"><img class="redes" alt="instagram" src="{{asset ('img/instagram.png')}}"></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="https://facebook.com/elpaisanopeluqueria/" target="_blank"><img class="redes" alt="facebook" src="{{asset ('img/facebook.png')}}"></a>
                         </li>
-                    </ul>
+                    </ul>-->
                     <?php
                     $usuarioLog = session()->get('usuario');
                     $foto = $usuarioLog[0]->FOTO;
@@ -188,16 +188,16 @@
                                 Enlaces
                             </h6>
                             <p>
-                                <a href="#!" class="text-reset">Cortes de pelo</a>
+                                <a class="nav-link" href="indexCliente" >Inicio</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">Degradados</a>
+                                <a class="nav-link" href="serviciosCliente">Servicios</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">Barbas</a>
+                                <a class="nav-link" href="localizacionCliente">Localización</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">Tintes</a>
+                                <a class="nav-link" href="somosCliente">¿Quienes Somos?</a>
                             </p>
                         </div>
                         <!-- Grid column -->

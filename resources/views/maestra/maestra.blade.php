@@ -177,16 +177,16 @@
                                 Enlaces
                             </h6>
                             <p>
-                                <a href="#!" class="text-reset">Cortes de pelo</a>
+                                <a class="nav-link" href="index" >Inicio</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">Degradados</a>
+                                <a class="nav-link" href="servicios">Servicios</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">Barbas</a>
+                                <a class="nav-link" href="localizacion">Localización</a>
                             </p>
                             <p>
-                                <a href="#!" class="text-reset">Tintes</a>
+                                <a class="nav-link" href="somos">¿Quienes Somos?</a>
                             </p>
                         </div>
                         <!-- Grid column -->

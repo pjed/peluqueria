@@ -37,7 +37,7 @@ class Conexion {
                 ->get();
         return $usuario;
     }
-    
+
     /**
      * Método para comprobar si un usuario existe en la BD para hacer login
      * @param type $correo email del usuario
@@ -80,7 +80,7 @@ class Conexion {
         //Compruebo que el usuario y la password coincide con algun 
         //usuario de todos los que hay en la tabla usuarios
         $usuarios = \DB::Table('usuario')
-                ->select('NYA','NSOCIO')
+                ->select('NYA', 'NSOCIO')
                 ->orderBy('NYA')
                 ->get();
 
@@ -225,21 +225,21 @@ class Conexion {
 
         return $cita;
     }
-    
+
     /**
      * Función que permite cambiar la contraseña en la base de datos
      * @param type $usuario
      * @param type $password
      */
-    static function cambiarPassword($usuario, $password){
+    static function cambiarPassword($usuario, $password) {
         $nsocio = $usuario[0]->NSOCIO;
-        
+
         $usu = \DB::table('usuario')
-            ->where('NSOCIO', $nsocio)
-            ->update(['PASSWORD' => (hash('sha256', $password))]);
+                ->where('NSOCIO', $nsocio)
+                ->update(['PASSWORD' => (hash('sha256', $password))]);
         return $usu;
     }
-    
+
     /**
      * Función que permite actualizar el perfil del usuario
      * @param type $correo
@@ -249,13 +249,13 @@ class Conexion {
      * @param type $telefono
      * @return type
      */
-    static function actualizarPerfilUsuario($correo, $password, $nya, $direccion, $telefono){
+    static function actualizarPerfilUsuario($correo, $password, $nya, $direccion, $telefono) {
         $usu = \DB::table('usuario')
-            ->where('EMAIL', $correo)
-            ->update(['PASSWORD' => (hash('sha256', $password)), 'NYA' => $nya],['DIRECCION' => $direccion , 'TELEFONO' => $telefono]);
+                ->where('EMAIL', $correo)
+                ->update(['PASSWORD' => (hash('sha256', $password)), 'NYA' => $nya], ['DIRECCION' => $direccion, 'TELEFONO' => $telefono]);
         return $usu;
     }
-    
+
     /**
      * Función que permite actualizar el perfil del usuario sin la password
      * @param type $correo
@@ -264,40 +264,58 @@ class Conexion {
      * @param type $telefono
      * @return type
      */
-    static function actualizarPerfilUsuarioNoPassword($correo, $nya, $direccion, $telefono){
+    static function actualizarPerfilUsuarioNoPassword($correo, $nya, $direccion, $telefono) {
         $usu = \DB::table('usuario')
-            ->where('EMAIL', $correo)
-            ->update(['NYA' => $nya , 'DIRECCION' => $direccion , 'TELEFONO' => $telefono]);
-        
+                ->where('EMAIL', $correo)
+                ->update(['NYA' => $nya, 'DIRECCION' => $direccion, 'TELEFONO' => $telefono]);
+
         return $usu;
     }
-    
+
     /**
      * Función que permite actualizar la foto del perfil del usuario
      * @param type $foto
      * @return type
      */
-    static function actualizarFotoPerfilUsuario($foto, $correo){
-        
+    static function actualizarFotoPerfilUsuario($foto, $correo) {
+
         $usu = \DB::table('usuario')
-            ->where('EMAIL', $correo)
-            ->update(['FOTO' => $foto]);
-        
+                ->where('EMAIL', $correo)
+                ->update(['FOTO' => $foto]);
+
         return $usu;
     }
-    
-    
-    
+
     /**
      * Función que obtiene las ultimas citas del socio
      * @param type $nsocio
      */
-    static function obtenerUltimasCitasSocio($nsocio){
+    static function obtenerUltimasCitasSocio($nsocio) {
         $citas = \DB::Table('usuario')
                 ->join('cita', 'usuario.NSOCIO', '=', 'cita.usuario_NSOCIO')
-                ->where('NSOCIO',$nsocio)
-                ->orderBy('FECHA','DESC')
+                ->where('NSOCIO', $nsocio)
+                ->orderBy('FECHA', 'DESC')
                 ->get();
         return $citas;
     }
+
+    /**
+     * Función que actualiza el perfil desde el usuario administrador
+     * @param type $nsocio
+     * @param type $email
+     * @param type $nya
+     * @param type $direccion
+     * @param type $telefono
+     * @param type $rol
+     */
+    static function actualizarPerfilAdm($nsocio, $email, $nya, $direccion, $telefono, $rol) {
+        $usu = \DB::table('usuario')
+                ->join('tiene', 'usuario.NSOCIO', '=', 'tiene.usuario_NSOCIO')
+                ->join('rol', 'rol.IDROL', '=', 'tiene.rol_IDROL')
+                ->where('NSOCIO', $nsocio)
+                ->update(['EMAIL' => $email, 'NYA' => $nya, 'DIRECCION' => $direccion, 'TELEFONO' => $telefono, 'rol_IDROL' => $rol]);
+
+        return $usu;
+    }
+
 }

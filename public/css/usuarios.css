@@ -1,9 +1,18 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
 table, td, tr, th{
     border: 2px solid black;
 }
 
 thead{
     
+}
+
+input[type=text]{
+    width: 100%;
 }
 
 tr{
@@ -13,8 +22,4 @@ tr{
 tr:hover{
     background-color: grey;
     color: white;
-}
-
-input, select{
-    width: 100%;
 }

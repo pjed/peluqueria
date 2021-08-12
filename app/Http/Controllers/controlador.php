@@ -421,4 +421,44 @@ class controlador extends Controller {
         return "paisano";
     }
 
+    /**
+     * Función que edita o elimina un usuario del panel de administracion
+     */
+    static function editarEliminar(Request $req) {
+        $nsocio = $req->get("nsocio");
+        $email = $req->get("email");
+        $nya = $req->get("nya");
+        $direccion = $req->get("direccion");
+        $telefono = $req->get("telefono");
+        $rol = $req->get("rol");
+
+        $actualizado = Conexion::actualizarPerfilAdm($nsocio, $email, $nya, $direccion, $telefono, $rol);
+
+        if ($actualizado == 1) {
+            //Mostrar el mensaje de usuario actualizado
+            echo '<div class="m-0 alert alert-success alert-dismissible fade show" role="alert">
+                    El usuario ha sido actualizado correctamente.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">X</span>
+                    </button>
+                  </div>';
+            //Recargar otra vez la pagina
+            //
+            //Cargamos todos los usuarios que hay en el sistema
+            $usuarios = Conexion::obtenerUsuarios();
+
+            //Guardamos los usuarios en la sesion para mostrarlo cuando 
+            //se necesiten
+            session()->put('usuarios', $usuarios);
+        } else {
+            echo '<div class="m-0 alert alert-danger alert-dismissible fade show" role="alert">
+                    Error al actualizar el usuario
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">X</span>
+                    </button>
+                  </div>';
+        }
+        return view('adm.usuarios');
+    }
+
 }

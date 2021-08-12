@@ -19,16 +19,16 @@ El Paisano - ¿Quíenes Somos? Admin
         <li class="breadcrumb-item active">¿Quienes Somos?</li>
     </ol>
 </nav>
-<div class="row">
+<div class="row justify-content-center">
     <div class="col-auto m-3">
         <h4>¿Quíenes Somos?</h4>
     </div>
     <div class="col-auto mt-5 mb-5 justify-content-center align-content-center">
-        <picture class="m-0 row">
+        <picture class="m-0 row justify-content-center">
             <div class="col-auto text-center">
                 <source srcset="{{asset ('img/fachada.png')}}" type="image/png">
                 <source srcset="{{asset ('img/fachada.jpg')}}" type="image/jpeg">
-                <img src=" {{asset ('img/fachada.png')}}" alt="fachada" class="w-75"/>
+                <img src=" {{asset ('img/fachada.png')}}" alt="fachada"/>
             </div>
         </picture>
         <article class="p-3 text-center">
@@ -43,7 +43,7 @@ El Paisano - ¿Quíenes Somos? Admin
             </p>
         </article>
     </div>
-    <div class="col-auto m-0 row">
+    <div class="m-0 row">
         <div class="col-auto text-center">
             <iframe src="https://www.youtube.com/embed/s4Zd-YsFjaA" allowfullscreen></iframe>
         </div>

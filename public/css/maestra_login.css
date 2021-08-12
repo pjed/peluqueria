@@ -1,5 +1,10 @@
 /*Reseteamos el margen de html y body*/
-html,body{ margin: 0; height: 100vh;}
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
 /* declaramos un color y una altura full*/
 .div_contenedor{
     height: 100vh;

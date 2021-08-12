@@ -313,7 +313,7 @@ if ($usuario_log[0]['IDROL'] != 1) {
         <h4>Reservar / Consultar Cita </h4>
     </div>
     <div class="col-auto">
-        <div class="row">
+        <div class="row justify-content-center">
             <form action="" name="reservarCita" method="post" class="col-lg-4 col-md-10 col-sm-10 m-5 mb-5 text-center">
                 {{ csrf_field() }} 
                 <div class="row input-group flex-nowrap">

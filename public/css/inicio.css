@@ -1,3 +1,8 @@
+html,main, body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
 .login{
     margin-top: 40px;
     color: lightgray

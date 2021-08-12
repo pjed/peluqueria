@@ -309,119 +309,117 @@ if ($usuario_log[0]['IDROL'] != 1) {
     </ol>
 </nav>
 <div class="row justify-content-center">
-    <div class="col-auto">
+    <div class="col-lg-3 text-center">
         <h4>Reservar / Consultar Cita </h4>
     </div>
-    <div class="col-auto">
-        <div class="row">
-            <form action="" name="reservarCita" method="post" class="col-lg-4 col-md-10 col-sm-10 m-5 mb-5 text-center">
-                {{ csrf_field() }} 
-                <div class="row input-group flex-nowrap">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Nombre</span>
-                    </div>
-                    <?php
-                    $usuario_log = json_decode(session()->get('usuario'), true);
+</div>
+<div class="col-auto">
+    <div class="row justify-content-center">
+        <form action="" name="reservarCita" method="post" class="col-lg-4 col-md-10 col-sm-10 m-5 mb-5 text-center">
+            {{ csrf_field() }} 
+            <div class="row input-group flex-nowrap">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Nombre</span>
+                </div>
+                <?php
+                $usuario_log = json_decode(session()->get('usuario'), true);
 
 //                        if ($usuario_log[0]['DESC_ROL'] === "Admin") {
-                    ?>
-                    <select id="nombre" name="nombre" required="">
-                        <?php
+                ?>
+                <select id="nombre" name="nombre" required="">
+                    <?php
 //                            } else {
-                        ?>
-                            <!--<select id="nombre" name="nombre" disabled>-->
-                        <?php
+                    ?>
+                        <!--<select id="nombre" name="nombre" disabled>-->
+                    <?php
 //                                }
-                        $usuariosCitas = json_decode(session()->get('usuariosCitas'), true);
+                    $usuariosCitas = json_decode(session()->get('usuariosCitas'), true);
 
-                        foreach ($usuariosCitas as $usuario) {
-                            $usuario_log = json_decode(session()->get('usuario'), true);
+                    foreach ($usuariosCitas as $usuario) {
+                        $usuario_log = json_decode(session()->get('usuario'), true);
 
-                            if ($usuario_log[0]['NYA'] == $usuario["NYA"]) {
+                        if ($usuario_log[0]['NYA'] == $usuario["NYA"]) {
+                            ?>
+                            <option value="<?php echo $usuario["NSOCIO"] ?>" selected><?php echo $usuario["NYA"] ?></option>
+                            <?php
+                        } else {
+                            if ($usuario_log[0]['DESC_ROL'] !== "Admin") {
                                 ?>
-                                <option value="<?php echo $usuario["NSOCIO"] ?>" selected><?php echo $usuario["NYA"] ?></option>
+                                                                                                                                                                                                                    <!--<option value="<?php echo $usuario["NSOCIO"] ?>" disabled><?php echo $usuario["NYA"] ?></option>-->
                                 <?php
                             } else {
-                                if ($usuario_log[0]['DESC_ROL'] !== "Admin") {
-                                    ?>
-                                                                                                                                                                                                                    <!--<option value="<?php echo $usuario["NSOCIO"] ?>" disabled><?php echo $usuario["NYA"] ?></option>-->
-                                    <?php
-                                } else {
-                                    ?>
-                                    <option value="<?php echo $usuario["NSOCIO"] ?>"><?php echo $usuario["NYA"] ?></option>
-                                    <?php
-                                }
+                                ?>
+                                <option value="<?php echo $usuario["NSOCIO"] ?>"><?php echo $usuario["NYA"] ?></option>
+                                <?php
                             }
                         }
-                        ?>
-                    </select>
+                    }
+                    ?>
+                </select>
+            </div>
+            <?php
+            if ($usuario_log[0]['IDROL'] == 1) {
+                ?>
+                <div class="row input-group flex-nowrap mt-3 mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Email</span>
+                    </div>
+                    <input type="email" readonly id="EMAIL" class="form-control" name="EMAIL" value="espinosaduque@gmail.com">
                 </div>
                 <?php
-                if ($usuario_log[0]['IDROL'] == 1) {
-                    ?>
-                    <div class="row input-group flex-nowrap mt-3 mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Email</span>
-                        </div>
-                        <input type="email" readonly id="EMAIL" class="form-control" name="EMAIL" value="espinosaduque@gmail.com">
-                    </div>
-                    <?php
-                }
-                ?>
-                <div class="row input-group flex-nowrap mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Servicio</span>
-                    </div>
-                    <textarea rows="4" cols="30" name="observaciones" id="observaciones" required placeholder="El servicio a realizar..."></textarea>
+            }
+            ?>
+            <div class="row input-group flex-nowrap mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Servicio</span>
                 </div>
-                <br>
-                <div class="row input-group flex-nowrap mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">Fecha</span>
-                    </div>
-                    <input type="date" class="form-control" required id="fechacita" name="fechacita" ">
+                <textarea rows="4" cols="30" name="observaciones" id="observaciones" required placeholder="El servicio a realizar..."></textarea>
+            </div>
+            <br>
+            <div class="row input-group flex-nowrap mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Fecha</span>
                 </div>
-                <br>
-                <div class="row input-group flex-nowrap mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" >Hora</span>
-                    </div>
-                    <select id="horasLibres" name="horasLibres">
-                        <!--<option value="">-- SELECCIONA UNA FECHA --</option>-->
-                    </select>
+                <input type="date" class="form-control" required id="fechacita" name="fechacita" ">
+            </div>
+            <br>
+            <div class="row input-group flex-nowrap mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" >Hora</span>
                 </div>
-                <br>
-                <input type="button" value="Reservar Cita" id="reservar" class="row btn btn-info">                
-            </form>
-        </div>
+                <select id="horasLibres" name="horasLibres">
+                    <!--<option value="">-- SELECCIONA UNA FECHA --</option>-->
+                </select>
+            </div>
+            <br>
+            <input type="button" value="Reservar Cita" id="reservar" class="row btn btn-info">                
+        </form>
     </div>
-    <div class="col-auto">
-        <div class="row justify-content-center">
-            <h4>Fecha Seleccionada 
-                <label id="fechaSeleccionada" name="fechaSeleccionada">
-                </label>
-            </h4>
-        </div>
-        <div class="row justify-content-center">
-            <table class="col-10 text-center justify-content-center table-striped" id="citas_dia">
-                <thead>
-                <th>Hora</th>
-                <th>Cliente/a</th>
-                <th>Servicio</th>
-                <th></th>
-                </thead>
+</div>
+<div class="col-auto">
+    <div class="row justify-content-center">
+        <h4>Fecha Seleccionada 
+            <label id="fechaSeleccionada" name="fechaSeleccionada">
+            </label>
+        </h4>
+    </div>
+    <div class="row justify-content-center">
+        <table class="col-10 text-center justify-content-center table-striped" id="citas_dia">
+            <thead>
+            <th>Hora</th>
+            <th>Cliente/a</th>
+            <th>Servicio</th>
+            <th></th>
+            </thead>
+            <?php
+            if (!isset($citas)) {
+                ?>
+                <td colspan="3" class="texto_rojo">Seleccione una fecha para obtener las citas</td>
                 <?php
-                if (!isset($citas)) {
-                    ?>
-                    <td colspan="3" class="texto_rojo">Seleccione una fecha para obtener las citas</td>
-                    <?php
-                }
-                ?>
-            </table>
-        </div>
+            }
+            ?>
+        </table>
     </div>
-</div>
-</div>
 </div>
 <br>
 

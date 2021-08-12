@@ -1,7 +1,28 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
 
+
+iframe{
+    margin-bottom: 100px;
+}
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 300px) {
     iframe{
-        margin: 15px;
+        margin-bottom: 100px;
+    }
+}
+
+@media (orientation: landscape) {
+    img{
+        justify-content: center;
+        text-align: center;
+    }
+    iframe{
+        width: 600px;
+        height: 344px;
+        margin-bottom: 100px;
     }
 }

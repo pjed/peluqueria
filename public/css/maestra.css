@@ -1,5 +1,9 @@
 /*Reseteamos el margen de html y body*/
-html,body{ margin: 0; height: 100vh;}
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
 
 /* X-Small devices (portrait phones, less than 576px)
  No media query for `xs` since this is the default in Bootstrap*/
@@ -46,7 +50,11 @@ html,body{ margin: 0; height: 100vh;}
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
-
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
     #collapsibleNavbar > a > img{
         width: 50px; height: 50px;
     }
@@ -143,8 +151,8 @@ html,body{ margin: 0; height: 100vh;}
     }
 
     .navbar-nav{
-        text-align: left;
-        margin-left: 15px;
+        text-align: center;
+        margin-left: 10px;
     }
 
     .activar{
@@ -334,7 +342,6 @@ html,body{ margin: 0; height: 100vh;}
         margin: 0 auto;
         text-align: center;
         margin: 0 auto;
-        height: 10%;
         background-color: #ffffff;
     }
 
@@ -381,5 +388,13 @@ html,body{ margin: 0; height: 100vh;}
 
     .mostrar_logo{
         visibility: visible;
+    }
+}
+
+
+@media (orientation: landscape) {
+    img{
+        justify-content: center;
+        text-align: center;
     }
 }

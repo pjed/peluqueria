@@ -1,3 +1,9 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
 /* X-Small devices (portrait phones, less than 576px)
  No media query for `xs` since this is the default in Bootstrap*/
 
@@ -116,7 +122,7 @@ article{
 @media (min-width: 576px) { 
 
     #collapsibleNavbar > ul.navbar-nav.mr-auto{
-        font-size: 16pt;
+        font-size: 12pt;
     }
 
     .contenedor_columna{
@@ -240,7 +246,8 @@ article{
 @media (min-width: 768px) {  
 
     #collapsibleNavbar > ul.navbar-nav.mr-auto{
-        font-size: 16pt;
+        font-size: 12pt;
+        text-align: center;
     }
 
     .contenedor_columna{
@@ -364,7 +371,7 @@ article{
 @media (min-width: 992px) { 
 
     #collapsibleNavbar > ul.navbar-nav.mr-auto{
-        font-size: 16pt;
+        font-size: 12pt;
     }
 
     .contenedor_columna{
@@ -488,7 +495,7 @@ article{
 @media (min-width: 1200px) { 
 
     #collapsibleNavbar > ul.navbar-nav.mr-auto{
-        font-size: 16pt;
+        font-size: 12pt;
     }
 
     .contenedor_columna{
@@ -612,7 +619,7 @@ article{
 @media (min-width: 1400px) { 
 
     #collapsibleNavbar > ul.navbar-nav.mr-auto{
-        font-size: 16pt;
+        font-size: 12pt;
     }
 
     .contenedor_columna{
@@ -729,5 +736,23 @@ article{
         background-repeat: no-repeat;
         background-size: cover;
         padding-top: 240px;
+    }
+}
+
+@media (orientation: landscape) {
+    
+    body > main > div.negro.pt-5.pb-3 > div:nth-child(1){
+        width: 50%;
+    }
+    
+    body > main > div.negro.pt-5.pb-3 > div:nth-child(2){
+        width: 50%;
+    }
+    
+    body > main > div.negro.pt-5.pb-3 > div:nth-child(3){
+        width: 50%;
+    }
+    body > main > div.negro.pt-5.pb-3 > div:nth-child(4){
+        width: 50%;
     }
 }

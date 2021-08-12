@@ -19,20 +19,20 @@ El Paisano - Crear Cuenta
         <li class="breadcrumb-item active">Crear Cuenta</li>
     </ol>
 </nav>
-<div class="row justify-content-center mb-3">
-    <div class="col-11 login text-center">
+<div class="row justify-content-center mb-3 col-md-auto">
+    <div class="col-11 col-md-8 login text-center">
         <form name="crearCuenta" action="crearCuenta" method="POST">
             {{ csrf_field() }} 
             <h5>Crear Cuenta</h5>
             <div class="input-group flex-nowrap">
-                <div class="input-group-prepend">
+                <div class="d-none d-md-block d-lg-block input-group-prepend">
                     <span class="input-group-text bi bi-key" >Nombre y Apellidos</span>
                 </div>
                 <input type="text" class="form-control" name="nya" required placeholder="Nombre y Apellidos">
             </div>
             <br>
             <div class="input-group flex-nowrap">
-                <div class="input-group-prepend">
+                <div class="d-none d-md-block d-lg-block input-group-prepend">
                     <span class="input-group-text bi bi-key" >Dirección</span>
                 </div>
                 <input type="text" class="form-control" name="direccion" required placeholder="Dirección">
@@ -42,18 +42,18 @@ El Paisano - Crear Cuenta
                 <div class="input-group-prepend">
                     <span class="input-group-text bi bi-key" >Fecha Nacimiento</span>
                 </div>
-                <input type="date" class="form-control" required name="fecha">
+                <input type="date" class="form-control" required name="fecha" placeholder="dd/mm/aaaa">
             </div>
             <br>
             <div class="input-group flex-nowrap">
-                <div class="input-group-prepend">
+                <div class="d-none d-md-block d-lg-block input-group-prepend">
                     <span class="input-group-text" >Email</span>
                 </div>
                 <input type="email" class="form-control" placeholder="Email" name="correo" required>
             </div>
             <br>
             <div class="input-group flex-nowrap">
-                <div class="input-group-prepend">
+                <div class="d-none d-md-block d-lg-block input-group-prepend">
                     <span class="input-group-text" >Password</span>
                 </div>
                 <input type="password" class="form-control" placeholder="Password" name="pwd" required>
@@ -67,7 +67,7 @@ El Paisano - Crear Cuenta
             </div>-->
             <br>
             <div class="input-group flex-nowrap">
-                <div class="input-group-prepend">
+                <div class="d-none d-md-block d-lg-block input-group-prepend">
                     <span class="input-group-text bi bi-key" >Télefono</span>
                 </div>
                 <input type="text" id="telefono" pattern="\d*" maxlength="9" name="telefono" class="form-control" placeholder="Fijo o movil" required>
